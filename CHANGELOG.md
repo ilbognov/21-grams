@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.2.0 — 2026-11-17
+
+- New `references/typography.md`: 10 typography hacks (reserved bold width, text-box trim, underline offset, superscript spacing, fluid display type, small-caps acronyms, curly quotes, middle truncation, auto hyphenation, line-clamped titles), each with code and audit checks.
+- `rules/type.md`: fluid `clamp()` allowed for display headings only; UI text stays on the fixed scale.
+
 ## 1.1.0 — 2026-11-17
 
 - New `rules/icons.md`: one icon style (line, solid or duotone), never mixed within a menu, nav, toolbar, list or card, and unchanged across states. One library, one stroke width, one size per group.

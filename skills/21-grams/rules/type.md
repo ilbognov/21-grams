@@ -16,7 +16,9 @@ House default. When the project has its own system, express this through its com
 | `--text-lg` | 22 / 28 | 600 | −0.022em | panel and page titles |
 | `--text-xl` | 28 / 32 | 600 | −0.025em | page hero titles (rare) |
 
-At most **four sizes per screen**. Weights are only 400, 500 and 600.
+At most **four sizes per screen**. Weights are only 400, 500 and 600. Large display headings (28px and up) may scale fluidly with `clamp()` (see `references/typography.md` #5); UI text stays on this fixed scale.
+
+The finer details (reserved bold width, text-box trim, underline offset, superscripts, small caps, punctuation, truncation, hyphenation, line clamping) are in `references/typography.md`.
 
 ## Mobile headings
 On phone layouts (< 768px), headings go up one step so they read at arm's length:

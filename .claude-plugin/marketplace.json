@@ -8,7 +8,7 @@
       "name": "21-grams",
       "source": "./",
       "description": "Uplift UI built by AI so it stops looking AI-generated, using your project's own components.",
-      "version": "1.1.0"
+      "version": "1.2.0"
     }
   ],
   "metadata": {
