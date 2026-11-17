@@ -26,13 +26,13 @@ Everyday UI enters from its trigger with a slight scale and a soft landing, leav
 - **State swaps (Save → Saved, tabs):** old and new overlap, with no blank frame between them. Icons: scale + opacity + `blur(4px)`.
 - **Segmented controls and tabs:** the indicator moves with `--ease-move`. The active label colour is revealed by a clip or mask that travels with it.
 - **Success:** one pulse (ring 0 → 8px fading out, 400ms). Never loop.
-- **Error:** shake ±6px, 3 cycles, about 300ms, plus text.
+- **Error:** each invalid field shakes once on submit (±6px settling, ~320ms), never the whole form, always with the inline message, outline and icon. Full spec in `forms.md`.
 - **Travel (add to cart, move file):** an arc (~32px lift), `--ease-move`.
 - **Card → detail:** the same element expands (shared `layoutId` / view transition). Never a disconnected replacement.
 - **Drag:** 1:1 with the pointer, no transition while held. Rubber band past bounds, then settle with `--ease-out` on release.
 
 ## Limits
-- **No spring overshoot or wobble on everyday UI** (menus, popovers, dialogs, panels, tabs, toasts). Bounce is allowed only for rare, playful moments the user asks for.
+- **No spring overshoot or wobble on everyday UI** (menus, popovers, dialogs, panels, tabs, toasts). Bounce is allowed only for rare, playful moments the user asks for. The one exception is the error shake on an invalid field (`forms.md`).
 - No motion on high-frequency interactions (keyboard navigation, list and palette highlight, tabs in tools): instant, or 60ms opacity at most (principle #20).
 - No fade-up-on-scroll and no page-load stagger for content. The 30ms stagger is only for lists inside a surface that just opened.
 - No hover scale on cards or buttons.

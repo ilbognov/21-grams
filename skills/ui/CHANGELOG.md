@@ -1,5 +1,11 @@
 # 21 Grams UI changelog
 
+## 4.3.0 — 2026-11-17
+
+- **New `rules/forms.md`: errors you can't miss.** Errors sit under their field with a danger outline, message and icon (never colour alone, never only a banner). Fields are checked on submit, then live as the person fixes them; focus moves to the first problem; server errors land on their field with a way out; a summary appears at five or more errors.
+- **Excessive feedback:** every empty or invalid field shakes once on each submit (about ±6px settling over ~320ms, with a short vibration on phones). Only the invalid fields shake, never the form; no shake with reduced motion. `rules/motion.md` names it as the one exception to "no bounce".
+- New AI tells: one "Oops!" banner for field errors, shaking the whole form.
+
 ## 4.2.1 — 2026-11-17
 
 - **Equal insets for nested controls** (`rules/layout.md`, `rules/toggles.md`): a control inside another (segmented options in their track, a button in an input, chips in a field) has the same gap on all four sides. Inner height = outer height − 2 × padding, the outer control keeps its neighbours' height, and the audit measures every side. New AI tell for uneven inner padding.

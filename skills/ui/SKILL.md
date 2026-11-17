@@ -22,7 +22,7 @@ Every change goes through what the project already uses. 21 Grams UI never build
 
 ## What's inside
 
-1. **House style.** Eight areas in `rules/`: `radius.md` (12/8/4 nested), `buttons.md` (36px, .97 press), `motion.md` (smooth, from the trigger, no bounce), `type.md` (tight, few sizes), `spacing.md` (grouped 4pt), `colour.md` (one accent, AA), `elevation.md` (tonal fills), `copy.md` (plain and helpful). Plus four component files: `icons.md` (one style, line, solid or duotone, never mixed), `charts.md` (line, column and horizontal bars), `toggles.md` (switch and segmented control) and `layout.md` (row lists as one table, equal insets for nested controls, screen actions top right, the logo). Default values are in `tokens/tokens.css`.
+1. **House style.** Eight areas in `rules/`: `radius.md` (12/8/4 nested), `buttons.md` (36px, .97 press), `motion.md` (smooth, from the trigger, no bounce), `type.md` (tight, few sizes), `spacing.md` (grouped 4pt), `colour.md` (one accent, AA), `elevation.md` (tonal fills), `copy.md` (plain and helpful). Plus five component files: `icons.md` (one style, line, solid or duotone, never mixed), `charts.md` (line, column and horizontal bars), `toggles.md` (switch and segmented control) `layout.md` (row lists as one table, equal insets for nested controls, screen actions top right, the logo) and `forms.md` (inline errors, focus, field shake). Default values are in `tokens/tokens.css`.
 2. **The 20 principles.** UX and animation principles in `references/principles.md`.
 3. **The 10 design hacks.** CSS-level craft details in `references/design-hacks.md`.
 4. **The 20 animation crafts.** Implementation-level motion rules (origins, durations, stagger, press, drag, shared layout) in `references/animation-craft.md`.
@@ -56,6 +56,7 @@ If a data-visualisation skill is installed, load it as well whenever a chart is 
 - Colour: one accent (actions, focus, selection), status colours separate, **button text ≥ 4.5:1 in both themes** with `--on-accent` per theme.
 - Elevation: resting surfaces are a fill step with no border or shadow. Only floating layers get a ring and shadow. Dark mode is lighter per layer.
 - **Icons: one style per product, line, solid or duotone, and never mixed in a menu, nav, toolbar, list or card. Selected states change colour, not icon style. One icon library, one stroke width, one size per group.**
+- Form errors: under the field, with a danger outline, message and icon; checked on submit then live as the person fixes it; focus moves to the first problem; **each invalid field shakes once on submit** (not the form, not with reduced motion). Server errors land on their field with a way out.
 - Copy: verb + object buttons, errors with cause and fix, sentence case, no emoji, no hype words, no version tags or internal jargon on screen, one form of address.
 
 ## Non-negotiables (from the 20 principles)
@@ -69,6 +70,7 @@ If a data-visualisation skill is installed, load it as well whenever a chart is 
 - Long numbers are chunked. Inputs accept messy formats and echo back the clean value.
 - Standard placement and icons unless there's a reason not to.
 - Every component state is designed: idle, hover, pressed, loading, success, error, disabled.
+- Rejected input gets excessive feedback: the invalid field shakes once, on top of the message, outline and icon.
 - `prefers-reduced-motion`: remove movement, scale and overshoot, keep a brief opacity change.
 
 ## Non-negotiables (from the 10 hacks)
@@ -102,7 +104,7 @@ If a data-visualisation skill is installed, load it as well whenever a chart is 
 
 ## AI tells to remove
 
-Mixed icon styles (a solid house beside an outline folder, an outline icon that turns solid when selected), two icon libraries on one screen, emoji used as icons, "NEW" filler pills above headlines, eyebrows that repeat the heading, one random italic or mono word in a headline, mono labels, eyebrows, badges, timestamps or numbers ("tech" uppercase mono like `// 01 STATUS`), glossy 3D orbs instead of the real product, initials-in-a-gradient-tile placeholder logos, table rows drawn as separate floating cards with gaps, actions scattered among date pickers and filters, outlined segmented controls, inner controls with uneven padding (more at the top and bottom than the sides), browser `title` tooltips on chart segments, version tags like "V7 demo" in the UI, rows of equal feature cards, "X, meet Y." headlines, glowing gradient borders, indigo-to-violet gradients, gradient text, coloured glow shadows, the same 16px radius on everything (inner radius equal to outer), pill buttons beside rounded inputs, hover scale-up on cards and buttons, 300ms ease-in-out on everything, fade-up on page load, uniform `p-6 gap-6`, cards inside cards, shadow plus border plus radius on every block, grey-500 for all secondary text, emoji in headings, and copy like "Unlock", "Supercharge", "Seamless" or "Oops!".
+Mixed icon styles (a solid house beside an outline folder, an outline icon that turns solid when selected), two icon libraries on one screen, emoji used as icons, "NEW" filler pills above headlines, eyebrows that repeat the heading, one random italic or mono word in a headline, mono labels, eyebrows, badges, timestamps or numbers ("tech" uppercase mono like `// 01 STATUS`), glossy 3D orbs instead of the real product, initials-in-a-gradient-tile placeholder logos, form errors as one "Oops!" banner or a shaking form instead of messages on each field, table rows drawn as separate floating cards with gaps, actions scattered among date pickers and filters, outlined segmented controls, inner controls with uneven padding (more at the top and bottom than the sides), browser `title` tooltips on chart segments, version tags like "V7 demo" in the UI, rows of equal feature cards, "X, meet Y." headlines, glowing gradient borders, indigo-to-violet gradients, gradient text, coloured glow shadows, the same 16px radius on everything (inner radius equal to outer), pill buttons beside rounded inputs, hover scale-up on cards and buttons, 300ms ease-in-out on everything, fade-up on page load, uniform `p-6 gap-6`, cards inside cards, shadow plus border plus radius on every block, grey-500 for all secondary text, emoji in headings, and copy like "Unlock", "Supercharge", "Seamless" or "Oops!".
 
 ## Credits
 
