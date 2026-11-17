@@ -27,13 +27,14 @@ Every change goes through what the project already uses. 21 Grams never builds a
 3. **The 10 design hacks.** CSS-level craft details in `references/design-hacks.md`.
 4. **The 20 animation crafts.** Implementation-level motion rules (origins, durations, stagger, press, drag, shared layout) in `references/animation-craft.md`.
 5. **The 10 typography hacks.** Reserved bold width, text-box trim, underline offset, superscript spacing, fluid display type, small-caps acronyms, curly quotes, middle truncation, auto hyphenation and line-clamped titles, in `references/typography.md`.
+6. **The 20 unslop rules.** Composition and content tells (filler badges, redundant labels, random italics, decorative mono, abstract hero art, equal-weight features, vague headlines, glows, optical alignment, loading states) in `references/unslop.md`.
 
 If a data-visualisation skill is installed, load it as well whenever a chart is involved.
 
 ## Workflow
 
 1. **Take the inventory** (rule zero). If the project has no design system at all, say so and use the house-style defaults.
-2. **Audit before changing anything.** Go through the screen or component and list findings grouped by area (radius … copy), principle number, hack number and craft number. Use the checklists at the end of `references/principles.md`, `references/design-hacks.md`, `references/animation-craft.md`, `references/typography.md` and `rules/icons.md`. Each finding gets the file and line, what is wrong, the fix, and **which existing component or token the fix goes into**. Flag every place where a 21 Grams rule conflicts with the project's design system, so the user can decide which wins.
+2. **Audit before changing anything.** Go through the screen or component and list findings grouped by area (radius … copy), principle number, hack number and craft number. Use the checklists at the end of `references/principles.md`, `references/design-hacks.md`, `references/animation-craft.md`, `references/typography.md`, `references/unslop.md` and `rules/icons.md`. Each finding gets the file and line, what is wrong, the fix, and **which existing component or token the fix goes into**. Flag every place where a 21 Grams rule conflicts with the project's design system, so the user can decide which wins.
 3. **Show the audit to the user** as a short list and ask before applying broad changes. Small, obvious fixes in the requested scope can go straight in.
 4. **Apply the fixes** in this order: tokens → shared components → screens. Keep diffs scoped to what was audited and in the project's own conventions (formatting, lint, naming).
 5. **Verify in the browser.** Before and after screenshots of each changed screen. Check hover, press, focus, loading, error, both themes and reduced motion. Measure button and text contrast; don't eyeball it. For motion, record the before and after if possible. A before/after page with a draggable divider and working interactions on both sides is the clearest way to review an uplift.
@@ -96,8 +97,8 @@ If a data-visualisation skill is installed, load it as well whenever a chart is 
 
 ## AI tells to remove
 
-Mixed icon styles (a solid house beside an outline folder, an outline icon that turns solid when selected), two icon libraries on one screen, indigo-to-violet gradients, gradient text, coloured glow shadows, the same 16px radius on everything (inner radius equal to outer), pill buttons beside rounded inputs, hover scale-up on cards and buttons, 300ms ease-in-out on everything, fade-up on page load, uniform `p-6 gap-6`, cards inside cards, shadow plus border plus radius on every block, grey-500 for all secondary text, emoji in headings, and copy like "Unlock", "Supercharge", "Seamless" or "Oops!".
+Mixed icon styles (a solid house beside an outline folder, an outline icon that turns solid when selected), two icon libraries on one screen, emoji used as icons, "NEW" filler pills above headlines, eyebrows that repeat the heading, one random italic or mono word in a headline, glossy 3D orbs instead of the real product, rows of equal feature cards, "X, meet Y." headlines, glowing gradient borders, indigo-to-violet gradients, gradient text, coloured glow shadows, the same 16px radius on everything (inner radius equal to outer), pill buttons beside rounded inputs, hover scale-up on cards and buttons, 300ms ease-in-out on everything, fade-up on page load, uniform `p-6 gap-6`, cards inside cards, shadow plus border plus radius on every block, grey-500 for all secondary text, emoji in headings, and copy like "Unlock", "Supercharge", "Seamless" or "Oops!".
 
 ## Credits
 
-The principles, hacks and animation crafts are paraphrased and extended from four short-form design videos: "20 Principles of UX & Animation", "10 Niche Design Hacks", "20 Ways to Make Beautiful AI Animations" and "10 Niche Typography Hacks". See the README for credits.
+The principles, hacks and animation crafts are paraphrased and extended from five short-form design videos: "20 Principles of UX & Animation", "10 Niche Design Hacks", "20 Ways to Make Beautiful AI Animations", "10 Niche Typography Hacks" and "20 Ways to Unslop AI Designs". See the README for credits.

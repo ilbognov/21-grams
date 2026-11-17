@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.3.0 — 2026-11-17
+
+- New `references/unslop.md`: 20 composition and content rules for unslopping AI designs, cross-referenced to the existing rules where they overlap.
+- More AI tells in SKILL.md: filler badges, redundant eyebrows, random italic or mono words, abstract hero art, equal-weight feature grids, vague headlines, glowing borders, emoji icons.
+
 ## 1.2.0 — 2026-11-17
 
 - New `references/typography.md`: 10 typography hacks (reserved bold width, text-box trim, underline offset, superscript spacing, fluid display type, small-caps acronyms, curly quotes, middle truncation, auto hyphenation, line-clamped titles), each with code and audit checks.

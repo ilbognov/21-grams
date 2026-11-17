@@ -49,6 +49,7 @@ The skill takes an inventory of your design system, audits the screen, shows you
 | **20 principles** (`references/principles.md`) | Disney's animation principles applied to UI, and the UX laws: Fitts, Hick, Miller, Doherty, Postel, Jakob, frequency of use |
 | **10 design hacks** (`references/design-hacks.md`) | Concentric radius, alpha borders, OKLCH palettes and gradients, matched icon weight, masked edges, blurred icon swaps, dark-mode depth, `dvh`, multiply blending |
 | **20 animation crafts** (`references/animation-craft.md`) | Popovers from the trigger at 0.95, exits 20% shorter, 30ms list stagger, 0.97 press, 1:1 drag, rubber-banding, shared-layout transitions |
+| **20 unslop rules** (`references/unslop.md`) | Filler badges, redundant labels, random italics, decorative mono, show the real product, enlarge the main feature, specific headlines, one emphasised CTA, no glows, optical alignment, loading states |
 | **10 typography hacks** (`references/typography.md`) | Reserved bold width, text-box trim, underline offset, superscript spacing, fluid display type, small-caps acronyms, curly quotes, middle truncation, auto hyphenation, line-clamped titles |
 
 A few of the defaults:
@@ -61,7 +62,7 @@ A few of the defaults:
 
 ## Credits
 
-The principles, hacks, animation crafts and typography hacks are paraphrased and extended from four short-form design videos: *20 Principles of UX & Animation*, *10 Niche Design Hacks*, *20 Ways to Make Beautiful AI Animations* and *10 Niche Typography Hacks*. The house style was chosen by hand from side-by-side specimens.
+The principles, hacks, animation crafts and typography hacks are paraphrased and extended from five short-form design videos: *20 Principles of UX & Animation*, *10 Niche Design Hacks*, *20 Ways to Make Beautiful AI Animations*, *10 Niche Typography Hacks* and *20 Ways to Unslop AI Designs*. The house style was chosen by hand from side-by-side specimens.
 
 ## License
 
