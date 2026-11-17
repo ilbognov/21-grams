@@ -1,9 +1,10 @@
-# Changelog
+# 21 Grams UI changelog
 
 ## 2.0.0 — 2026-11-17
 
 - **Renamed to 21 Grams UI** (`21-grams-ui`). The repo is now the home of the 21 Grams family; a UX package will follow.
-- New layout: `plugins/21-grams-ui/` holds the plugin and its skill. The Claude Code marketplace is still `21-grams`.
+- New layout: `plugins/21-grams-ui/` holds the plugin, its skill, README and changelog. The repo root is the index of all scales; the Claude Code marketplace is still `21-grams`.
+- Release tags are now per scale: `21-grams-ui@2.0.0`. Earlier tags `v1.0.0`–`v1.3.0` belong to this scale.
 - Install changes: `npx skills add ilbognov/21-grams --skill 21-grams-ui`, or `/plugin install 21-grams-ui@21-grams`.
 
 ## 1.3.0 — 2026-11-17
