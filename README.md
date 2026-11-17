@@ -7,7 +7,7 @@ Agent skills that make AI-built products look and feel considered. Each **scale*
 | Scale | What it does | Status | Docs |
 |---|---|---|---|
 | **ui** | Uplifts UI built by AI so it stops looking AI-generated: house style, icons, charts, toggles, UX and animation principles, design and typography hacks, unslop rules | Available | [README](skills/ui/README.md) · [Changelog](skills/ui/CHANGELOG.md) |
-| **ux** | UX | Coming soon | |
+| **ux** | Audits and fixes the flows and usability of AI-built products: navigation, forms, empty/loading/error states, feedback, onboarding, destructive actions, accessibility, task length, choice | In progress | [README](skills/ux/README.md) · [Changelog](skills/ux/CHANGELOG.md) |
 
 ## Install
 
@@ -36,7 +36,7 @@ skills/<scale>/README.md          the scale's docs
 skills/<scale>/CHANGELOG.md       the scale's history
 ```
 
-Each scale keeps its own changelog. Release tags are named `<scale>@<version>`, e.g. `ui@4.1.0`.
+Each scale keeps its own changelog. Release tags are named `<scale>@<version>`, e.g. `ui@4.2.0`.
 
 ## License
 

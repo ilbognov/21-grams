@@ -30,6 +30,13 @@ Use the project's chart library and its configuration (Recharts, visx, Chart.js,
 ## Interaction
 - Line charts: a crosshair snaps to the nearest month, and one tooltip lists every series (values lead, names follow, line keys).
 - Columns and bars: the mark is the target, lifting slightly on hover. Rows in a horizontal bar chart get a soft hover wash.
+- **Segmented marks get a breakdown panel, not a native tooltip.** A stacked or segmented bar (ranges, zones, a budget split) opens a small floating panel on hover instead of the browser's `title` text:
+  - header: what the bar is (the entity's name) with its context underneath (date range, count of segments);
+  - one row per segment **in the same order the product uses elsewhere**, each with a colour key, name, range or definition, a small proportional bar and the value (tabular figures);
+  - the row under the pointer is highlighted as the pointer moves along the bar;
+  - totals only when they add information; no verdicts or targets the product doesn't make;
+  - it opens below the mark and flips above near the bottom of the viewport, never runs off an edge, grows from the mark (220ms in / 175ms out, opacity only with reduced motion) and closes on leave, scroll or click;
+  - touch screens skip the panel; tapping does what clicking did.
 - Linked charts share hover: hovering a month in one highlights it in the other, with a single tooltip.
 - Charts are focusable. Arrow keys move the crosshair and Esc clears it.
 - Every chart offers a **Chart / Table** toggle (segmented control, see toggles.md) with the same numbers.

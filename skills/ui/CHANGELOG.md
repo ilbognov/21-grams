@@ -1,5 +1,18 @@
 # 21 Grams UI changelog
 
+## 4.2.0 — 2026-11-17
+
+Six rules learned from reviewing a real uplift pass.
+
+- **New `rules/layout.md`.**
+  - Table-like lists of gapped row cards become one container with 1px hairline dividers; only the container is rounded, hover and selection are fills. Card grids stay cards.
+  - Screen actions are one group at the right of the screen's header, secondary first and the solid primary in the corner, never mixed into date pickers or filters; duplicates below are removed.
+  - When a product shows a placeholder instead of a logo (initials tile), the audit asks the user for their logo; the supplied lockup is used as is.
+- **Segmented controls** (`rules/toggles.md`): no outline. The track is filled with the soft border colour (about 9% ink) and the selected option is raised; in dark mode the track sinks and the selection rises. Unselected labels must pass 4.5:1 on the track.
+- **Chart hover** (`rules/charts.md`): stacked or segmented marks open a breakdown panel (one row per segment, hovered row highlighted, flips near the edge) instead of a native `title` tooltip.
+- **Copy** (`rules/copy.md`): no version tags, draft names or internal shorthand on screen, and one form of address throughout.
+- New AI tells for each in SKILL.md.
+
 ## 4.1.0 — 2026-11-17
 
 - **Mono is for code only (strict).** Monospace is now limited to code, commands and copyable hashes or keys. Labels, eyebrows, badges, tags, buttons, table headers, timestamps, IDs and numbers use the UI sans, with `tabular-nums` for aligned figures. Fixes `rules/type.md`, which had sent numbers, IDs and timestamps to Geist Mono and allowed small uppercase mono labels. Added an audit search and new AI tells.

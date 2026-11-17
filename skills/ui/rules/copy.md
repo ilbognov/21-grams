@@ -9,6 +9,8 @@ House default. When the project has its own system, express this through its com
 - **Destructive confirms** name the thing and the consequence: "Delete 'Q3 roadmap'? This removes it for everyone."
 - Sentence case. No exclamation marks. Use "you"/"your", not "my".
 - Name things the way users know them ("notifications"), not the way the system is built ("webhook config").
+- **No internal labels on screen.** Version tags ("V7", "v2.3 beta", "UX V7 demo"), build or draft names, ticket numbers and regulatory or engineering shorthand ("SaMD", "MVP", "feature flag") stay in code comments and the tab title. If a demo needs saying, say it plainly ("Demo", "Sample data").
+- **One form of address.** Match the product's existing voice (informal or formal "you", and in languages that distinguish them, e.g. "ti/vi", "du/Sie", "tu/vous"); never switch within a product.
 - Numbers and dates are formatted for reading: "Thursday, 15 January", "£48,210", chunked IDs.
 
 ## Banned

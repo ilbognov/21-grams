@@ -45,7 +45,7 @@ The skill takes an inventory of your design system, audits the screen, shows you
 
 | Rule set | What it covers |
 |---|---|
-| **House style** (`rules/`) | Defaults for what your project hasn't decided: radius (12/8/4, nested), buttons, motion, type, spacing, colour, elevation, copy, plus icons, charts and toggles |
+| **House style** (`rules/`) | Defaults for what your project hasn't decided: radius (12/8/4, nested), buttons, motion, type, spacing, colour, elevation, copy, plus icons, charts, toggles and layout (row lists, screen actions, the logo) |
 | **20 principles** (`references/principles.md`) | Disney's animation principles applied to UI, and the UX laws: Fitts, Hick, Miller, Doherty, Postel, Jakob, frequency of use |
 | **10 design hacks** (`references/design-hacks.md`) | Concentric radius, alpha borders, OKLCH palettes and gradients, matched icon weight, masked edges, blurred icon swaps, dark-mode depth, `dvh`, multiply blending |
 | **20 animation crafts** (`references/animation-craft.md`) | Popovers from the trigger at 0.95, exits 20% shorter, 30ms list stagger, 0.97 press, 1:1 drag, rubber-banding, shared-layout transitions |

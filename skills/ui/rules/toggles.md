@@ -16,12 +16,18 @@ Use the project's existing switch and segmented control when it has them, and ap
 Use the CSS `translate` and `scale` properties rather than one `transform`, so the travel transition and the stretch animation don't fight.
 
 ## Segmented control (2–4 options)
+Depth, not outlines, shows what's selected: the track sits low, the selected option sits high.
+
 | Part | Spec |
 |---|---|
-| Track | `rgb(7 29 73 / .05)` fill, radius 8, 2px padding |
-| Indicator | white, radius 6 (outer 8 − padding 2), hairline ring + 1px shadow. **Slides 200ms ease-in-out** to the chosen option |
-| Labels | 14/500 muted. The selected label is drawn by a **mask layer that travels with the indicator** (600, ink), so the colour change moves with the pill (craft #17). Hide the base label under the selected option to avoid a doubled glyph |
+| Track | **no border.** Filled with the regular border colour (about 9% ink, e.g. `rgb(21 32 51 / .09)`), radius 8, 2px padding. Keep it soft: the strong border colour (16%+) reads as a dark block |
+| Indicator | the page or card colour (white in light), radius 6 (outer 8 − padding 2), a small shadow (`0 1px 2px rgb(0 0 0 / .1)`) so it reads as raised. **Slides 200ms ease-in-out** to the chosen option |
+| Unselected | flat on the track, no fill or border. Labels 14/500 in a secondary ink that **still passes 4.5:1 on the track** (measure it: the track is darker than the page) |
+| Selected label | 600, ink, drawn by a **mask layer that travels with the indicator** (craft #17). Hide the base label under the selected option to avoid a doubled glyph |
+| Dark mode | the track **sinks** (slightly darker than its surroundings, e.g. ~18% black) and the indicator **rises** (one step lighter). Never the reverse, or the selection looks pressed in |
 | Disabled | faint text, `not-allowed`, and a `title` giving the reason ("Not available yet") |
 | Semantics | `role="radiogroup"` with `role="radio"` + `aria-checked` buttons |
+
+Pairs of buttons that behave as a toggle (Bars / Trend lines) use this same style.
 
 Use a segmented control for view switches (Chart / Table, date range). Use a switch only for settings that take effect immediately.
