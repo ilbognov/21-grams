@@ -1,5 +1,5 @@
 ---
-name: 21-grams-ui
+name: ui
 description: Uplift UI that was built by AI so it stops looking AI-generated and follows proven UX and motion principles, using the project's own components and tokens. Use when the user asks to uplift, polish, de-AI, refine or "make less AI-looking" an existing screen, component or frontend, asks for "21 grams UI" or "21 grams" (or "twenty-one grams"), or wants a UI audited against the house style, the 20 UX & animation principles (squash & stretch, anticipation, staging, easing, snappy timing, Fitts's, Hick's, Miller's, Doherty, Postel's, Jakob's law, frequency of use), the 10 design hacks (concentric radius, alpha borders, OKLCH, dvh and the rest) or the 20 animation crafts.
 ---
 

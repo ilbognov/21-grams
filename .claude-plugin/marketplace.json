@@ -5,10 +5,10 @@
   },
   "plugins": [
     {
-      "name": "21-grams-ui",
-      "source": "./plugins/21-grams-ui",
-      "version": "2.0.0",
-      "description": "Uplift UI built by AI so it stops looking AI-generated, using your project's own components."
+      "name": "21-grams",
+      "source": "./",
+      "version": "3.0.0",
+      "description": "The 21 Grams scales as skills: ui (available), ux (coming). Each works through your project's own components."
     }
   ],
   "metadata": {

@@ -1,6 +1,6 @@
-# 21 Grams UI
+# 21 Grams UI (`ui`)
 
-Part of [21 Grams](../../README.md). Uplifts UI built by AI so it stops looking AI-generated.
+The UI scale of [21 Grams](../../README.md). Uplifts UI built by AI so it stops looking AI-generated.
 
 AI-built interfaces share the same tells: mixed icon styles, indigo-to-violet gradients, the same 16px radius on everything, cards inside cards, 300ms ease-in-out on every transition, grey-500 for every secondary line, emoji in headings, "Unlock the power of…". 21 Grams UI finds those, then applies a fixed set of design rules **through the components and tokens your project already has**. You don't get a new UI kit, a new dependency or a redesign, just the same product done with care.
 
@@ -11,17 +11,17 @@ It works with Claude Code and any agent that supports [Agent Skills](https://age
 **Any agent that supports skills** (Claude Code, Cursor, Codex and others):
 
 ```bash
-npx skills add ilbognov/21-grams --skill 21-grams-ui
+npx skills add ilbognov/21-grams --skill ui
 ```
 
 **Claude Code plugin:**
 
 ```
 /plugin marketplace add ilbognov/21-grams
-/plugin install 21-grams-ui@21-grams
+/plugin install 21-grams@21-grams
 ```
 
-**Claude.ai:** download this repo, zip the `plugins/21-grams-ui/skills/21-grams-ui` folder, and upload it under *Settings → Capabilities → Skills*.
+**Claude.ai:** download this repo, zip the `skills/ui` folder, and upload it under *Settings → Capabilities → Skills*.
 
 ## Use
 

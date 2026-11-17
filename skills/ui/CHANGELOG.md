@@ -1,5 +1,10 @@
 # 21 Grams UI changelog
 
+## 3.0.0 — 2026-11-17
+
+- Shorter names: the skill is now `ui` (`npx skills add ilbognov/21-grams --skill ui`). In Claude Code, one `21-grams` plugin holds every scale, so this one appears as `21-grams:ui`.
+- Layout: `skills/ui/` holds the skill, README and changelog. Tags are `ui@<version>`.
+
 ## 2.0.0 — 2026-11-17
 
 - **Renamed to 21 Grams UI** (`21-grams-ui`). The repo is now the home of the 21 Grams family; a UX package will follow.
