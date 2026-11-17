@@ -422,15 +422,15 @@ ol.changes li .chip { font-size: 11px; padding: 3px 6px; white-space: nowrap; }
 }
 .tg-panel h5 { margin: 0; font-size: 13px; font-weight: 500; color: var(--demo-sub); }
 .tg-panel h5 + table { margin-top: 12px; }
-.tg-ph { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin: -6px -8px 6px 0; }
+.tg-ph { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin: -6px -8px 9.5px 0; }
 .tg-more {
   display: inline-flex; align-items: center; gap: 2px; height: 28px; padding: 0 6px 0 8px; border: 0; border-radius: 6px; cursor: pointer;
-  background: none; color: var(--demo-ink); font: 500 12px/1 var(--f-text); transition: background-color .12s, transform .15s cubic-bezier(.2,0,0,1);
+  background: none; color: #3b4ce2; font: 500 12px/1 var(--f-text); transition: background-color .12s, transform .15s cubic-bezier(.2,0,0,1);
 }
-.tg-more:hover { background: #f4f4f3; }
+.tg-more:hover { background: rgb(59 76 226 / .08); }
 .tg-more:active { transform: scale(.97); }
 .tg-more:focus-visible { outline: 2px solid #3b4ce2; outline-offset: 2px; }
-.tg-more svg { width: 12px; height: 12px; color: var(--demo-sub); }
+.tg-more svg { width: 12px; height: 12px; }
 .tg-panel .big { font-size: 22px; font-weight: 600; letter-spacing: -.02em; font-variant-numeric: tabular-nums; margin: 2px 0 12px; }
 .tg-panel .big small { font-size: 12px; font-weight: 500; color: #16794a; margin-left: 6px; letter-spacing: 0; }
 .chart svg { display: block; width: 100%; height: auto; font-variant-numeric: tabular-nums; }
@@ -834,7 +834,7 @@ footer { font: 12px/1.6 var(--f-text); color: var(--faint-text); }
             <li><span>Status tags are one width with a small dot, in muted tones, instead of saturated pills that change width with the word.</span><span class="chip">colour</span></li>
             <li><span>The grey uppercase header band became quiet sentence-case labels, so the data leads.</span><span class="chip">type</span></li>
             <li><span>Initials avatars went. They repeat the name and add a second accent colour.</span><span class="chip">unslop</span></li>
-            <li><span>“Recent invoices” is sentence case, and “View all” is a quiet text button in the ink colour with a line chevron, instead of an indigo link with a typed arrow.</span><span class="chip">buttons</span></li>
+            <li><span>“Recent invoices” is sentence case, and “View all” is a text button in the accent colour with a line chevron, instead of a link with a typed arrow.</span><span class="chip">buttons</span></li>
             <li><span>Headers sort. Tap one, tap it again to reverse. The default has no sorting at all.</span><span class="chip">tables</span></li>
           </ol>
         </div>
