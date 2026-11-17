@@ -1,47 +1,54 @@
 # 21 Grams
 
-**An agent skill that uplifts UI built by AI, so it stops looking AI-generated.**
+Agent skills that make AI-built products look and feel considered.
 
-AI-built interfaces share the same tells: mixed icon styles, indigo-to-violet gradients, the same 16px radius on everything, cards inside cards, 300ms ease-in-out on every transition, grey-500 for every secondary line, emoji in headings, "Unlock the power of…". 21 Grams finds those, then applies a fixed set of design rules **through the components and tokens your project already has**. You don't get a new UI kit, a new dependency or a redesign, just the same product done with care.
+| Package | What it does | Status |
+|---|---|---|
+| **21 Grams UI** (`21-grams-ui`) | Uplifts UI built by AI so it stops looking AI-generated | Available |
+| **21 Grams UX** (`21-grams-ux`) | The UX package | Coming soon |
+
+## 21 Grams UI
+
+AI-built interfaces share the same tells: mixed icon styles, indigo-to-violet gradients, the same 16px radius on everything, cards inside cards, 300ms ease-in-out on every transition, grey-500 for every secondary line, emoji in headings, "Unlock the power of…". 21 Grams UI finds those, then applies a fixed set of design rules **through the components and tokens your project already has**. You don't get a new UI kit, a new dependency or a redesign, just the same product done with care.
 
 It works with Claude Code and any agent that supports [Agent Skills](https://agentskills.io).
 
-## Install
+### Install
 
 **Any agent that supports skills** (Claude Code, Cursor, Codex and others):
 
 ```bash
-npx skills add ilbognov/21-grams
+npx skills add ilbognov/21-grams --skill 21-grams-ui
 ```
 
 **Claude Code plugin:**
 
 ```
 /plugin marketplace add ilbognov/21-grams
-/plugin install 21-grams@21-grams
+/plugin install 21-grams-ui@21-grams
 ```
 
-**Claude.ai:** download this repo, zip the `skills/21-grams` folder, and upload it under *Settings → Capabilities → Skills*.
+**Claude.ai:** download this repo, zip the `plugins/21-grams-ui/skills/21-grams-ui` folder, and upload it under *Settings → Capabilities → Skills*.
 
-## Use
+### Use
 
 Ask your agent in plain words:
 
-- "Uplift the dashboard with 21 grams"
+- "Uplift the dashboard with 21 grams UI"
 - "Make this settings page less AI-looking"
 - "Audit the checkout flow against the 20 UX principles"
 - "Polish the charts and toggles on the analytics screen"
 
 The skill takes an inventory of your design system, audits the screen, shows you the findings, applies the fixes in your own components (tokens first, then shared components, then screens), and verifies the result in the browser.
 
-## Rule zero: your components, not ours
+### Rule zero: your components, not ours
 
 - Every fix goes into the project's existing tokens and components: the `Button` fix goes in `Button`, the colour fix goes in the token.
 - It never adds a UI kit, icon set, chart or animation library to get an effect. It uses what's installed, or plain CSS.
 - When something is genuinely missing (say, a segmented control), it builds it from your existing primitives and conventions, and tells you.
 - Your brand stays yours. It changes how colours, fonts and icons are used, never what they are.
 
-## What's inside
+### What's inside
 
 | Rule set | What it covers |
 |---|---|

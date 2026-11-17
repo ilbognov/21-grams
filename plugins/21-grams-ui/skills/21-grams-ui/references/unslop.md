@@ -1,7 +1,7 @@
 # 20 ways to unslop AI designs
 
 Adapted from the short video "20 Ways to Unslop AI Designs" (credited in the README).
-These are the composition and content tells of AI-built pages: what's on the page and how it's weighted, not just how it's styled. Each entry has the rule, the before/after from the video, how to apply it, and what to flag. Where an entry repeats a rule 21 Grams already has, it points there instead.
+These are the composition and content tells of AI-built pages: what's on the page and how it's weighted, not just how it's styled. Each entry has the rule, the before/after from the video, how to apply it, and what to flag. Where an entry repeats a rule 21 Grams UI already has, it points there instead.
 
 ---
 

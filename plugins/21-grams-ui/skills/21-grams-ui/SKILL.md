@@ -1,24 +1,24 @@
 ---
-name: 21-grams
-description: Uplift UI that was built by AI so it stops looking AI-generated and follows proven UX and motion principles, using the project's own components and tokens. Use when the user asks to uplift, polish, de-AI, refine or "make less AI-looking" an existing screen, component or frontend, asks for "21 grams" (or "twenty-one grams"), or wants a UI audited against the house style, the 20 UX & animation principles (squash & stretch, anticipation, staging, easing, snappy timing, Fitts's, Hick's, Miller's, Doherty, Postel's, Jakob's law, frequency of use), the 10 design hacks (concentric radius, alpha borders, OKLCH, dvh and the rest) or the 20 animation crafts.
+name: 21-grams-ui
+description: Uplift UI that was built by AI so it stops looking AI-generated and follows proven UX and motion principles, using the project's own components and tokens. Use when the user asks to uplift, polish, de-AI, refine or "make less AI-looking" an existing screen, component or frontend, asks for "21 grams UI" or "21 grams" (or "twenty-one grams"), or wants a UI audited against the house style, the 20 UX & animation principles (squash & stretch, anticipation, staging, easing, snappy timing, Fitts's, Hick's, Miller's, Doherty, Postel's, Jakob's law, frequency of use), the 10 design hacks (concentric radius, alpha borders, OKLCH, dvh and the rest) or the 20 animation crafts.
 ---
 
-# 21 Grams
+# 21 Grams UI
 
-A pass over UI that already exists. 21 Grams doesn't redesign the product and doesn't bring its own UI kit. It removes the tells of AI-built UI and applies a fixed set of rules **through the components and tokens the project already has**, so the result looks considered, feels fast and still belongs to the product.
+A pass over UI that already exists. 21 Grams UI (the UI package of the 21 Grams family) doesn't redesign the product and doesn't bring its own UI kit. It removes the tells of AI-built UI and applies a fixed set of rules **through the components and tokens the project already has**, so the result looks considered, feels fast and still belongs to the product.
 
 ## Rule zero: use the project's own components
 
-Every change goes through what the project already uses. 21 Grams never builds a parallel set of components.
+Every change goes through what the project already uses. 21 Grams UI never builds a parallel set of components.
 
 1. **Take an inventory before touching anything.** Note the design tokens or theme (CSS variables, Tailwind config, theme files), the component library (shadcn/ui, Radix, MUI, Chakra, an in-house kit, a client design system), the icon set, the chart library and the animation library. Record what each shared component is called and where it lives.
 2. **Fix things where they live.** A button rule goes into the project's `Button` (a token, a variant, a prop or its styles), never into a one-off copy on a single screen. A colour or radius rule goes into the token, not into hard-coded values.
-3. **Never add a component when one exists for the job,** and never add a dependency (UI kit, icon set, chart or animation library) to get a 21 Grams effect. Use what is installed. Without an animation library, use CSS transitions.
+3. **Never add a component when one exists for the job,** and never add a dependency (UI kit, icon set, chart or animation library) to get a 21 Grams UI effect. Use what is installed. Without an animation library, use CSS transitions.
 4. **When a piece is genuinely missing** (no segmented control, no switch), build it from the project's existing primitives and tokens, following its file layout and naming. Say so in the report.
 5. **The house-style values are defaults for gaps only.** `rules/` and `tokens/tokens.css` give values for what the project hasn't decided. Map them onto the project's tokens. Never paste `tokens.css` alongside an existing system.
-6. **Brand stays the project's.** Brand colours, fonts, logos, icon style and voice are never replaced. 21 Grams changes how they are used (contrast, hierarchy, spacing, motion), not what they are.
+6. **Brand stays the project's.** Brand colours, fonts, logos, icon style and voice are never replaced. 21 Grams UI changes how they are used (contrast, hierarchy, spacing, motion), not what they are.
 
-**Precedence:** the user's words, then the project's design system and brand, then the 21 Grams house style. The principles, hacks and animation crafts apply everywhere, expressed in the project's own components.
+**Precedence:** the user's words, then the project's design system and brand, then the 21 Grams UI house style. The principles, hacks and animation crafts apply everywhere, expressed in the project's own components.
 
 ## What's inside
 
@@ -34,7 +34,7 @@ If a data-visualisation skill is installed, load it as well whenever a chart is 
 ## Workflow
 
 1. **Take the inventory** (rule zero). If the project has no design system at all, say so and use the house-style defaults.
-2. **Audit before changing anything.** Go through the screen or component and list findings grouped by area (radius … copy), principle number, hack number and craft number. Use the checklists at the end of `references/principles.md`, `references/design-hacks.md`, `references/animation-craft.md`, `references/typography.md`, `references/unslop.md` and `rules/icons.md`. Each finding gets the file and line, what is wrong, the fix, and **which existing component or token the fix goes into**. Flag every place where a 21 Grams rule conflicts with the project's design system, so the user can decide which wins.
+2. **Audit before changing anything.** Go through the screen or component and list findings grouped by area (radius … copy), principle number, hack number and craft number. Use the checklists at the end of `references/principles.md`, `references/design-hacks.md`, `references/animation-craft.md`, `references/typography.md`, `references/unslop.md` and `rules/icons.md`. Each finding gets the file and line, what is wrong, the fix, and **which existing component or token the fix goes into**. Flag every place where a 21 Grams UI rule conflicts with the project's design system, so the user can decide which wins.
 3. **Show the audit to the user** as a short list and ask before applying broad changes. Small, obvious fixes in the requested scope can go straight in.
 4. **Apply the fixes** in this order: tokens → shared components → screens. Keep diffs scoped to what was audited and in the project's own conventions (formatting, lint, naming).
 5. **Verify in the browser.** Before and after screenshots of each changed screen. Check hover, press, focus, loading, error, both themes and reduced motion. Measure button and text contrast; don't eyeball it. For motion, record the before and after if possible. A before/after page with a draggable divider and working interactions on both sides is the clearest way to review an uplift.

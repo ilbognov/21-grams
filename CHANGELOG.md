@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.0.0 — 2026-11-17
+
+- **Renamed to 21 Grams UI** (`21-grams-ui`). The repo is now the home of the 21 Grams family; a UX package will follow.
+- New layout: `plugins/21-grams-ui/` holds the plugin and its skill. The Claude Code marketplace is still `21-grams`.
+- Install changes: `npx skills add ilbognov/21-grams --skill 21-grams-ui`, or `/plugin install 21-grams-ui@21-grams`.
+
 ## 1.3.0 — 2026-11-17
 
 - New `references/unslop.md`: 20 composition and content rules for unslopping AI designs, cross-referenced to the existing rules where they overlap.

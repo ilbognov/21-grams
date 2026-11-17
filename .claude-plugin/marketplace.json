@@ -5,13 +5,13 @@
   },
   "plugins": [
     {
-      "name": "21-grams",
-      "source": "./",
-      "description": "Uplift UI built by AI so it stops looking AI-generated, using your project's own components.",
-      "version": "1.3.0"
+      "name": "21-grams-ui",
+      "source": "./plugins/21-grams-ui",
+      "version": "2.0.0",
+      "description": "Uplift UI built by AI so it stops looking AI-generated, using your project's own components."
     }
   ],
   "metadata": {
-    "description": "21 Grams: an agent skill that uplifts AI-built UI using your project's own components."
+    "description": "21 Grams: agent skills that make AI-built products look and feel considered. Starts with 21 Grams UI; a UX package is coming."
   }
 }
