@@ -19,6 +19,14 @@ On mobile, the send button of a chat or ask-style input is **icon-only**: a 44×
 <button type="submit" class="send" aria-label="Send"><svg aria-hidden="true">…paper-plane…</svg></button>
 ```
 
+## Action rows in cards, forms and dialogs
+The buttons that end a small card, form or dialog (Cancel / Send invite, Back / Continue):
+- **No footer tray.** They sit on the card's own surface, not in a grey strip or a bordered footer container.
+- **32px above the row** from the last field, more than the gaps between fields, so the actions read as their own group.
+- **Two actions split the row equally:** same width, same height, Cancel (or Back) on the left, the primary on the right. Three or more: right-aligned at their natural widths.
+- **The secondary is a quiet filled button** (a light grey fill with ink text), not an outline or bare text, so the pair look like siblings.
+- Screen-level actions are different: they go top right in the screen's header (`layout.md`).
+
 ## Variants
 - **Primary:** ink fill (`--ink`), page-colour text. **One per view** (principle #3).
 - **Secondary:** 7% ink fill, ink text. No border.

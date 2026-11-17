@@ -1,5 +1,12 @@
 # 21 Grams UI changelog
 
+## 4.4.0 — 2026-11-17
+
+- **New `rules/tables.md`.** Text left and numbers right with `tabular-nums`, nothing centred; hairline rows with no zebra stripes or gradient header; equal-width status tags with text, no emoji; headers that look clickable sort (click again to reverse, sensible first direction, `aria-sort`); a slight hover tint only on clickable rows.
+- **Action rows** (`rules/buttons.md`): the buttons ending a card, form or dialog sit on the card's surface with no footer tray, 32px below the last field. Two actions split the row at equal width, the secondary a quiet grey fill on the left and the primary on the right.
+- **Before/after review** (SKILL.md): only the divider's handle drags so both sides stay usable, and the before side shows the original as it was.
+- New AI tells: footer trays around two buttons, zebra tables with centred numbers, headers that look sortable but aren't.
+
 ## 4.3.0 — 2026-11-17
 
 - **New `rules/forms.md`: errors you can't miss.** Errors sit under their field with a danger outline, message and icon (never colour alone, never only a banner). Fields are checked on submit, then live as the person fixes them; focus moves to the first problem; server errors land on their field with a way out; a summary appears at five or more errors.
