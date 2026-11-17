@@ -1,5 +1,9 @@
 # 21 Grams UI changelog
 
+## 4.1.0 — 2026-11-17
+
+- **Mono is for code only (strict).** Monospace is now limited to code, commands and copyable hashes or keys. Labels, eyebrows, badges, tags, buttons, table headers, timestamps, IDs and numbers use the UI sans, with `tabular-nums` for aligned figures. Fixes `rules/type.md`, which had sent numbers, IDs and timestamps to Geist Mono and allowed small uppercase mono labels. Added an audit search and new AI tells.
+
 ## 4.0.0 — 2026-11-17
 
 - The family is now `21grams`, without the hyphen: the repo is `ilbognov/21grams`, the plugin and marketplace are `21grams`, and the skill appears as `21grams:ui` in Claude Code.

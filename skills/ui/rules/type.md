@@ -4,8 +4,18 @@ House default. When the project has its own system, express this through its com
 
 ## Families
 - **The project's fonts come first.** Keep its brand typefaces and apply the scale, weights and tracking below.
-- Default when the project has none: **Geist** for UI (`"Geist", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif`) and **Geist Mono** for numbers, IDs, timestamps and code.
-- Use `tabular-nums` wherever digits line up.
+- Default when the project has none: **Geist** for all UI text (`"Geist", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif`). **Geist Mono** only for code (see below).
+- Use `font-variant-numeric: tabular-nums` in the UI sans wherever digits line up: tables, stats, prices, timers, chart axes. Figures do not need a mono font to align.
+
+## Mono is for code, never for labels (strict)
+Mono labels are one of the most common tells of AI-built UI. Monospace is allowed only for text a person would read or copy as code:
+- code blocks and inline code
+- terminal commands and CLI output
+- hashes, API keys, tokens and commit SHAs that a user copies
+
+Everything else uses the UI sans: labels, eyebrows, section headers, tags, badges, pills, buttons, tabs, nav items, table headers, form labels, metadata, timestamps, dates, IDs shown as reference (order #4821), numbers, stats, prices and chart axes. Uppercase tracked mono "tech" labels (`STATUS`, `// SECTION 01`, `[ BETA ]`) are always removed.
+
+Audit: search for `font-mono`, `monospace`, `--font-mono`, `ui-monospace`, `Mono` in font stacks, and `<code>`/`<kbd>` used for decoration. Each hit that is not code becomes the sans (with `tabular-nums` when it holds figures). When the project's own design system styles labels in mono, flag it as a design-system conflict in the audit rather than overriding it silently (rule zero).
 
 ## Scale (use only these)
 | Token | Size / line-height | Weight | Tracking | Use |
@@ -37,8 +47,8 @@ Body and meta sizes do not change. A mobile screen then uses 18 / 16 / 14 / 12, 
 
 ## Rules
 - Headings get `text-wrap: balance`. Body is at most about 65ch wide.
-- Sentence case everywhere. Uppercase is only for tiny mono labels (+0.06em), if at all.
+- Sentence case everywhere. Avoid uppercase labels; if the project already has them, keep them in the UI sans at 12px with +0.04em tracking, never mono.
 - Long numbers are chunked (principle #16): `4532 0151 1283 0366`.
 
 ## Never
-Gradient text, a 30px+ bold headline in product UI, wide-tracked bold coloured eyebrows, Inter at default tracking as an unconsidered default, more than one display face.
+Mono labels, eyebrows, badges or numbers (mono is for code only), gradient text, a 30px+ bold headline in product UI, wide-tracked bold coloured eyebrows, Inter at default tracking as an unconsidered default, more than one display face.

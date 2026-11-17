@@ -24,9 +24,9 @@ These are the composition and content tells of AI-built pages: what's on the pag
 **Flag:** One italic or gradient word inside an otherwise upright headline.
 
 ### 4. Mono only where needed
-**Rule:** Monospace is for code, commands, IDs and tabular data, not for flavour.
+**Rule:** Monospace is for code, commands and copyable hashes or keys, not for flavour, labels or numbers.
 **Demo:** "An engineer that lives in your `terminal`▌". Before: the last word in a mono font with a blinking cursor. After: the same sans as the headline, in the accent colour.
-**Apply:** Keep mono in code blocks, CLI snippets, hashes and tables of figures. Remove it from headlines, labels and buttons.
+**Apply:** Keep mono only in code blocks, inline code, CLI snippets and copyable hashes or keys. Remove it from headlines, labels, eyebrows, badges, buttons, timestamps, IDs and figures; aligned numbers use `tabular-nums` in the sans. The strict rule is in `rules/type.md`.
 **Flag:** Mono words in headlines, fake terminal cursors, mono used as "techy" decoration.
 
 ### 5. Use a design system
@@ -131,7 +131,7 @@ See `references/design-hacks.md` #1 and `rules/radius.md`.
 | 1 | Badges | only real, actionable information |
 | 2 | Labels and eyebrows | none that repeat the heading |
 | 3 | Headline styling | no random italic or recoloured word |
-| 4 | Monospace | only code, commands, IDs and data |
+| 4 | Monospace | only code, commands, copyable hashes/keys; never labels or numbers |
 | 5 | Toolbars and button rows | one system, one style |
 | 6 | Hero visual | the real product, not abstract art |
 | 7 | Feature layout | the main feature is bigger |
