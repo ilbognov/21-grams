@@ -215,33 +215,28 @@ ul.facts li > span:last-child { min-width: 0; }
 @media (max-width: 560px) { .compare-bar .hint { display: none; } }
 .stage:has(input:focus-visible) .handle::after { outline: 2px solid var(--design); outline-offset: 4px; }
 
-/* the "AI default" card */
+/* the "AI default" card: what an agent writes unprompted (Tailwind-style) */
 .ai {
-  width: 300px; max-width: 100%; text-align: center; color: #1e1b4b;
-  background: #fff; border-radius: 24px; overflow: hidden;
-  box-shadow: 0 25px 50px -12px rgb(76 29 149 / .35);
-  font-family: system-ui, sans-serif;
+  width: 300px; max-width: 100%; background: #fff; border: 1px solid #e5e7eb; border-radius: 16px; padding: 18px;
+  box-shadow: 0 10px 15px -3px rgb(0 0 0 / .1), 0 4px 6px -4px rgb(0 0 0 / .1);
+  font-family: Inter, system-ui, sans-serif; color: #111827; display: flex; flex-direction: column; gap: 10px;
 }
-.ai-top { background: linear-gradient(135deg, #8b5cf6, #3b82f6); color: #fff; padding: 22px 18px 18px; }
-.ai-top h4 { margin: 0; font-size: 21px; font-weight: 800; }
-.ai-top p { color: rgb(255 255 255 / .85); font-size: 12.5px; line-height: 1.45; margin-top: 6px; }
-.ai-body { padding: 18px; display: flex; flex-direction: column; gap: 12px; }
-.ai-field {
-  width: 100%; border: 2px solid #c4b5fd; border-radius: 999px; padding: 9px 14px; font: 13px/1.2 system-ui, sans-serif;
-  color: #1e1b4b; background: #fff; text-align: left; outline: 0; appearance: none; transition: all .5s ease-in-out;
-}
+.ai-icon { width: 40px; height: 40px; border-radius: 50%; display: grid; place-items: center; background: #e0e7ff; color: #4f46e5; margin: 0 auto; }
+.ai-icon svg { width: 20px; height: 20px; }
+.ai h4 { margin: 0; font-size: 17px; font-weight: 600; text-align: center; letter-spacing: 0; }
+.ai .ai-sub { font-size: 12.5px; line-height: 1.5; color: #6b7280; text-align: center; margin-top: -6px; }
+.ai-alert { font-size: 12px; line-height: 1.4; padding: 8px 10px; border-radius: 8px; border: 1px solid #fecaca; background: #fef2f2; color: #b91c1c; }
+.ai-alert.ok { border-color: #bbf7d0; background: #f0fdf4; color: #15803d; }
+.ai-lbl { display: flex; flex-direction: column; gap: 4px; font-size: 12.5px; font-weight: 500; color: #374151; }
+.ai-field { width: 100%; box-sizing: border-box; border: 1px solid #d1d5db; border-radius: 8px; padding: 8px 12px; font: 13px/1.3 Inter, system-ui, sans-serif; color: #111827; background: #fff; outline: 0; transition: all .3s ease-in-out; }
 .ai-field::placeholder { color: #9ca3af; }
-select.ai-field { color: #9ca3af; cursor: pointer; }
-.ai-field:focus { border-color: #a855f7; box-shadow: 0 0 0 6px rgb(168 85 247 / .25), 0 0 24px rgb(236 72 153 / .35); }
-.ai-row { display: flex; gap: 8px; }
-.ai-row button {
-  flex: 1; border: 0; cursor: pointer; border-radius: 999px; padding: 10px 0; font: 700 13px/1.2 system-ui, sans-serif; color: #fff;
-  background: linear-gradient(135deg, #8b5cf6, #3b82f6); transition: all .5s ease-in-out;
-}
-.ai-row button + button { background: linear-gradient(135deg, #ec4899, #8b5cf6); }
-.ai-row button:hover { transform: scale(1.06); box-shadow: 0 10px 24px -6px rgb(168 85 247 / .6); }
-.bounce { animation: aibounce .7s ease-in-out; }
-.ai-meta { font-size: 11.5px; color: #6b7280; }
+.ai-field:focus { border-color: #6366f1; box-shadow: 0 0 0 3px rgb(99 102 241 / .3); }
+.ai-primary { width: 100%; border: 0; border-radius: 8px; padding: 10px 0; margin-top: 4px; background: #4f46e5; color: #fff; font: 500 13.5px/1.2 Inter, system-ui, sans-serif; cursor: pointer; transition: all .3s ease-in-out; }
+.ai-primary:hover { background: #4338ca; transform: translateY(-1px); box-shadow: 0 10px 15px -3px rgb(79 70 229 / .3); }
+.ai-primary:disabled { opacity: .6; cursor: not-allowed; transform: none; box-shadow: none; }
+.ai-ghost { border: 0; background: none; color: #6b7280; font: 500 13px/1.2 Inter, system-ui, sans-serif; padding: 4px; margin-top: -6px; cursor: pointer; }
+.ai-ghost:hover { color: #111827; }
+.ai .ai-meta { font-size: 11.5px; color: #9ca3af; text-align: center; }
 
 /* the "21 Grams" card */
 .tg {
@@ -271,11 +266,7 @@ select.ai-field { color: #9ca3af; cursor: pointer; }
   20% { transform: translateX(-6px); } 40% { transform: translateX(5px); }
   60% { transform: translateX(-3px); } 80% { transform: translateX(2px); }
 }
-/* AI default: the whole form shakes, a vague banner on top */
-.ai-shake { animation: aishake .6s ease-in-out; }
-@keyframes aishake { 10%, 50%, 90% { transform: translateX(-10px) rotate(-1deg); } 30%, 70% { transform: translateX(10px) rotate(1deg); } }
-.ai-oops { background: linear-gradient(135deg, #fecaca, #fbcfe8); color: #be123c; font-weight: 800; font-size: 12.5px; padding: 9px 12px; border-radius: 999px; }
-@media (prefers-reduced-motion: reduce) { .shake, .ai-shake { animation: none; } }
+@media (prefers-reduced-motion: reduce) { .shake { animation: none; } }
 .tg-input svg { width: 15px; height: 15px; color: var(--demo-sub); flex: none; pointer-events: none; }
 .tg-input input, .tg-input select {
   flex: 1; min-width: 0; border: 0; outline: 0; padding: 0; margin: 0; background: transparent;
@@ -354,12 +345,11 @@ ol.changes li .chip { font-size: 11px; padding: 3px 6px; white-space: nowrap; }
 
 /* button press */
 .ai-btn {
-  border: 0; cursor: pointer; font: 800 14px/1 system-ui, sans-serif; color: #fff;
-  padding: 15px 22px; border-radius: 999px; background: linear-gradient(135deg, #8b5cf6, #ec4899);
-  box-shadow: 0 10px 30px -6px rgb(168 85 247 / .6); transition: all .5s ease-in-out;
+  border: 0; cursor: pointer; font: 500 14px/1.2 Inter, system-ui, sans-serif; color: #fff; padding: 10px 18px; border-radius: 8px;
+  background: #4f46e5; box-shadow: 0 1px 2px rgb(0 0 0 / .05); transition: all .3s ease-in-out;
 }
-.ai-btn:hover { transform: scale(1.08); box-shadow: 0 16px 40px -6px rgb(236 72 153 / .7); }
-@keyframes aibounce { 30% { transform: scale(1.18) rotate(-2deg); } 60% { transform: scale(.88) rotate(1deg); } 100% { transform: scale(1); } }
+.ai-btn:hover { background: #4338ca; transform: translateY(-2px); box-shadow: 0 10px 15px -3px rgb(79 70 229 / .35); }
+.ai-btn:disabled { opacity: .5; cursor: not-allowed; transform: none; box-shadow: none; }
 .tg-btn {
   display: inline-flex; align-items: center; justify-content: center; gap: 7px; min-width: 132px;
   border: 0; cursor: pointer; font: 500 13.5px/1 var(--f-text); color: #fff; background: var(--demo-ink);
@@ -385,17 +375,17 @@ ol.changes li .chip { font-size: 11px; padding: 3px 6px; white-space: nowrap; }
 
 /* toggles */
 .ai-set {
-  width: 100%; max-width: 250px; background: #fff; border-radius: 20px; padding: 16px;
-  display: flex; flex-direction: column; gap: 14px; box-shadow: 0 20px 40px -14px rgb(76 29 149 / .35);
-  font: 700 13px/1.3 system-ui, sans-serif; color: #1e1b4b;
+  width: 100%; max-width: 250px; background: #fff; border: 1px solid #e5e7eb; border-radius: 12px; padding: 0 16px;
+  box-shadow: 0 1px 3px rgb(0 0 0 / .1), 0 1px 2px -1px rgb(0 0 0 / .1); font: 500 13.5px/1.3 Inter, system-ui, sans-serif; color: #111827;
 }
-.ai-row2 { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
-.ai-sw { position: relative; flex: none; width: 56px; height: 30px; }
+.ai-row2 { display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 14px 0; }
+.ai-row2 + .ai-row2 { border-top: 1px solid #e5e7eb; }
+.ai-sw { position: relative; flex: none; width: 44px; height: 24px; }
 .ai-sw input { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0; margin: 0; cursor: pointer; z-index: 1; }
-.ai-sw i { position: absolute; inset: 0; border-radius: 999px; background: #d1d5db; }
-.ai-sw i::after { content: ""; position: absolute; top: 3px; left: 3px; width: 24px; height: 24px; border-radius: 50%; background: #fff; box-shadow: 0 2px 6px rgb(0 0 0 / .3); }
-.ai-sw input:checked + i { background: linear-gradient(135deg, #8b5cf6, #ec4899); }
-.ai-sw input:checked + i::after { left: 29px; }
+.ai-sw i { position: absolute; inset: 0; border-radius: 999px; background: #e5e7eb; transition: all .3s ease-in-out; }
+.ai-sw i::after { content: ""; position: absolute; top: 2px; left: 2px; width: 20px; height: 20px; border-radius: 50%; background: #fff; box-shadow: 0 1px 3px rgb(0 0 0 / .2); transition: all .3s ease-in-out; }
+.ai-sw input:checked + i { background: #4f46e5; }
+.ai-sw input:checked + i::after { transform: translateX(20px); }
 .tg-set {
   width: 100%; max-width: 260px; background: var(--demo-card); border-radius: 14px; padding: 4px;
   box-shadow: 0 0 0 1px rgb(0 0 0 / .07), 0 1px 2px rgb(0 0 0 / .05), 0 10px 24px -12px rgb(0 0 0 / .18);
@@ -420,10 +410,11 @@ ol.changes li .chip { font-size: 11px; padding: 3px 6px; white-space: nowrap; }
 
 /* chart + table panels */
 .ai-panel {
-  width: 320px; max-width: 100%; background: #fff; border-radius: 20px; padding: 16px;
-  box-shadow: 0 20px 40px -14px rgb(76 29 149 / .35); font-family: system-ui, sans-serif; color: #1e1b4b;
+  width: 320px; max-width: 100%; background: #fff; border: 1px solid #e5e7eb; border-radius: 12px; padding: 16px;
+  box-shadow: 0 1px 3px rgb(0 0 0 / .1), 0 1px 2px -1px rgb(0 0 0 / .1); font-family: Inter, system-ui, sans-serif; color: #111827;
 }
-.ai-panel h5 { margin: 0 0 12px; font-size: 15px; font-weight: 800; text-align: center; }
+.ai-panel h5 { margin: 0; font-size: 15px; font-weight: 600; }
+.ai-panel .ai-sub { font-size: 12px; color: #6b7280; margin: 2px 0 10px; }
 .tg-panel {
   width: 320px; max-width: 100%; background: var(--demo-card); border-radius: 14px; padding: 16px;
   box-shadow: 0 0 0 1px rgb(0 0 0 / .07), 0 1px 2px rgb(0 0 0 / .05), 0 10px 24px -12px rgb(0 0 0 / .18);
@@ -431,6 +422,15 @@ ol.changes li .chip { font-size: 11px; padding: 3px 6px; white-space: nowrap; }
 }
 .tg-panel h5 { margin: 0; font-size: 13px; font-weight: 500; color: var(--demo-sub); }
 .tg-panel h5 + table { margin-top: 12px; }
+.tg-ph { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin: -6px -8px 6px 0; }
+.tg-more {
+  display: inline-flex; align-items: center; gap: 2px; height: 28px; padding: 0 6px 0 8px; border: 0; border-radius: 6px; cursor: pointer;
+  background: none; color: var(--demo-ink); font: 500 12px/1 var(--f-text); transition: background-color .12s, transform .15s cubic-bezier(.2,0,0,1);
+}
+.tg-more:hover { background: #f4f4f3; }
+.tg-more:active { transform: scale(.97); }
+.tg-more:focus-visible { outline: 2px solid #3b4ce2; outline-offset: 2px; }
+.tg-more svg { width: 12px; height: 12px; color: var(--demo-sub); }
 .tg-panel .big { font-size: 22px; font-weight: 600; letter-spacing: -.02em; font-variant-numeric: tabular-nums; margin: 2px 0 12px; }
 .tg-panel .big small { font-size: 12px; font-weight: 500; color: #16794a; margin-left: 6px; letter-spacing: 0; }
 .chart svg { display: block; width: 100%; height: auto; font-variant-numeric: tabular-nums; }
@@ -467,8 +467,9 @@ ol.changes li .chip { font-size: 11px; padding: 3px 6px; white-space: nowrap; }
 .pill.overdue { color: #b42318; background: #fdecea; }
 
 /* chart interaction */
-.aic rect.bar { transition: all .6s linear; transform-box: fill-box; transform-origin: 50% 100%; cursor: pointer; }
-.aic rect.bar:hover { transform: scaleY(1.1); filter: brightness(1.15) drop-shadow(0 4px 6px rgb(168 85 247 / .5)); }
+.aic .col:hover .hit { fill: #ccc; fill-opacity: .4; }
+.ai-tip { position: absolute; top: 0; left: 0; pointer-events: none; background: #fff; border: 1px solid #ccc; padding: 6px 10px; font: 12px/1.5 Inter, system-ui, sans-serif; color: #111; white-space: nowrap; }
+.ai-tip p { margin: 0; color: inherit; font-size: 12px; }
 .tgc .col { cursor: pointer; outline: 0; }
 .tgc .hit { fill: transparent; }
 .tgc .bar { fill: #e1e1e6; transition: fill .15s; }
@@ -696,20 +697,18 @@ footer { font: 12px/1.6 var(--f-text); color: var(--faint-text); }
         <div class="ex" id="ex-card" role="tabpanel" aria-labelledby="tab-card">
         <div class="compare">
           <div class="compare-bar"><span>AI default</span><span class="hint">Drag the handle. Everything inside works.</span><b>21 Grams</b></div>
-          <div class="stage" style="--pos: 50%">
+          <div class="stage" style="--pos: 50%; height: 490px">
             <div class="layer before" aria-label="AI default version">
               <form class="ai" id="ai-invite" novalidate>
-                <div class="ai-top">
-                  <h4>✨ Invite Your Team! 🚀</h4>
-                  <p>Unlock the full power of seamless collaboration and supercharge your workflow today!</p>
-                </div>
-                <div class="ai-body">
-                  <div class="ai-oops" hidden>⚠️ Oops! Something went wrong!</div>
-                  <input class="ai-field" type="text" placeholder="📧 Enter email address..." autocomplete="off" aria-label="Email">
-                  <select class="ai-field" aria-label="Role"><option>👤 Select Role</option><option>Admin</option><option>Member</option><option>Guest</option></select>
-                  <div class="ai-row"><button type="submit">Send Invite ✨</button><button type="button">Learn More</button></div>
-                  <div class="ai-meta">⭐ 3 seats remaining • 🔒 100% Secure</div>
-                </div>
+                <div class="ai-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+                <h4>Invite Team Members</h4>
+                <p class="ai-sub">Collaborate seamlessly with your team.</p>
+                <div class="ai-alert" role="alert" hidden></div>
+                <label class="ai-lbl">Email Address<input class="ai-field" type="email" placeholder="Enter email address" autocomplete="off"></label>
+                <label class="ai-lbl">Role<select class="ai-field"><option>Member</option><option>Admin</option><option>Viewer</option></select></label>
+                <button type="submit" class="ai-primary">Send Invitation</button>
+                <button type="reset" class="ai-ghost">Cancel</button>
+                <p class="ai-meta">You have 3 seats remaining</p>
               </form>
             </div>
             <div class="layer after" aria-label="21 Grams version">
@@ -735,14 +734,13 @@ footer { font: 12px/1.6 var(--f-text); color: var(--faint-text); }
           </div>
         </div>
         <ol class="changes">
-          <li><span>Removed the gradient header and emoji. The title says what the card does, in sentence case.</span><span class="chip">copy</span></li>
-          <li><span>One primary button. “Learn More” went, and “Cancel” is a quiet grey button the same size, 32px below the last field.</span><span class="chip">buttons</span></li>
-          <li><span>Outer radius 14, inner 8 with 6px padding, so the corners nest.</span><span class="chip">radius</span></li>
-          <li><span>Pill inputs became labelled fields with one line-icon style.</span><span class="chip">icons</span></li>
-          <li><span>The coloured glow became an alpha border and a soft, neutral shadow.</span><span class="chip">elevation</span></li>
-          <li><span>The seat count sits next to the title as quiet secondary text instead of a footer full of badges.</span><span class="chip">type</span></li>
-          <li><span>Send it empty. Only the email field shakes, once, with a message and icon under it. The AI card shakes the whole form and says “Oops!”.</span><span class="chip">forms</span></li>
-          <li><span>The message clears as soon as the email is fixed. A good send shows “Sending”, then “Invited” in green with one ring that leaves the button, and the seat count drops.</span><span class="chip">feedback</span></li>
+          <li><span>“Invite Team Members” and a line about collaborating seamlessly became a plain title and one line on what happens next. The icon in a tinted circle went.</span><span class="chip">copy</span></li>
+          <li><span>A full-width indigo button with a text “Cancel” under it became two equal buttons side by side, Cancel as a quiet grey fill, 32px below the last field.</span><span class="chip">buttons</span></li>
+          <li><span>Outer radius 14, inner 8 with 6px padding, so the corners nest. The default puts 8px inputs in a 16px card with 20px padding.</span><span class="chip">radius</span></li>
+          <li><span>A border plus a large shadow became an alpha border and a soft, neutral shadow.</span><span class="chip">elevation</span></li>
+          <li><span>The seat count sits next to the title instead of in a footer line.</span><span class="chip">layout</span></li>
+          <li><span>Send it empty. The default shows a red banner at the top and leaves focus on the button. Here the email field shakes once, with the message under it, and focus moves there.</span><span class="chip">forms</span></li>
+          <li><span>A good send shows “Sending”, then “Invited” in green with one ring, and the seat count drops. The default swaps its label to “Sending...”, then shows a green “Invitation sent successfully!” banner that pushes the form down, and the seat count stays at 3.</span><span class="chip">feedback</span></li>
         </ol>
         </div>
 
@@ -750,8 +748,8 @@ footer { font: 12px/1.6 var(--f-text); color: var(--faint-text); }
           <div class="duo">
             <div class="pane">
               <span class="pane-label">AI default</span>
-              <div class="pane-stage"><button class="ai-btn" type="button">💾 Save Changes!</button></div>
-              <p class="pane-note">Tap it. It bounces for 700ms, then nothing tells you whether it saved.</p>
+              <div class="pane-stage"><button class="ai-btn" type="button">Save Changes</button></div>
+              <p class="pane-note">Tap it. It lifts on hover, has no press state, changes width when it says “Saving...”, then goes back with no sign it saved.</p>
             </div>
             <div class="pane good">
               <span class="pane-label">21 Grams</span>
@@ -760,10 +758,10 @@ footer { font: 12px/1.6 var(--f-text); color: var(--faint-text); }
             </div>
           </div>
           <ol class="changes">
-            <li><span>Press feedback in 100ms with a 3% scale-in, instead of a slow 700ms bounce.</span><span class="chip">motion</span></li>
-            <li><span>The button shows it's working, then confirms: it turns green, says “Saved” and sends out one ring, so nobody taps twice.</span><span class="chip">buttons</span></li>
-            <li><span>Same action, calmer label: “Save changes” in sentence case, no emoji, no exclamation mark.</span><span class="chip">copy</span></li>
-            <li><span>No hover zoom or coloured glow. Hover is a small change in tone.</span><span class="chip">elevation</span></li>
+            <li><span>Press feedback in 100ms with a 3% scale-in. The default has none, only a 300ms lift on hover.</span><span class="chip">motion</span></li>
+            <li><span>It keeps its width, shows a spinner, then confirms: it turns green, says “Saved” and sends out one ring. The default jumps in width for “Saving...” and goes back to “Save Changes” as if nothing happened.</span><span class="chip">buttons</span></li>
+            <li><span>“Save changes” in sentence case.</span><span class="chip">copy</span></li>
+            <li><span>Hover is a small change in tone. No lift and no coloured shadow.</span><span class="chip">elevation</span></li>
           </ol>
         </div>
 
@@ -773,11 +771,11 @@ footer { font: 12px/1.6 var(--f-text); color: var(--faint-text); }
               <span class="pane-label">AI default</span>
               <div class="pane-stage">
                 <div class="ai-set">
-                  <div class="ai-row2"><span>🔔 Mentions</span><label class="ai-sw"><input type="checkbox" id="ai-t1" checked aria-label="Mentions"><i></i></label></div>
-                  <div class="ai-row2"><span>📧 Weekly Digest</span><label class="ai-sw"><input type="checkbox" id="ai-t2" aria-label="Weekly digest"><i></i></label></div>
+                  <div class="ai-row2"><span>Mentions</span><label class="ai-sw"><input type="checkbox" id="ai-t1" checked aria-label="Mentions"><i></i></label></div>
+                  <div class="ai-row2"><span>Weekly Digest</span><label class="ai-sw"><input type="checkbox" id="ai-t2" aria-label="Weekly digest"><i></i></label></div>
                 </div>
               </div>
-              <p class="pane-note">Only the switch itself is tappable, and it jumps across with no motion, so it's easy to miss what changed.</p>
+              <p class="pane-note">Only the switch itself is tappable, and every change takes the same slow 300ms ease-in-out.</p>
             </div>
             <div class="pane good">
               <span class="pane-label">21 Grams</span>
@@ -792,28 +790,28 @@ footer { font: 12px/1.6 var(--f-text); color: var(--faint-text); }
           </div>
           <ol class="changes">
             <li><span>The whole row is the tap target, not just the small switch.</span><span class="chip">Fitts's law</span></li>
-            <li><span>The knob moves in 160ms on an ease-out curve and squashes while pressed.</span><span class="chip">motion</span></li>
-            <li><span>Each setting says what it does in one line of description.</span><span class="chip">copy</span></li>
-            <li><span>A smaller switch in one brand colour. No gradient, no emoji.</span><span class="chip">toggles</span></li>
+            <li><span>The knob moves in 160ms on an ease-out curve and squashes while pressed, instead of 300ms ease-in-out on everything.</span><span class="chip">motion</span></li>
+            <li><span>Each setting says what it does in one line of description, in sentence case.</span><span class="chip">copy</span></li>
+            <li><span>A 34×20 switch sized to sit with 13px text, instead of the framework’s 44×24 next to bigger, bolder labels.</span><span class="chip">toggles</span></li>
           </ol>
         </div>
 
         <div class="ex" id="ex-chart" role="tabpanel" aria-labelledby="tab-chart" hidden>
           <div class="compare">
             <div class="compare-bar"><span>AI default</span><span class="hint">Drag the handle. Everything inside works.</span><b>21 Grams</b></div>
-            <div class="stage" style="--pos: 50%; height: 330px">
-              <div class="layer before"><div class="ai-panel"><h5>📊 Monthly Revenue Analytics</h5><div class="chart" id="ai-chart"></div></div></div>
+            <div class="stage" style="--pos: 50%; height: 350px">
+              <div class="layer before"><div class="ai-panel"><h5>Monthly Revenue</h5><p class="ai-sub">Revenue overview for the last 6 months</p><div class="chart" id="ai-chart"></div></div></div>
               <div class="layer after"><div class="tg-panel"><h5>Revenue</h5><div class="big">$68k<small>+11% vs Oct</small></div><div class="chart" id="tg-chart"></div></div></div>
               <div class="handle"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m6 4-4 4 4 4M10 4l4 4-4 4"/></svg></div>
               <input type="range" id="cmp-chart" min="0" max="100" value="50" aria-label="Compare AI default and 21 Grams chart">
             </div>
           </div>
           <ol class="changes">
-            <li><span>The y-axis starts at zero, so the growth isn't exaggerated.</span><span class="chip">charts</span></li>
-            <li><span>One colour, with only the latest month highlighted.</span><span class="chip">colour</span></li>
-            <li><span>The number people came for is written out above the chart.</span><span class="chip">type</span></li>
-            <li><span>A faint grid and one value label instead of a number on every bar.</span><span class="chip">charts</span></li>
-            <li><span>Hover or tap any month for a popup with its value and the change from the month before.</span><span class="chip">charts</span></li>
+            <li><span>The number people came for is written out above the chart, with the change from last month. The default title says “Monthly Revenue” and a subtitle repeats it.</span><span class="chip">type</span></li>
+            <li><span>One colour with only the latest month highlighted, instead of the library’s stock purple on every bar.</span><span class="chip">colour</span></li>
+            <li><span>A faint solid grid on the y-axis only. No dashed grid both ways, no axis lines and no legend for a single series.</span><span class="chip">charts</span></li>
+            <li><span>Short axis labels like 25k instead of raw numbers like 60000.</span><span class="chip">type</span></li>
+            <li><span>Hover or tap a month for its value and the change from the month before, instead of the stock “revenue : 68000”.</span><span class="chip">charts</span></li>
           </ol>
         </div>
 
@@ -828,7 +826,7 @@ footer { font: 12px/1.6 var(--f-text); color: var(--faint-text); }
                   <tr><td><span class="ai-av">AC</span>Atlas Co.</td><td><span class="ai-st overdue">Overdue</span></td><td>$12,400.00</td></tr>
                   <tr><td><span class="ai-av">KE</span>Kestrel</td><td><span class="ai-st paid">Paid</span></td><td>$960.00</td></tr>
                 </tbody></table></div></div>
-              <div class="layer after"><div class="tg-panel"><h5>Recent invoices</h5>
+              <div class="layer after"><div class="tg-panel"><div class="tg-ph"><h5>Recent invoices</h5><button type="button" class="tg-more">View all<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 4 4 4-4 4"/></svg></button></div>
                 <table class="tg-tbl"><thead><tr><th><button type="button" data-k="c">Customer<svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9.5v-7M3 5.5l3-3 3 3"/></svg></button></th><th><button type="button" data-k="s">Status<svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9.5v-7M3 5.5l3-3 3 3"/></svg></button></th><th class="num"><button type="button" data-k="a">Amount<svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9.5v-7M3 5.5l3-3 3 3"/></svg></button></th></tr></thead><tbody id="tg-rows"></tbody></table></div></div>
               <div class="handle"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m6 4-4 4 4 4M10 4l4 4-4 4"/></svg></div>
               <input type="range" id="cmp-table" min="0" max="100" value="50" aria-label="Compare AI default and 21 Grams table">
@@ -839,7 +837,7 @@ footer { font: 12px/1.6 var(--f-text); color: var(--faint-text); }
             <li><span>Status tags are one width with a small dot, in muted tones, instead of saturated pills that change width with the word.</span><span class="chip">colour</span></li>
             <li><span>The grey uppercase header band became quiet sentence-case labels, so the data leads.</span><span class="chip">type</span></li>
             <li><span>Initials avatars went. They repeat the name and add a second accent colour.</span><span class="chip">unslop</span></li>
-            <li><span>“Recent Invoices” is sentence case, and the indigo “View all →” link is gone.</span><span class="chip">copy</span></li>
+            <li><span>“Recent invoices” is sentence case, and “View all” is a quiet text button in the ink colour with a line chevron, instead of an indigo link with a typed arrow.</span><span class="chip">buttons</span></li>
             <li><span>Headers sort. Tap one, tap it again to reverse. The default has no sorting at all.</span><span class="chip">tables</span></li>
           </ol>
         </div>
@@ -1073,17 +1071,23 @@ document.querySelectorAll(".tabs").forEach(list => {
   });
 });
 
-// Button tap demo
-const bounce = b => { b.classList.remove("bounce"); void b.offsetWidth; b.classList.add("bounce"); };
-document.querySelectorAll(".ai-btn, .ai-row button").forEach(b => b.addEventListener("click", () => bounce(b)));
-// AI invite: empty → the whole form shakes and a vague banner appears; anything else is silently accepted.
+// AI button: no press state; the label swaps and the width jumps, then it goes back with no confirmation.
+document.querySelectorAll(".ai-btn").forEach(b => b.addEventListener("click", () => {
+  if (b.disabled) return;
+  b.disabled = true; b.textContent = "Saving...";
+  setTimeout(() => { b.disabled = false; b.textContent = "Save Changes"; }, 900);
+}));
+// AI invite: a red banner at the top for any problem, a green banner on success; focus stays put and the seat count never changes.
 {
-  const f = document.getElementById("ai-invite"), oops = f.querySelector(".ai-oops"), em = f.querySelector("input");
+  const f = document.getElementById("ai-invite"), alert = f.querySelector(".ai-alert"), em = f.querySelector("input"), btn = f.querySelector(".ai-primary");
+  const say = (msg, ok) => { alert.textContent = msg; alert.classList.toggle("ok", !!ok); alert.hidden = false; };
+  f.addEventListener("reset", () => { alert.hidden = true; });
   f.addEventListener("submit", e => {
     e.preventDefault();
-    if (em.value.trim()) { oops.hidden = true; return; }
-    oops.hidden = false;
-    f.classList.remove("ai-shake"); void f.offsetWidth; f.classList.add("ai-shake");
+    if (btn.disabled) return;
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(em.value.trim())) { say("Please enter a valid email address."); return; }
+    alert.hidden = true; btn.disabled = true; btn.textContent = "Sending...";
+    setTimeout(() => { btn.disabled = false; btn.textContent = "Send Invitation"; em.value = ""; say("Invitation sent successfully!", true); }, 800);
   });
 }
 
@@ -1153,19 +1157,20 @@ document.querySelectorAll(".tg-btn").forEach(b => b.addEventListener("click", ()
 // Charts: same revenue data, drawn two ways.
 const REV = [["Jun", 42], ["Jul", 48], ["Aug", 45], ["Sep", 57], ["Oct", 61], ["Nov", 68]];
 function aiChart() {
-  const W = 288, H = 180, L = 28, B = 20, T = 16, R = 4, min = 40, max = 70;
-  const y = v => T + (H - T - B) * (1 - (v - min) / (max - min));
+  // what a charting library draws with its defaults: one stock colour, dashed grid both ways, raw axis numbers, a legend for one series
+  const W = 288, H = 196, L = 40, B = 34, T = 6, R = 4, max = 80000, C = "#8884d8";
+  const y = v => T + (H - T - B) * (1 - v / max);
   const cw = (W - L - R) / REV.length;
-  const cols = ["#f43f5e", "#f97316", "#eab308", "#22c55e", "#3b82f6", "#8b5cf6"];
-  let s = `<svg class="aic" viewBox="0 0 ${W} ${H}" role="img" aria-label="Rainbow bar chart with a y-axis starting at 40k">`;
-  [40, 50, 60, 70].forEach(t => s += `<line x1="${L}" x2="${W - R}" y1="${y(t)}" y2="${y(t)}" stroke="#ddd6fe" stroke-width="1.5"/><text x="${L - 6}" y="${y(t) + 3}" text-anchor="end" font-size="9" font-weight="700" fill="#6b21a8">${t}k</text>`);
+  let s = `<svg class="aic" viewBox="0 0 ${W} ${H}" role="img" aria-label="Bar chart of monthly revenue with a dashed grid and a legend">`;
+  [0, 20000, 40000, 60000, 80000].forEach(t => s += `<line x1="${L}" x2="${W - R}" y1="${y(t)}" y2="${y(t)}" stroke="#ccc" stroke-dasharray="3 3"/><text x="${L - 5}" y="${y(t) + 3}" text-anchor="end" font-size="8.5" fill="#666">${t}</text>`);
+  REV.forEach((_, i) => s += `<line x1="${L + i * cw + cw / 2}" x2="${L + i * cw + cw / 2}" y1="${T}" y2="${y(0)}" stroke="#ccc" stroke-dasharray="3 3"/>`);
   REV.forEach(([m, v], i) => {
-    const w = cw * .7, x = L + i * cw + cw * .15;
-    // the browser's own slow tooltip is the only way to read a value
-    s += `<rect class="bar" x="${x}" y="${y(v)}" width="${w}" height="${y(min) - y(v)}" rx="6" fill="${cols[i]}"><title>💰 ${m} Revenue: $${v},000!!</title></rect>`;
-    s += `<text x="${x + w / 2}" y="${y(v) - 4}" text-anchor="middle" font-size="9" font-weight="800" fill="#1e1b4b" pointer-events="none">$${v}k</text>`;
-    s += `<text x="${x + w / 2}" y="${H - 5}" text-anchor="middle" font-size="9" font-weight="700" fill="#6b21a8">${m.toUpperCase()}</text>`;
+    const w = cw * .6, x = L + i * cw + cw * .2, val = v * 1000;
+    s += `<g class="col" data-i="${i}"><rect class="hit" x="${L + i * cw}" y="${T}" width="${cw}" height="${y(0) - T}" fill="transparent"/><rect x="${x}" y="${y(val)}" width="${w}" height="${y(0) - y(val)}" rx="3" fill="${C}"/></g>`;
+    s += `<text x="${x + w / 2}" y="${y(0) + 13}" text-anchor="middle" font-size="8.5" fill="#666">${m}</text>`;
   });
+  s += `<line x1="${L}" x2="${L}" y1="${T}" y2="${y(0)}" stroke="#666"/><line x1="${L}" x2="${W - R}" y1="${y(0)}" y2="${y(0)}" stroke="#666"/>`;
+  s += `<rect x="${W / 2 - 22}" y="${H - 10}" width="8" height="8" fill="${C}"/><text x="${W / 2 - 10}" y="${H - 3}" font-size="9" fill="${C}">revenue</text>`;
   return s + "</svg>";
 }
 function tgChart() {
@@ -1184,7 +1189,22 @@ function tgChart() {
   });
   return s + `</svg><div class="tip" aria-hidden="true"></div>`;
 }
-document.getElementById("ai-chart").innerHTML = aiChart();
+document.getElementById("ai-chart").innerHTML = aiChart() + '<div class="ai-tip" hidden></div>';
+// AI chart: the library's stock tooltip, raw numbers and the data key as the label.
+{
+  const box = document.getElementById("ai-chart"), tip = box.querySelector(".ai-tip");
+  box.querySelectorAll(".col").forEach(g => {
+    g.addEventListener("pointerenter", () => {
+      const [m, v] = REV[+g.dataset.i], r = g.getBoundingClientRect(), b = box.getBoundingClientRect();
+      tip.innerHTML = `<p>${m}</p><p style="color:#8884d8">revenue : ${v * 1000}</p>`;
+      tip.hidden = false;
+      let x = r.right - b.left + 6;
+      if (x + tip.offsetWidth > b.width) x = r.left - b.left - tip.offsetWidth - 6;
+      tip.style.transform = `translate(${x}px, ${r.top - b.top + 30}px)`;
+    });
+    g.addEventListener("pointerleave", () => { tip.hidden = true; });
+  });
+}
 const tgc = document.getElementById("tg-chart");
 tgc.innerHTML = tgChart();
 
