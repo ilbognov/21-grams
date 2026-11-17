@@ -987,7 +987,7 @@ document.querySelectorAll(".copy").forEach(btn => {
   btn.addEventListener("click", () => {
     const code = btn.previousElementSibling;
     const done = () => { btn.classList.add("done"); btn.setAttribute("aria-label", "Copied"); clearTimeout(btn.t); btn.t = setTimeout(() => { btn.classList.remove("done"); btn.setAttribute("aria-label", "Copy command"); }, 1400); };
-    const fallback = () => { const s = getSelection(), r = document.createRange(); r.selectNodeContents(code); s.removeAllRanges(); s.addRange(r); };
+    const fallback = () => { const s = getSelection(), r = document.createRange(); r.selectNodeContents(code); s.removeAllRanges(); s.addRange(r); let ok = false; try { ok = document.execCommand("copy"); } catch {} if (ok) { s.removeAllRanges(); done(); } };
     try { navigator.clipboard.writeText(code.textContent).then(done, fallback); } catch { fallback(); }
   });
 });
