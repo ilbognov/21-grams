@@ -1,0 +1,40 @@
+# Charts: line, column, horizontal bar
+
+Use the project's chart library and its configuration (Recharts, visx, Chart.js, ECharts, hand-rolled SVG…); never add a new one. If a data-visualisation skill is installed, load it too.
+
+## Colour
+- **Series colours never borrow the status colours.** Green, amber and red mean healthy, watch and at risk. A series coloured green reads as "good". Use a categorical palette that starts from the brand colour, for example `#0066f5 · #eb6834 · #1baf7a` on white.
+- **One measure, one hue.** A ranked bar chart uses the brand colour for the bar the story is about and a lighter step (`#86b6ef`) for the rest. Never give each bar its own colour.
+- **Check every categorical palette** for colour-blind separation and contrast against the surface (a palette validator or a CVD simulator). A colour under 3:1 against the surface needs direct labels or a table view.
+- Text never wears the series colour. Values and labels use the ink colours, and identity comes from a line key or dot beside the text.
+
+## Marks
+| Mark | Spec |
+|---|---|
+| Line | 2px, round join. End dot r 4 with a 2px white ring |
+| Column / bar | ≤ 24px thick, 4px rounded data end, square at the baseline |
+| Area | series hue at 10% |
+| Grid | 1px solid hairline `rgb(7 29 73 / .08)`; baseline `/ .22` |
+| Ticks | 3–5 clean values (`0%, 0.2%, 0.4%…`, `0, 1,000, 2,000`), 12px muted, tabular figures |
+
+## Labels
+- Label line ends directly with the latest value and the series name. With ≤ 4 series, keep a small line-key legend too.
+- Columns: label only the peak and the latest value. Horizontal bars: value at every tip.
+- Month axis: every 2nd month (3rd on phones) plus the latest. Drop a regular label that would crowd the latest.
+- No rotated axis titles. The card title names the measure, and a one-line subtitle states the takeaway ("Overall rate fell from 0.80% to 0.37% over the year.").
+- Convert awkward units into readable ones: 0.00459% per vial becomes **4.59 per 100,000 vials**. Keep the exact value in the tooltip.
+
+## One scale per chart
+- **Never plot two measures on one axis or on a hidden second axis.** Complaints and vials sold become **two charts that share the x-axis** (small multiples), each with its own scale, aligned so the months line up.
+
+## Interaction
+- Line charts: a crosshair snaps to the nearest month, and one tooltip lists every series (values lead, names follow, line keys).
+- Columns and bars: the mark is the target, lifting slightly on hover. Rows in a horizontal bar chart get a soft hover wash.
+- Linked charts share hover: hovering a month in one highlights it in the other, with a single tooltip.
+- Charts are focusable. Arrow keys move the crosshair and Esc clears it.
+- Every chart offers a **Chart / Table** toggle (segmented control, see toggles.md) with the same numbers.
+
+## Motion
+- Lines draw in over 600ms ease-out, each series 50ms after the last.
+- Columns grow from the baseline and horizontal bars from the left, 400ms ease-out, 30ms apart.
+- Run the draw-in on load and when switching back from Table. Never animate on every hover. Reduced motion means no draw-in.

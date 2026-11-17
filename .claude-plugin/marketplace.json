@@ -1,0 +1,17 @@
+{
+  "name": "21-grams",
+  "owner": {
+    "name": "ilbognov"
+  },
+  "plugins": [
+    {
+      "name": "21-grams",
+      "source": "./",
+      "description": "Uplift UI built by AI so it stops looking AI-generated, using your project's own components.",
+      "version": "1.0.0"
+    }
+  ],
+  "metadata": {
+    "description": "21 Grams: an agent skill that uplifts AI-built UI using your project's own components."
+  }
+}
