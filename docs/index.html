@@ -199,21 +199,15 @@ ul.facts li > span:last-child { min-width: 0; }
   position: absolute; top: 0; bottom: 0; left: var(--pos, 50%); width: 2px; margin-left: -1px;
   background: var(--fg); cursor: ew-resize; touch-action: none; user-select: none; z-index: 2;
 }
-/* only the line and the knob grab; everything else in the stage stays clickable */
-.handle::before { content: ""; position: absolute; top: 50%; left: 50%; width: 44px; height: 44px; transform: translate(-50%, -50%); border-radius: 50%; }
-.handle::after {
-  content: ""; position: absolute; top: 50%; left: 50%; width: 30px; height: 30px; transform: translate(-50%, -50%);
-  border-radius: 50%; background: var(--fg);
-  box-shadow: 0 0 0 4px color-mix(in oklab, var(--bg) 60%, transparent);
-}
-.handle svg { position: absolute; top: 50%; left: 50%; width: 14px; height: 14px; transform: translate(-50%, -50%); z-index: 1; color: var(--bg); pointer-events: none; }
+/* no knob: an invisible 24px strip around the line is the grab area; everything else stays clickable */
+.handle::before { content: ""; position: absolute; top: 0; bottom: 0; left: 50%; width: 24px; transform: translateX(-50%); }
 /* kept for keyboard: Tab to it, arrow keys move the divider */
 .stage input[type="range"] {
   position: absolute; top: 50%; left: var(--pos, 50%); width: 1px; height: 1px; margin: 0; opacity: 0; pointer-events: none;
 }
 .compare-bar .hint { color: var(--faint-text); font-weight: 400; font-size: 12px; }
 @media (max-width: 560px) { .compare-bar .hint { display: none; } }
-.stage:has(input:focus-visible) .handle::after { outline: 2px solid var(--design); outline-offset: 4px; }
+.stage:has(input:focus-visible) .handle { outline: 2px solid var(--design); outline-offset: 3px; }
 
 /* the "AI default" card: what an agent writes unprompted (Tailwind-style) */
 .ai {
@@ -687,7 +681,7 @@ footer { font: 12px/1.6 var(--f-text); color: var(--faint-text); }
 
       <div class="block">
         <h2>Examples</h2>
-        <p>Each one shows what an agent builds by default next to the same thing after one 21 Grams UI pass. Drag the handle to compare, and try both sides: everything in them works.</p>
+        <p>Each one shows what an agent builds by default next to the same thing after one 21 Grams UI pass. Drag the divider to compare, and try both sides: everything in them works.</p>
         <div class="tabs" role="tablist" aria-label="Examples">
           <button type="button" role="tab" id="tab-card" aria-controls="ex-card" aria-selected="true">Card</button>
           <button type="button" role="tab" id="tab-button" aria-controls="ex-button" aria-selected="false" tabindex="-1">Button tap</button>
@@ -698,7 +692,7 @@ footer { font: 12px/1.6 var(--f-text); color: var(--faint-text); }
 
         <div class="ex" id="ex-card" role="tabpanel" aria-labelledby="tab-card">
         <div class="compare">
-          <div class="compare-bar"><span>AI default</span><span class="hint">Drag the handle. Everything inside works.</span><b>21 Grams</b></div>
+          <div class="compare-bar"><span>AI default</span><span class="hint">Drag the divider. Everything inside works.</span><b>21 Grams</b></div>
           <div class="stage" style="--pos: 50%; height: 490px">
             <div class="layer before" aria-label="AI default version">
               <form class="ai" id="ai-invite" novalidate>
@@ -732,7 +726,7 @@ footer { font: 12px/1.6 var(--f-text); color: var(--faint-text); }
                 </div>
               </form>
             </div>
-            <div class="handle"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m6 4-4 4 4 4M10 4l4 4-4 4"/></svg></div>
+            <div class="handle"></div>
             <input type="range" id="cmp-card" min="0" max="100" value="50" aria-label="Compare AI default and 21 Grams invite card">
           </div>
         </div>
@@ -801,11 +795,11 @@ footer { font: 12px/1.6 var(--f-text); color: var(--faint-text); }
 
         <div class="ex" id="ex-chart" role="tabpanel" aria-labelledby="tab-chart" hidden>
           <div class="compare">
-            <div class="compare-bar"><span>AI default</span><span class="hint">Drag the handle. Everything inside works.</span><b>21 Grams</b></div>
+            <div class="compare-bar"><span>AI default</span><span class="hint">Drag the divider. Everything inside works.</span><b>21 Grams</b></div>
             <div class="stage" style="--pos: 50%; height: 350px">
               <div class="layer before"><div class="ai-panel"><h5>Monthly Revenue</h5><p class="ai-sub">Revenue overview for the last 6 months</p><div class="chart" id="ai-chart"></div></div></div>
               <div class="layer after"><div class="tg-panel"><div class="tg-ch"><h5>Monthly revenue</h5><span>Last 6 months</span></div><div class="big">$68k<small>+11% vs Oct</small></div><div class="chart" id="tg-chart"></div><div class="tg-key"><span><i class="on"></i>Selected month</span><span><i></i>Other months</span></div></div></div>
-              <div class="handle"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m6 4-4 4 4 4M10 4l4 4-4 4"/></svg></div>
+              <div class="handle"></div>
               <input type="range" id="cmp-chart" min="0" max="100" value="50" aria-label="Compare AI default and 21 Grams chart">
             </div>
           </div>
@@ -820,7 +814,7 @@ footer { font: 12px/1.6 var(--f-text); color: var(--faint-text); }
 
         <div class="ex" id="ex-table" role="tabpanel" aria-labelledby="tab-table" hidden>
           <div class="compare">
-            <div class="compare-bar"><span>AI default</span><span class="hint">Drag the handle. Everything inside works.</span><b>21 Grams</b></div>
+            <div class="compare-bar"><span>AI default</span><span class="hint">Drag the divider. Everything inside works.</span><b>21 Grams</b></div>
             <div class="stage" style="--pos: 50%; height: 310px">
               <div class="layer before"><div class="ai-tcard"><div class="ai-tcard-top"><h5>Recent Invoices</h5><a href="#ui" onclick="return false">View all →</a></div>
                 <table class="ai-tbl"><thead><tr><th>Customer</th><th>Status</th><th>Amount</th></tr></thead><tbody>
@@ -831,7 +825,7 @@ footer { font: 12px/1.6 var(--f-text); color: var(--faint-text); }
                 </tbody></table></div></div>
               <div class="layer after"><div class="tg-panel"><div class="tg-ph"><h5>Recent invoices</h5><button type="button" class="tg-more">View all<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 4 4 4-4 4"/></svg></button></div>
                 <table class="tg-tbl"><thead><tr><th><button type="button" data-k="c">Customer<svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9.5v-7M3 5.5l3-3 3 3"/></svg></button></th><th><button type="button" data-k="s">Status<svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9.5v-7M3 5.5l3-3 3 3"/></svg></button></th><th class="num"><button type="button" data-k="a">Amount<svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9.5v-7M3 5.5l3-3 3 3"/></svg></button></th></tr></thead><tbody id="tg-rows"></tbody></table></div></div>
-              <div class="handle"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m6 4-4 4 4 4M10 4l4 4-4 4"/></svg></div>
+              <div class="handle"></div>
               <input type="range" id="cmp-table" min="0" max="100" value="50" aria-label="Compare AI default and 21 Grams table">
             </div>
           </div>
