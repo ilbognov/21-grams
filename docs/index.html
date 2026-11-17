@@ -177,7 +177,7 @@ ul.facts li > span:last-child { min-width: 0; }
 
 /* changelog */
 .log { margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; }
-.log li { display: grid; grid-template-columns: 64px 1fr; gap: 14px; padding: 10px 0; border-top: 1px solid var(--line); color: var(--muted); }
+.log li { display: grid; grid-template-columns: 72px 1fr; gap: 14px; padding: 10px 0; border-top: 1px solid var(--line); color: var(--muted); }
 .log li:first-child { border-top: 0; }
 .log .v { font: 500 13px/1.6 var(--f-text); color: var(--fg); font-variant-numeric: tabular-nums; }
 
@@ -532,6 +532,124 @@ footer { font: 12px/1.6 var(--f-text); color: var(--faint-text); }
   ol.changes li { grid-template-columns: 22px 1fr; }
   ol.changes li .chip { grid-column: 2; justify-self: start; }
 }
+
+/* ---------- 21 Grams UX demos ---------- */
+.ux-ctl { display: flex; align-items: center; gap: 16px; font-size: 13px; color: var(--muted); }
+.ux-ctl label { display: inline-flex; align-items: center; gap: 6px; cursor: pointer; }
+.ux-ctl input { accent-color: var(--accent); margin: 0; }
+.ux-link { border: 0; background: none; padding: 4px 0; font: 500 13px/1 var(--f-text); color: var(--accent); cursor: pointer; }
+.ux-link:hover { text-decoration: underline; text-underline-offset: .2em; }
+
+/* AI default bits (Tailwind-style) */
+.ai .ux-ai-h, .ux-ai-ph h4 { text-align: left; }
+.ux-ai-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 6px; min-height: 8px; }
+.ux-ai-list li { display: flex; align-items: center; gap: 10px; padding: 8px 10px; border: 1px solid #e5e7eb; border-radius: 10px; font-size: 13px; }
+.ux-ai-list li > svg { width: 18px; height: 18px; color: #6366f1; flex: none; }
+.ux-ai-list li div { flex: 1; min-width: 0; display: flex; flex-direction: column; }
+.ux-ai-list li small { color: #9ca3af; font-size: 11.5px; }
+.ux-ai-list li button { border: 0; background: none; padding: 4px; color: #ef4444; cursor: pointer; border-radius: 6px; }
+.ux-ai-list li button svg { width: 16px; height: 16px; display: block; }
+.ux-ai-toast {
+  position: absolute; top: 16px; left: 50%; transform: translate(-50%, -8px); opacity: 0; pointer-events: none;
+  display: flex; align-items: center; gap: 8px; background: #fff; color: #111827; padding: 10px 14px; border-radius: 8px;
+  font: 500 13px/1.2 Inter, system-ui, sans-serif; white-space: nowrap;
+  box-shadow: 0 10px 15px -3px rgb(0 0 0 / .1), 0 4px 6px -4px rgb(0 0 0 / .1); transition: all .3s ease-in-out;
+}
+.ux-ai-toast.on { opacity: 1; transform: translate(-50%, 0); }
+.ux-ai-toast svg { width: 18px; height: 18px; color: #22c55e; }
+.ux-ai-who { display: flex; align-items: center; gap: 10px; }
+.ux-ai-who b { display: block; font-size: 13.5px; font-weight: 600; }
+.ux-ai-who small { color: #9ca3af; font-size: 12px; }
+.ux-ai-av { width: 36px; height: 36px; border-radius: 50%; display: grid; place-items: center; background: linear-gradient(135deg, #818cf8, #c084fc); color: #fff; font-size: 12.5px; font-weight: 600; }
+.ai.ux-ai-post p { margin: 0; font-size: 13.5px; line-height: 1.5; color: #374151; }
+.ux-ai-acts { display: flex; align-items: center; gap: 18px; padding-top: 10px; border-top: 1px solid #f3f4f6; color: #6b7280; font-size: 13px; }
+.ux-ai-acts svg { width: 18px; height: 18px; }
+.ux-ai-like, .ux-ai-cm { display: inline-flex; align-items: center; gap: 6px; }
+.ux-ai-like { border: 0; background: none; padding: 0; font: inherit; color: inherit; cursor: pointer; transition: all .3s ease-in-out; }
+.ux-ai-like:hover { color: #ef4444; }
+.ux-ai-like:disabled { opacity: .6; cursor: not-allowed; }
+.ux-ai-like.liked { color: #ef4444; }
+.ux-ai-like.liked svg { fill: currentColor; }
+.ux-ai-like .spin { width: 18px; height: 18px; border: 2px solid #e5e7eb; border-top-color: #6366f1; border-radius: 50%; animation: uxspin .7s linear infinite; box-sizing: border-box; }
+@keyframes uxspin { to { transform: rotate(360deg); } }
+.ux-ai-ph { display: flex; align-items: center; justify-content: space-between; }
+.ux-ai-new { border: 0; border-radius: 8px; background: #4f46e5; color: #fff; padding: 6px 10px; font: 500 12px/1.2 Inter, system-ui, sans-serif; cursor: pointer; }
+.ux-ai-nodata { margin: 6px 0 2px; text-align: center; color: #9ca3af; font-size: 13px; }
+
+/* 21 Grams bits */
+.ux-count { font-size: 12px; color: var(--demo-sub); font-variant-numeric: tabular-nums; }
+.ux-rows { list-style: none; margin: -4px 0 0; padding: 0; display: flex; flex-direction: column; }
+.ux-rows li { display: grid; grid-template-columns: 18px 1fr auto; align-items: center; gap: 10px; min-height: 44px; border-top: 1px solid rgb(0 0 0 / .07); font-size: 13px; }
+.ux-rows li:first-child { border-top: 0; }
+.ux-rows li > svg { width: 18px; height: 18px; color: var(--demo-sub); }
+.ux-rows li > div { min-width: 0; display: flex; flex-direction: column; line-height: 1.35; }
+.ux-rows li > div b { font-weight: 500; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.ux-rows li small { color: var(--demo-sub); font-size: 12px; font-variant-numeric: tabular-nums; }
+.ux-del { width: 32px; height: 32px; margin-right: -6px; border: 0; border-radius: 8px; background: none; color: var(--demo-sub); cursor: pointer; display: grid; place-items: center; transition: background-color .15s, color .15s; }
+.ux-del:hover { background: #f3f3f2; color: #b42318; }
+.ux-del:focus-visible { outline: 2px solid #3b4ce2; outline-offset: 0; }
+.ux-del svg { width: 16px; height: 16px; }
+.ux-rows li.ask { grid-template-columns: 1fr; padding: 8px 0; gap: 8px; }
+.ux-ask { font-size: 13px; line-height: 1.4; }
+.ux-ask-acts { display: flex; gap: 6px; justify-content: flex-end; }
+.ux-btn { display: inline-flex; align-items: center; justify-content: center; height: 32px; padding: 0 12px; border: 0; border-radius: 8px; font: 500 13px/1 var(--f-text); cursor: pointer; background: #f6f6f5; color: var(--demo-ink); transition: background-color .15s, transform .1s cubic-bezier(.2,.7,.2,1); }
+.ux-btn:hover { background: #ededeb; }
+.ux-btn:active { transform: scale(.97); }
+.ux-btn:focus-visible { outline: 2px solid #3b4ce2; outline-offset: 2px; }
+.ux-btn.danger { background: #b42318; color: #fff; }
+.ux-btn.danger:hover { background: #9a1d14; }
+.ux-btn.solid { background: var(--demo-ink); color: #fff; }
+.ux-btn.solid:hover { background: #2e2e33; }
+.ux-empty { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 4px; padding: 14px 8px 6px; font-size: 13px; }
+.ux-empty svg { width: 22px; height: 22px; color: var(--demo-sub); margin-bottom: 4px; }
+.ux-empty b { font-weight: 600; font-size: 14px; }
+.ux-empty span { color: var(--demo-sub); margin-bottom: 8px; }
+.ux-toast {
+  position: absolute; bottom: 16px; left: 50%; display: flex; align-items: center; gap: 12px;
+  background: var(--demo-ink); color: #fff; border-radius: 8px; padding: 0 6px 0 12px; height: 40px; white-space: nowrap;
+  font: 13px/1 var(--f-text); box-shadow: 0 0 0 1px rgb(0 0 0 / .1), 0 10px 24px -10px rgb(0 0 0 / .35);
+  opacity: 0; transform: translate(-50%, 8px) scale(.97); pointer-events: none;
+  transition: opacity .175s ease-in, transform .175s ease-in;
+}
+.ux-toast.on { opacity: 1; transform: translate(-50%, 0); pointer-events: auto; transition: opacity .22s ease-out, transform .22s cubic-bezier(.2,.7,.2,1); }
+.ux-toast button { border: 0; border-radius: 6px; height: 28px; padding: 0 10px; background: rgb(255 255 255 / .12); color: #fff; font: 500 13px/1 var(--f-text); cursor: pointer; }
+.ux-toast button:hover { background: rgb(255 255 255 / .2); }
+.ux-who { display: flex; align-items: center; gap: 10px; }
+.ux-who b { display: block; font-size: 13px; font-weight: 600; line-height: 1.3; }
+.ux-who small { color: var(--demo-sub); font-size: 12px; }
+.ux-av { width: 32px; height: 32px; border-radius: 50%; display: grid; place-items: center; background: #ececea; color: var(--demo-ink); font-size: 12px; font-weight: 600; }
+.tg-in > p.ux-post-text { margin: -4px 0 0; font-size: 13px; line-height: 1.5; color: var(--demo-ink); }
+.ux-acts { display: flex; align-items: center; gap: 4px; margin: -4px 0 0 -8px; color: var(--demo-sub); font-size: 13px; font-variant-numeric: tabular-nums; }
+.ux-like, .ux-cm { display: inline-flex; align-items: center; gap: 6px; height: 32px; padding: 0 8px; }
+.ux-like { border: 0; border-radius: 8px; background: none; font: inherit; color: inherit; cursor: pointer; transition: background-color .15s; }
+.ux-like:hover { background: #f3f3f2; }
+.ux-like:focus-visible { outline: 2px solid #3b4ce2; outline-offset: 0; }
+.ux-like svg, .ux-cm svg { width: 18px; height: 18px; }
+.ux-like svg { transition: transform .15s cubic-bezier(.2,.7,.2,1); }
+.ux-like:active svg { transform: scale(.85); }
+.ux-like[aria-pressed="true"] { color: #c8102e; }
+.ux-like[aria-pressed="true"] svg { fill: currentColor; }
+.ux-like.pop svg { animation: uxpop .3s cubic-bezier(.2,.7,.2,1); }
+@keyframes uxpop { 40% { transform: scale(1.18); } }
+.ux-retry { border: 0; background: none; padding: 0; font: 500 13px/1.35 var(--f-text); color: #b42318; text-decoration: underline; text-underline-offset: .2em; cursor: pointer; }
+.ux-ph { align-items: center; }
+.ux-proj-body { min-height: 176px; display: flex; flex-direction: column; }
+.ux-sk { display: grid; grid-template-columns: 1fr auto; gap: 6px 10px; align-items: center; padding: 11px 0; border-top: 1px solid rgb(0 0 0 / .07); }
+.ux-sk:first-child { border-top: 0; }
+.ux-sk i { display: block; height: 10px; border-radius: 4px; background: #ececea; animation: uxpulse 1.2s ease-in-out infinite; }
+.ux-sk i:nth-child(2) { grid-row: span 2; width: 52px; height: 18px; }
+.ux-sk i:nth-child(3) { width: 45%; height: 8px; }
+@keyframes uxpulse { 50% { opacity: .5; } }
+.ux-tag { font-size: 12px; padding: 3px 7px; border-radius: 4px; min-width: 52px; text-align: center; background: #f1f1ef; color: var(--demo-sub); }
+.ux-tag.live { background: #e7f4ec; color: #16794a; }
+.ux-rows.in li { animation: uxin .22s cubic-bezier(.2,.7,.2,1) backwards; }
+.ux-rows.in li:nth-child(2) { animation-delay: 30ms; } .ux-rows.in li:nth-child(3) { animation-delay: 60ms; } .ux-rows.in li:nth-child(4) { animation-delay: 90ms; }
+@keyframes uxin { from { opacity: 0; transform: translateY(4px); } }
+@media (prefers-reduced-motion: reduce) {
+  .ux-sk i { animation: none; } .ux-like.pop svg { animation: none; }
+  .ux-rows.in li { animation-name: uxfade; } .ux-toast, .ux-toast.on { transform: translate(-50%, 0); }
+}
+@keyframes uxfade { from { opacity: 0; } }
 </style>
 </head>
 <body>
@@ -550,7 +668,7 @@ footer { font: 12px/1.6 var(--f-text); color: var(--faint-text); }
     <div class="nav-group" data-family="design">
       <div class="nav-label">Design</div>
       <a href="#ui"><svg class="px" data-icon="window" aria-hidden="true"></svg><span data-label="21 Grams UI">21 Grams UI</span></a>
-      <a href="#ux"><svg class="px" data-icon="cursor" aria-hidden="true"></svg><span data-label="21 Grams UX">21 Grams UX</span><em class="soon">soon</em></a>
+      <a href="#ux"><svg class="px" data-icon="cursor" aria-hidden="true"></svg><span data-label="21 Grams UX">21 Grams UX</span></a>
     </div>
     <div class="nav-group" data-family="video">
       <div class="nav-label">Video</div>
@@ -601,7 +719,7 @@ footer { font: 12px/1.6 var(--f-text); color: var(--faint-text); }
         <h2>The skills</h2>
         <div class="links">
           <a href="#ui" data-family="design"><svg class="px" data-icon="window" aria-hidden="true"></svg><div><b>21 Grams UI</b><span>Uplifts AI-built interfaces</span></div><i>→</i></a>
-          <a href="#ux" data-family="design"><svg class="px" data-icon="cursor" aria-hidden="true"></svg><div><b>21 Grams UX</b><span>Flows and friction, in progress</span></div><i>→</i></a>
+          <a href="#ux" data-family="design"><svg class="px" data-icon="cursor" aria-hidden="true"></svg><div><b>21 Grams UX</b><span>Fixes the flows of AI-built products</span></div><i>→</i></a>
           <a href="#narrating" data-family="video"><svg class="px" data-icon="mic" aria-hidden="true"></svg><div><b>Narrating</b><span>Kinetic caption edits for talking heads</span></div><i>→</i></a>
           <a href="#picture" data-family="video"><svg class="px" data-icon="picture" aria-hidden="true"></svg><div><b>Picture Telling</b><span>Premium explainer edits with b-roll and cards</span></div><i>→</i></a>
         </div>
@@ -664,7 +782,7 @@ footer { font: 12px/1.6 var(--f-text); color: var(--faint-text); }
       <div class="head">
         <span class="eyebrow">Design family</span>
         <h1><svg class="px" data-icon="window" aria-hidden="true"></svg>21 Grams UI</h1>
-        <span class="tag live">v4.4 · available</span>
+        <span class="tag live">v4.5 · available</span>
         <p class="lede">Uplifts UI that was built by AI so it stops looking AI-generated. It audits a screen against a house style and proven UX and motion principles, then fixes what it finds using what your project already has.</p>
       </div>
 
@@ -860,11 +978,154 @@ footer { font: 12px/1.6 var(--f-text); color: var(--faint-text); }
       <div class="head">
         <span class="eyebrow">Design family</span>
         <h1><svg class="px" data-icon="cursor" aria-hidden="true"></svg>21 Grams UX</h1>
-        <span class="tag soon">in progress</span>
-        <p class="lede">The sibling to UI. Where UI is about how a screen looks and moves, UX is about how a flow works: what the person is trying to do, where they get stuck and how many steps it takes.</p>
+        <span class="tag live">v1.0 · available</span>
+        <p class="lede">Audits and fixes the flows of products built by AI, so they work the way people expect and don't just look finished. It walks the real tasks, finds the dead ends, missing states, silent failures and actions you can't take back, then fixes them with what your project already has.</p>
       </div>
+
       <div class="block">
-        <p>It will ship in the same plugin as the <strong>ux</strong> skill, with its own install command and a before and after example here.</p>
+        <h2>Install</h2>
+        <div class="cmds">
+          <div class="cmd"><code>npx skills add ilbognov/21grams --skill ux</code><button class="copy" type="button" aria-label="Copy command"><svg class="px" data-icon="copy" aria-hidden="true"></svg><svg class="px" data-icon="check" aria-hidden="true"></svg></button></div>
+          <span class="or">or, inside Claude Code</span>
+          <div class="cmd"><code class="slash">/plugin marketplace add ilbognov/21grams</code><button class="copy" type="button" aria-label="Copy command"><svg class="px" data-icon="copy" aria-hidden="true"></svg><svg class="px" data-icon="check" aria-hidden="true"></svg></button></div>
+          <div class="cmd"><code class="slash">/plugin install 21grams@21grams</code><button class="copy" type="button" aria-label="Copy command"><svg class="px" data-icon="copy" aria-hidden="true"></svg><svg class="px" data-icon="check" aria-hidden="true"></svg></button></div>
+        </div>
+        <p>Then ask: “run 21 grams UX on the onboarding flow”. With both skills installed, run UX first: there's no point polishing a step that shouldn't exist.</p>
+      </div>
+
+      <div class="block">
+        <h2>Examples</h2>
+        <p>Each one shows how an agent builds a flow by default next to the same flow after one 21 Grams UX pass. Drag the divider to compare, and try both sides: everything in them works.</p>
+        <div class="tabs" role="tablist" aria-label="UX examples">
+          <button type="button" role="tab" id="tab-uxdel" aria-controls="ux-ex-del" aria-selected="true">Delete</button>
+          <button type="button" role="tab" id="tab-uxlike" aria-controls="ux-ex-like" aria-selected="false" tabindex="-1">Like</button>
+          <button type="button" role="tab" id="tab-uxload" aria-controls="ux-ex-load" aria-selected="false" tabindex="-1">Loading</button>
+        </div>
+
+        <!-- Delete -->
+        <div class="ex" id="ux-ex-del" role="tabpanel" aria-labelledby="tab-uxdel">
+          <div class="compare">
+            <div class="compare-bar"><span>AI default</span><span class="hint">Delete a file, then the folder.</span><b>21 Grams</b></div>
+            <div class="stage" style="--pos: 50%; height: 400px">
+              <div class="layer before" aria-label="AI default version">
+                <div class="ai ux-ai-files">
+                  <h4 class="ux-ai-h">My Files</h4>
+                  <ul class="ux-ai-list" id="ai-files"></ul>
+                </div>
+                <div class="ux-ai-toast" id="ai-files-toast" role="status"><svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M10 18a8 8 0 1 0 0-16 8 8 0 0 0 0 16Zm3.86-9.86a.75.75 0 0 0-1.22-.88l-3.24 4.5-1.6-1.6a.75.75 0 1 0-1.06 1.06l2.22 2.22a.75.75 0 0 0 1.14-.09l3.76-5.21Z"/></svg><span>File deleted successfully!</span></div>
+              </div>
+              <div class="layer after" aria-label="21 Grams version">
+                <div class="tg ux-tg-files">
+                  <div class="tg-in">
+                    <div class="tg-head"><h4>Files</h4><small class="ux-count" id="tg-files-count"></small></div>
+                    <ul class="ux-rows" id="tg-files"></ul>
+                    <div class="ux-empty" id="tg-files-empty" hidden>
+                      <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 3.5h7l4 4V16a.5.5 0 0 1-.5.5h-10A.5.5 0 0 1 4 16V3.5Z"/><path d="M11 3.5v4h4"/></svg>
+                      <b>No files yet</b>
+                      <span>Files you upload show up here.</span>
+                      <button type="button" class="ux-btn" id="tg-files-add">Add sample files</button>
+                    </div>
+                  </div>
+                </div>
+                <div class="ux-toast" id="tg-files-toast" role="status" aria-live="polite"><span></span><button type="button">Undo</button></div>
+              </div>
+              <input type="range" min="0" max="100" value="50" aria-label="Compare AI default and 21 Grams versions">
+              <div class="handle"></div>
+            </div>
+            <div class="ux-ctl"><button type="button" class="ux-link" id="ux-del-reset">Reset both</button></div>
+          </div>
+          <ol class="changes">
+            <li><span>Deleting a file says which one went, with Undo for five seconds. The default shows a cheerful success toast with no way back.</span><span class="chip">destructive</span></li>
+            <li><span>Deleting the folder asks in place and says what goes with it: “Delete Designs and its 12 files?”. The default deletes all twelve without a word.</span><span class="chip">destructive</span></li>
+            <li><span>Deleting the last file leaves an empty state that says what goes here and how to add some, instead of a blank card.</span><span class="chip">states</span></li>
+            <li><span>Each delete button names its file for screen readers (“Delete Q3 report.pdf”), not a bare trash icon.</span><span class="chip">accessibility</span></li>
+          </ol>
+        </div>
+
+        <!-- Like -->
+        <div class="ex" id="ux-ex-like" role="tabpanel" aria-labelledby="tab-uxlike" hidden>
+          <div class="compare">
+            <div class="compare-bar"><span>AI default</span><span class="hint">Tap the heart, then try it with saves failing.</span><b>21 Grams</b></div>
+            <div class="stage" style="--pos: 50%; height: 290px">
+              <div class="layer before" aria-label="AI default version">
+                <div class="ai ux-ai-post">
+                  <div class="ux-ai-who"><span class="ux-ai-av">MK</span><div><b>Maya Kent</b><small>2 hours ago</small></div></div>
+                  <p>First sketches for the new onboarding are up. Feedback welcome!</p>
+                  <div class="ux-ai-acts">
+                    <button type="button" class="ux-ai-like" id="ai-like"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg><span>128</span></button>
+                    <span class="ux-ai-cm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>14</span>
+                  </div>
+                </div>
+              </div>
+              <div class="layer after" aria-label="21 Grams version">
+                <div class="tg ux-tg-post">
+                  <div class="tg-in">
+                    <div class="ux-who"><span class="ux-av">MK</span><div><b>Maya Kent</b><small>2 hours ago</small></div></div>
+                    <p class="ux-post-text">First sketches for the new onboarding are up. Feedback welcome.</p>
+                    <div class="ux-acts">
+                      <button type="button" class="ux-like" id="tg-like" aria-pressed="false" aria-label="Like, 128 likes"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" aria-hidden="true"><path d="M10 16.5s-6.5-3.6-6.5-8.3A3.6 3.6 0 0 1 10 6a3.6 3.6 0 0 1 6.5 2.2c0 4.7-6.5 8.3-6.5 8.3Z"/></svg><span>128</span></button>
+                      <span class="ux-cm"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 5A1.5 1.5 0 0 1 5 3.5h10A1.5 1.5 0 0 1 16.5 5v7a1.5 1.5 0 0 1-1.5 1.5H8l-4.5 3V5Z"/></svg>14</span>
+                    </div>
+                    <div class="tg-err-wrap" id="tg-like-err-wrap"><div class="tg-err" id="tg-like-err" role="alert"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><circle cx="8" cy="8" r="6.25"/><path d="M8 4.8v3.6M8 11.2v.01"/></svg><span>Couldn't save your like. Check your connection. <button type="button" class="ux-retry" id="tg-like-retry">Try again</button></span></div></div>
+                  </div>
+                </div>
+              </div>
+              <input type="range" min="0" max="100" value="50" aria-label="Compare AI default and 21 Grams versions">
+              <div class="handle"></div>
+            </div>
+            <div class="ux-ctl"><label><input type="checkbox" id="ux-fail"> Make saves fail</label></div>
+          </div>
+          <ol class="changes">
+            <li><span>The heart fills and the count goes up the moment you tap. The default waits for the server behind a spinner and ignores taps until it answers.</span><span class="chip">feedback</span></li>
+            <li><span>When a save fails, the like rolls back and says why, with Try again. The default quietly goes back to how it was, so you never learn it didn't save.</span><span class="chip">feedback</span></li>
+            <li><span>The button reports its state to screen readers (pressed, and the count), not just a colour change.</span><span class="chip">accessibility</span></li>
+          </ol>
+        </div>
+
+        <!-- Loading -->
+        <div class="ex" id="ux-ex-load" role="tabpanel" aria-labelledby="tab-uxload" hidden>
+          <div class="compare">
+            <div class="compare-bar"><span>AI default</span><span class="hint">Reload, then try it with no projects.</span><b>21 Grams</b></div>
+            <div class="stage" style="--pos: 50%; height: 340px">
+              <div class="layer before" aria-label="AI default version">
+                <div class="ai ux-ai-proj">
+                  <div class="ux-ai-ph"><h4>Projects</h4><button type="button" class="ux-ai-new" id="ai-proj-new">+ New Project</button></div>
+                  <div id="ai-proj"></div>
+                </div>
+              </div>
+              <div class="layer after" aria-label="21 Grams version">
+                <div class="tg ux-tg-proj">
+                  <div class="tg-in">
+                    <div class="tg-head ux-ph"><h4>Projects</h4><button type="button" class="ux-btn" id="tg-proj-new">New project</button></div>
+                    <div class="ux-proj-body" id="tg-proj" aria-live="polite"></div>
+                  </div>
+                </div>
+              </div>
+              <input type="range" min="0" max="100" value="50" aria-label="Compare AI default and 21 Grams versions">
+              <div class="handle"></div>
+            </div>
+            <div class="ux-ctl"><button type="button" class="ux-link" id="ux-reload">Reload both</button><label><input type="checkbox" id="ux-none"> Return no projects</label></div>
+          </div>
+          <ol class="changes">
+            <li><span>Rows in the list's shape stand in while it loads. The default shows a blank card, which reads as broken.</span><span class="chip">states</span></li>
+            <li><span>The card holds its height while loading, so nothing below it jumps when the rows arrive.</span><span class="chip">states</span></li>
+            <li><span>With no projects, it says what goes here and points to the button that makes one, instead of “No data found.”</span><span class="chip">states</span></li>
+          </ol>
+        </div>
+      </div>
+
+      <div class="block">
+        <h2>What's inside</h2>
+        <ul class="facts">
+          <li><span>Rule zero</span><span>Fixes go through your router, dialogs, toasts and empty states. No new components, no new packages, no change to what the product does.</span></li>
+          <li><span>Laws</span><span>The seven core UX laws: Hick's, Fitts's, Jakob's, Miller's, the Doherty threshold, Tesler's and Postel's.</span></li>
+          <li><span>Rules</span><span>Concrete rules for the moments AI gets wrong: X versus back, no blank loading, scroll restoration, optimistic likes, auto-saved drafts, permissions in context, exact deep links.</span></li>
+          <li><span>Field rules</span><span>26 rules learned from real review sessions on AI-built products, from one control per job to delete scopes and AI proposals. The set grows after every session.</span></li>
+          <li><span>Workflow</span><span>Map the flows, walk them in the browser with the edge cases, audit, then fix and walk them again.</span></li>
+        </ul>
+        <div class="chips" aria-label="Rule areas">
+          <span class="chip">navigation</span><span class="chip">forms</span><span class="chip">states</span><span class="chip">feedback</span><span class="chip">onboarding</span><span class="chip">destructive</span><span class="chip">accessibility</span><span class="chip">flows</span><span class="chip">choice</span>
+        </div>
       </div>
     </article>
 
@@ -910,18 +1171,20 @@ footer { font: 12px/1.6 var(--f-text); color: var(--faint-text); }
         <h1><svg class="px" data-icon="clock" aria-hidden="true"></svg>Changelog</h1>
       </div>
       <ul class="log">
-        <li><span class="v">v4.4.0</span><span>Tables: aligned numbers, hairline rows and real sorting. Action rows without footer trays, two buttons at equal width.</span></li>
-        <li><span class="v">v4.3.0</span><span>Forms: errors sit under their field with an outline, message and icon, and each invalid field shakes once when you submit. Excessive feedback, so nobody misses what to fix.</span></li>
-        <li><span class="v">v4.2.1</span><span>Equal insets for nested controls: the same gap on all four sides.</span></li>
-        <li><span class="v">v4.2.0</span><span>Layout rules: row lists as one table, screen actions top right, a logo ask, raised segmented controls, chart breakdown panels.</span></li>
-        <li><span class="v">v4.1.0</span><span>Mono is for code only, never labels or numbers.</span></li>
-        <li><span class="v">v4.0.0</span><span>The family is now one plugin, <strong>21grams</strong>, with each skill inside it. UI installs as <strong>21grams:ui</strong>.</span></li>
-        <li><span class="v">v3.0.0</span><span>Shorter skill names, ready for UX next to UI.</span></li>
-        <li><span class="v">v2.0.0</span><span>Renamed to <strong>21 Grams UI</strong> and moved into the family repo, ready for UX and video skills.</span></li>
-        <li><span class="v">v1.3.0</span><span>Unslop pass: catches the copy and layout tells of AI-generated UI.</span></li>
-        <li><span class="v">v1.2.0</span><span>Typography rules and specimen picks.</span></li>
-        <li><span class="v">v1.1.0</span><span>Icon rules: one style per group, no mixing across states.</span></li>
-        <li><span class="v">v1.0.0</span><span>First release: house style, 20 principles, 10 hacks, 20 animation crafts.</span></li>
+        <li><span class="v">UX 1.0.0</span><span>First release of <strong>21 Grams UX</strong>: the seven core UX laws, rules for the moments AI gets wrong, and 26 field rules from real review sessions, across nine areas. Installs as <strong>21grams:ux</strong>.</span></li>
+        <li><span class="v">UI 4.5.0</span><span>The success wave: a button that succeeds turns green, says what happened and sends one ring outwards.</span></li>
+        <li><span class="v">UI 4.4.0</span><span>Tables: aligned numbers, hairline rows and real sorting. Action rows without footer trays, two buttons at equal width.</span></li>
+        <li><span class="v">UI 4.3.0</span><span>Forms: errors sit under their field with an outline, message and icon, and each invalid field shakes once when you submit. Excessive feedback, so nobody misses what to fix.</span></li>
+        <li><span class="v">UI 4.2.1</span><span>Equal insets for nested controls: the same gap on all four sides.</span></li>
+        <li><span class="v">UI 4.2.0</span><span>Layout rules: row lists as one table, screen actions top right, a logo ask, raised segmented controls, chart breakdown panels.</span></li>
+        <li><span class="v">UI 4.1.0</span><span>Mono is for code only, never labels or numbers.</span></li>
+        <li><span class="v">UI 4.0.0</span><span>The family is now one plugin, <strong>21grams</strong>, with each skill inside it. UI installs as <strong>21grams:ui</strong>.</span></li>
+        <li><span class="v">UI 3.0.0</span><span>Shorter skill names, ready for UX next to UI.</span></li>
+        <li><span class="v">UI 2.0.0</span><span>Renamed to <strong>21 Grams UI</strong> and moved into the family repo, ready for UX and video skills.</span></li>
+        <li><span class="v">UI 1.3.0</span><span>Unslop pass: catches the copy and layout tells of AI-generated UI.</span></li>
+        <li><span class="v">UI 1.2.0</span><span>Typography rules and specimen picks.</span></li>
+        <li><span class="v">UI 1.1.0</span><span>Icon rules: one style per group, no mixing across states.</span></li>
+        <li><span class="v">UI 1.0.0</span><span>First release: house style, 20 principles, 10 hacks, 20 animation crafts.</span></li>
       </ul>
     </article>
 
@@ -931,7 +1194,7 @@ footer { font: 12px/1.6 var(--f-text); color: var(--faint-text); }
         <span class="eyebrow">More</span>
         <h1><svg class="px" data-icon="plus" aria-hidden="true"></svg>What's next</h1>
       </div>
-      <p>21 Grams UX is the next skill to ship, then Narrating and Picture Telling move into the public repo. After that the family grows where there's a real craft worth writing down. Watch the repo on GitHub to hear when a new one lands.</p>
+      <p>Narrating and Picture Telling are next to move into the public repo. After that the family grows where there's a real craft worth writing down. Watch the repo on GitHub to hear when a new one lands.</p>
     </article>
 
     <footer style="margin-top: 56px">21 Grams · MIT licence</footer>
@@ -1238,6 +1501,149 @@ tgc.innerHTML = tgChart();
   }));
   render();
 }
+
+// ===== 21 Grams UX demos =====
+(() => {
+  const esc = s => s.replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+  const FILES = [
+    { n: "Q3 report.pdf", m: "2.4 MB" },
+    { n: "Designs", m: "Folder · 12 files", folder: true, count: 12 },
+    { n: "Invoice-0142.pdf", m: "180 KB" },
+    { n: "Team photo.jpg", m: "3.1 MB" },
+  ];
+  const AI_FILE = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/></svg>';
+  const AI_DIR = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z"/></svg>';
+  const AI_TRASH = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6h18M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"/></svg>';
+  const TG_FILE = '<svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 3.5h7l4 4V16a.5.5 0 0 1-.5.5H5a.5.5 0 0 1-.5-.5V3.5Z"/><path d="M11.5 3.5v4h4"/></svg>';
+  const TG_DIR = '<svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" aria-hidden="true"><path d="M3 5.5A1.5 1.5 0 0 1 4.5 4h3.3l1.7 2h6A1.5 1.5 0 0 1 17 7.5v7a1.5 1.5 0 0 1-1.5 1.5h-11A1.5 1.5 0 0 1 3 14.5v-9Z"/></svg>';
+  const TG_TRASH = '<svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 5.5h13M8 5.5V4h4v1.5M5.5 5.5l.7 10a1 1 0 0 0 1 .9h5.6a1 1 0 0 0 1-.9l.7-10"/></svg>';
+
+  // --- Delete: AI default ---
+  const aiList = document.getElementById("ai-files"), aiToast = document.getElementById("ai-files-toast");
+  let aiFiles, aiT;
+  const aiRender = () => {
+    aiList.innerHTML = aiFiles.map((f, i) => `<li>${f.folder ? AI_DIR : AI_FILE}<div><span>${esc(f.n)}</span><small>${esc(f.folder ? "Folder" : f.m)}</small></div><button type="button" data-i="${i}">${AI_TRASH}</button></li>`).join("");
+  };
+  aiList.addEventListener("click", e => {
+    const b = e.target.closest("button"); if (!b) return;
+    aiFiles.splice(+b.dataset.i, 1); aiRender();
+    aiToast.classList.add("on"); clearTimeout(aiT); aiT = setTimeout(() => aiToast.classList.remove("on"), 2000);
+  });
+
+  // --- Delete: 21 Grams ---
+  const tgList = document.getElementById("tg-files"), tgEmpty = document.getElementById("tg-files-empty");
+  const tgCount = document.getElementById("tg-files-count"), toast = document.getElementById("tg-files-toast");
+  let tgFiles, asking = -1, last = null, toastT;
+  const tgRender = () => {
+    tgList.innerHTML = tgFiles.map((f, i) => i === asking
+      ? `<li class="ask"><span class="ux-ask">Delete <b>${esc(f.n)}</b> and its ${f.count} files?</span><span class="ux-ask-acts"><button type="button" class="ux-btn" data-cancel>Cancel</button><button type="button" class="ux-btn danger" data-confirm="${i}">Delete folder</button></span></li>`
+      : `<li>${f.folder ? TG_DIR : TG_FILE}<div><b>${esc(f.n)}</b><small>${esc(f.m)}</small></div><button type="button" class="ux-del" data-i="${i}" aria-label="Delete ${esc(f.n)}">${TG_TRASH}</button></li>`).join("");
+    tgEmpty.hidden = tgFiles.length > 0;
+    tgCount.textContent = tgFiles.length ? `${tgFiles.length} item${tgFiles.length === 1 ? "" : "s"}` : "";
+  };
+  const hideToast = () => toast.classList.remove("on");
+  const remove = i => {
+    const [f] = tgFiles.splice(i, 1); last = { f, i }; asking = -1; tgRender();
+    toast.querySelector("span").textContent = `Deleted ${f.n}${f.folder ? ` and ${f.count} files` : ""}`;
+    toast.classList.add("on"); clearTimeout(toastT); toastT = setTimeout(hideToast, 5000);
+    const next = tgList.querySelectorAll(".ux-del")[Math.min(i, tgFiles.length - 1)];
+    (next || document.getElementById("tg-files-add")).focus({ preventScroll: true });
+  };
+  tgList.addEventListener("click", e => {
+    const b = e.target.closest("button"); if (!b) return;
+    if (b.hasAttribute("data-cancel")) { const i = asking; asking = -1; tgRender(); tgList.querySelector(`[data-i="${i}"]`)?.focus({ preventScroll: true }); return; }
+    if (b.dataset.confirm) return remove(+b.dataset.confirm);
+    const i = +b.dataset.i;
+    if (tgFiles[i].folder) { asking = i; tgRender(); tgList.querySelector("[data-cancel]").focus({ preventScroll: true }); }
+    else remove(i);
+  });
+  toast.querySelector("button").addEventListener("click", () => {
+    if (!last) return;
+    tgFiles.splice(last.i, 0, last.f); last = null; hideToast(); tgRender();
+  });
+  document.getElementById("tg-files-add").addEventListener("click", () => { tgFiles = FILES.map(f => ({ ...f })); tgRender(); });
+  const resetDel = () => {
+    aiFiles = FILES.map(f => ({ ...f })); tgFiles = FILES.map(f => ({ ...f }));
+    asking = -1; last = null; hideToast(); aiToast.classList.remove("on"); aiRender(); tgRender();
+  };
+  document.getElementById("ux-del-reset").addEventListener("click", resetDel);
+  resetDel();
+
+  // --- Like ---
+  const fail = document.getElementById("ux-fail");
+  const aiLike = document.getElementById("ai-like");
+  const HEART = aiLike.querySelector("svg").outerHTML;
+  let aiLiked = false, aiN = 128;
+  aiLike.addEventListener("click", () => {
+    if (aiLike.disabled) return;
+    aiLike.disabled = true; aiLike.innerHTML = `<span class="spin"></span><span>${aiN}</span>`;
+    setTimeout(() => {
+      if (!fail.checked) { aiLiked = !aiLiked; aiN += aiLiked ? 1 : -1; } // on failure: nothing, no message
+      aiLike.classList.toggle("liked", aiLiked);
+      aiLike.innerHTML = `${HEART}<span>${aiN}</span>`; aiLike.disabled = false;
+    }, 1000);
+  });
+
+  const tgLike = document.getElementById("tg-like"), errWrap = document.getElementById("tg-like-err-wrap");
+  let liked = false, n = 128, req = 0;
+  const paint = () => {
+    tgLike.setAttribute("aria-pressed", liked);
+    tgLike.setAttribute("aria-label", `Like, ${n} likes`);
+    tgLike.querySelector("span").textContent = n;
+  };
+  const toggle = () => {
+    errWrap.classList.remove("open");
+    liked = !liked; n += liked ? 1 : -1; paint();
+    if (liked) { tgLike.classList.remove("pop"); void tgLike.offsetWidth; tgLike.classList.add("pop"); }
+    const id = ++req, was = !liked;
+    setTimeout(() => {
+      if (id !== req || !fail.checked) return;
+      liked = was; n += was ? 1 : -1; paint();
+      errWrap.classList.add("open");
+    }, 700);
+  };
+  tgLike.addEventListener("click", toggle);
+  document.getElementById("tg-like-retry").addEventListener("click", () => { toggle(); tgLike.focus({ preventScroll: true }); });
+
+  // --- Loading ---
+  const PROJ = [
+    { n: "Onboarding redesign", m: "Updated 2 hours ago", s: "Active" },
+    { n: "Billing settings", m: "Updated yesterday", s: "Draft" },
+    { n: "Mobile nav", m: "Updated 3 days ago", s: "Active" },
+  ];
+  const none = document.getElementById("ux-none");
+  const aiBox = document.getElementById("ai-proj"), tgBox = document.getElementById("tg-proj");
+  let aiP = [], tgP = [], loadT;
+  const aiPaint = () => {
+    aiBox.innerHTML = aiP.length
+      ? `<ul class="ux-ai-list">${aiP.map(p => `<li>${AI_DIR}<div><span>${esc(p.n)}</span><small>${esc(p.m)}</small></div></li>`).join("")}</ul>`
+      : '<p class="ux-ai-nodata">No data found.</p>';
+  };
+  const tgPaint = (anim) => {
+    tgBox.innerHTML = tgP.length
+      ? `<ul class="ux-rows${anim ? " in" : ""}">${tgP.map(p => `<li>${TG_DIR}<div><b>${esc(p.n)}</b><small>${esc(p.m)}</small></div><span class="ux-tag${p.s === "Active" ? " live" : ""}">${p.s}</span></li>`).join("")}</ul>`
+      : `<div class="ux-empty">${TG_DIR}<b>No projects yet</b><span>Projects you create show up here. Start one with New project.</span></div>`;
+  };
+  const load = () => {
+    clearTimeout(loadT);
+    aiBox.innerHTML = "";
+    tgBox.innerHTML = '<div class="ux-sk"><i></i><i></i><i></i></div>'.repeat(3);
+    tgBox.setAttribute("aria-busy", "true");
+    loadT = setTimeout(() => {
+      aiP = none.checked ? [] : PROJ.map(p => ({ ...p })); tgP = aiP.map(p => ({ ...p }));
+      aiPaint(); tgPaint(true); tgBox.removeAttribute("aria-busy");
+    }, 1600);
+  };
+  const add = (list, paintFn) => { list.unshift({ n: "Untitled project", m: "Just now", s: "Draft" }); if (list.length > 3) list.length = 3; paintFn(); };
+  document.getElementById("ai-proj-new").addEventListener("click", () => add(aiP, aiPaint));
+  document.getElementById("tg-proj-new").addEventListener("click", () => add(tgP, () => tgPaint(false)));
+  document.getElementById("ux-reload").addEventListener("click", load);
+  none.addEventListener("change", load);
+  aiP = PROJ.map(p => ({ ...p })); tgP = PROJ.map(p => ({ ...p })); aiPaint(); tgPaint(false);
+  // replay the load whenever the Loading tab opens
+  const panel = document.getElementById("ux-ex-load");
+  new MutationObserver(() => { if (!panel.hidden) load(); }).observe(panel, { attributes: true, attributeFilter: ["hidden"] });
+})();
 </script>
 </body>
 </html>
