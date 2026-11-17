@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.1.0 — 2026-11-17
+
+- New `rules/icons.md`: one icon style (line, solid or duotone), never mixed within a menu, nav, toolbar, list or card, and unchanged across states. One library, one stroke width, one size per group.
+
 ## 1.0.1 — 2026-11-17
 
 - Replaced project-specific examples in the type, chart and toggle rules with neutral ones.

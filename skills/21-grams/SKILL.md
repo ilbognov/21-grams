@@ -22,7 +22,7 @@ Every change goes through what the project already uses. 21 Grams never builds a
 
 ## What's inside
 
-1. **House style.** Eight areas in `rules/`: `radius.md` (12/8/4 nested), `buttons.md` (36px, .97 press), `motion.md` (smooth, from the trigger, no bounce), `type.md` (tight, few sizes), `spacing.md` (grouped 4pt), `colour.md` (one accent, AA), `elevation.md` (tonal fills), `copy.md` (plain and helpful). Plus two component files: `charts.md` (line, column and horizontal bars) and `toggles.md` (switch and segmented control). Default values are in `tokens/tokens.css`.
+1. **House style.** Eight areas in `rules/`: `radius.md` (12/8/4 nested), `buttons.md` (36px, .97 press), `motion.md` (smooth, from the trigger, no bounce), `type.md` (tight, few sizes), `spacing.md` (grouped 4pt), `colour.md` (one accent, AA), `elevation.md` (tonal fills), `copy.md` (plain and helpful). Plus three component files: `icons.md` (one style, line, solid or duotone, never mixed), `charts.md` (line, column and horizontal bars) and `toggles.md` (switch and segmented control). Default values are in `tokens/tokens.css`.
 2. **The 20 principles.** UX and animation principles in `references/principles.md`.
 3. **The 10 design hacks.** CSS-level craft details in `references/design-hacks.md`.
 4. **The 20 animation crafts.** Implementation-level motion rules (origins, durations, stagger, press, drag, shared layout) in `references/animation-craft.md`.
@@ -32,7 +32,7 @@ If a data-visualisation skill is installed, load it as well whenever a chart is 
 ## Workflow
 
 1. **Take the inventory** (rule zero). If the project has no design system at all, say so and use the house-style defaults.
-2. **Audit before changing anything.** Go through the screen or component and list findings grouped by area (radius … copy), principle number, hack number and craft number. Use the checklists at the end of `references/principles.md`, `references/design-hacks.md` and `references/animation-craft.md`. Each finding gets the file and line, what is wrong, the fix, and **which existing component or token the fix goes into**. Flag every place where a 21 Grams rule conflicts with the project's design system, so the user can decide which wins.
+2. **Audit before changing anything.** Go through the screen or component and list findings grouped by area (radius … copy), principle number, hack number and craft number. Use the checklists at the end of `references/principles.md`, `references/design-hacks.md`, `references/animation-craft.md` and `rules/icons.md`. Each finding gets the file and line, what is wrong, the fix, and **which existing component or token the fix goes into**. Flag every place where a 21 Grams rule conflicts with the project's design system, so the user can decide which wins.
 3. **Show the audit to the user** as a short list and ask before applying broad changes. Small, obvious fixes in the requested scope can go straight in.
 4. **Apply the fixes** in this order: tokens → shared components → screens. Keep diffs scoped to what was audited and in the project's own conventions (formatting, lint, naming).
 5. **Verify in the browser.** Before and after screenshots of each changed screen. Check hover, press, focus, loading, error, both themes and reduced motion. Measure button and text contrast; don't eyeball it. For motion, record the before and after if possible. A before/after page with a draggable divider and working interactions on both sides is the clearest way to review an uplift.
@@ -48,6 +48,7 @@ If a data-visualisation skill is installed, load it as well whenever a chart is 
 - Spacing: 4pt scale. Tighter inside groups than between them (4 / 6 / 16 / 24–32 / 48). Select chevron 12px from the right, padding-right 36px.
 - Colour: one accent (actions, focus, selection), status colours separate, **button text ≥ 4.5:1 in both themes** with `--on-accent` per theme.
 - Elevation: resting surfaces are a fill step with no border or shadow. Only floating layers get a ring and shadow. Dark mode is lighter per layer.
+- **Icons: one style per product, line, solid or duotone, and never mixed in a menu, nav, toolbar, list or card. Selected states change colour, not icon style. One icon library, one stroke width, one size per group.**
 - Copy: verb + object buttons, errors with cause and fix, sentence case, no emoji, no hype words.
 
 ## Non-negotiables (from the 20 principles)
@@ -86,7 +87,7 @@ If a data-visualisation skill is installed, load it as well whenever a chart is 
 
 ## AI tells to remove
 
-Indigo-to-violet gradients, gradient text, coloured glow shadows, the same 16px radius on everything (inner radius equal to outer), pill buttons beside rounded inputs, hover scale-up on cards and buttons, 300ms ease-in-out on everything, fade-up on page load, uniform `p-6 gap-6`, cards inside cards, shadow plus border plus radius on every block, grey-500 for all secondary text, emoji in headings, and copy like "Unlock", "Supercharge", "Seamless" or "Oops!".
+Mixed icon styles (a solid house beside an outline folder, an outline icon that turns solid when selected), two icon libraries on one screen, indigo-to-violet gradients, gradient text, coloured glow shadows, the same 16px radius on everything (inner radius equal to outer), pill buttons beside rounded inputs, hover scale-up on cards and buttons, 300ms ease-in-out on everything, fade-up on page load, uniform `p-6 gap-6`, cards inside cards, shadow plus border plus radius on every block, grey-500 for all secondary text, emoji in headings, and copy like "Unlock", "Supercharge", "Seamless" or "Oops!".
 
 ## Credits
 

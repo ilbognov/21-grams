@@ -55,7 +55,7 @@ background: linear-gradient(90deg in oklch, #2563eb, #f59e0b);
 .nav .active svg { stroke-width: 2.4; } /* 600 text */
 ```
 Compare at 4× zoom: an icon stem should be about as thick as a letter stem in the same row.
-**Flag:** Hairline icons beside medium or semibold labels. Mixed stroke widths across one icon set.
+**Flag:** Hairline icons beside medium or semibold labels. Mixed stroke widths across one icon set. Mixed styles (line, solid, duotone) in one group, see `rules/icons.md`.
 
 ### 6. Masked edges
 **Rule:** Fade the edges of horizontal scrollers instead of slicing content.
