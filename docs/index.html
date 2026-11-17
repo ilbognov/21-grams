@@ -76,7 +76,7 @@ a { color: inherit; }
   transition: background-color .15s, color .15s;
 }
 .nav a:hover { background: var(--hover); color: var(--fg); }
-.nav a[aria-current="page"] { color: var(--fg); background: var(--hover); }
+.nav a[aria-current="page"] { color: var(--fg); background: var(--bg); box-shadow: 0 0 0 1px var(--line), 0 1px 2px rgb(0 0 0 / .06); }
 .nav a[aria-current="page"] .px { color: var(--accent, var(--fg)); }
 .nav a .soon { margin-left: auto; font: normal 12px/1 var(--f-text); color: var(--faint); }
 .px { width: 16px; height: 16px; flex: none; color: currentColor; shape-rendering: crispEdges; }
