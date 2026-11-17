@@ -7,11 +7,11 @@
     {
       "name": "21grams",
       "source": "./",
-      "version": "4.5.0",
-      "description": "The 21 Grams scales as skills: ui (available), ux (coming). Each works through your project's own components."
+      "version": "4.6.0",
+      "description": "The 21 Grams scales as skills: ui (available), ux (available). Each works through your project's own components."
     }
   ],
   "metadata": {
-    "description": "21 Grams: agent skills that make AI-built products look and feel considered. Starts with 21 Grams UI; a UX package is coming."
+    "description": "21 Grams: agent skills that make AI-built products look and feel considered. Two scales: 21 Grams UI and 21 Grams UX."
   }
 }

@@ -12,6 +12,22 @@ Full rule, how to apply it and what to flag: `references/rules.md`.
 
 - **#11** Likes, follows and saves update immediately, then sync in the background.
 
+## Field rules
+Learned from real passes: `references/field-rules.md`.
+
+- **F4** Hover popovers present a breakdown as a structured panel.
+- **F12** Quick actions confirm in place at the same width.
+- **F21** The cursor says what will happen.
+- **F23** AI proposals stay provisional until accepted.
+- **F24** Show what the AI is doing, on request.
+- **F25** Show who else is here.
+
 ## Audit checklist
 - [ ] A5
 - [ ] #11
+- [ ] F4
+- [ ] F12
+- [ ] F21
+- [ ] F23
+- [ ] F24
+- [ ] F25

@@ -7,7 +7,15 @@ Full law, how to apply it and what to flag: `references/laws.md`.
 
 - **A6** Tesler's Law: the product carries the complexity with defaults, inference and templates; advanced control stays reachable.
 
-## Rules
+## Field rules
+Learned from real passes: `references/field-rules.md`.
+
+- **F9** No version numbers, design notes or internal jargon on screen; one form of address.
+- **F10** New UI stays inside the product's stated scope.
+- **F13** No step that repeats the choice that opened it.
 
 ## Audit checklist
 - [ ] A6
+- [ ] F9
+- [ ] F10
+- [ ] F13

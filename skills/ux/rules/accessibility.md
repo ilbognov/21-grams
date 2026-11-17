@@ -7,7 +7,13 @@ Full law, how to apply it and what to flag: `references/laws.md`.
 
 - **A2** Fitts's Law: the primary action is large and close; 44×44 touch targets; destructive actions kept apart.
 
-## Rules
+## Field rules
+Learned from real passes: `references/field-rules.md`.
+
+- **F5** Never remove the only keyboard, touch or screen-reader path.
+- **F20** Shortcuts are shown and don't fight the browser.
 
 ## Audit checklist
 - [ ] A2
+- [ ] F5
+- [ ] F20

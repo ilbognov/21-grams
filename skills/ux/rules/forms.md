@@ -12,6 +12,14 @@ Full rule, how to apply it and what to flag: `references/rules.md`.
 
 - **#12** Drafts and unfinished input save automatically, so going back doesn't erase them.
 
+## Field rules
+Learned from real passes: `references/field-rules.md`.
+
+- **F15** Inline edits save themselves.
+- **F26** Waits and cooldowns live on the control; confirmations echo the input.
+
 ## Audit checklist
 - [ ] A7
 - [ ] #12
+- [ ] F15
+- [ ] F26

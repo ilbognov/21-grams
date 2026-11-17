@@ -1,6 +1,6 @@
 ---
 name: ux
-description: Audit and fix the flows and usability of a product built by AI, so it works the way people expect and not just looks finished, using the project's own components and patterns. Use when the user asks for "21 grams UX" (or "twenty-one grams UX"), wants a flow, journey or screen audited for usability, or asks to fix back and close behaviour, scroll restoration, infinite feeds, optimistic likes and saves, draft saving, permission prompts, bottom sheets, deep links, navigation, forms, empty, loading and error states, feedback, onboarding, destructive actions, accessibility and keyboard use, task length or choice overload in an existing frontend, or wants a flow checked against UX laws (Hick's, Fitts's, Jakob's, Miller's, Doherty Threshold, Tesler's, Postel's).
+description: Audit and fix the flows and usability of a product built by AI, so it works the way people expect and not just looks finished, using the project's own components and patterns. Use when the user asks for "21 grams UX" (or "twenty-one grams UX"), wants a flow, journey or screen audited for usability, or asks to fix back and close behaviour, scroll restoration, infinite feeds, optimistic likes and saves, draft saving, permission prompts, bottom sheets, deep links, navigation, forms, empty, loading and error states, feedback, onboarding, destructive actions, accessibility and keyboard use, task length or choice overload in an existing frontend, AI proposals and accept/reject flows, contextual toolbars, delete scopes, keyboard shortcuts, collaboration presence, or wants a flow checked against UX laws (Hick's, Fitts's, Jakob's, Miller's, Doherty Threshold, Tesler's, Postel's).
 ---
 
 # 21 Grams UX
@@ -25,7 +25,8 @@ Every change goes through what the project already uses. 21 Grams UX never build
 
 1. **The UX laws.** The knowledge the rules come from, in `references/laws.md`, cited as A1, A2… by section. Section A is the core laws: Hick's, Fitts's, Jakob's, Miller's, the Doherty Threshold, Tesler's and Postel's. When no rule covers a case, reason from the laws.
 2. **The UX rules.** Numbered rules in `references/rules.md`, each with the rule, how to apply it and what to flag, plus a quick audit checklist. Written mobile-first and applied to the web too (primary nav for "bottom tab", popover for "bottom sheet" on desktop).
-3. **House rules by area** in `rules/`, one file per area, each listing the laws and numbered rules that belong to it:
+3. **Field rules.** Rules learned from real review sessions on AI-built products, in `references/field-rules.md`, cited as F1, F2…. This file grows after every session (see "Growing the field rules").
+4. **House rules by area** in `rules/`, one file per area, each listing the laws, numbered rules and field rules that belong to it:
 
 | File | Area |
 |---|---|
@@ -39,7 +40,7 @@ Every change goes through what the project already uses. 21 Grams UX never build
 | `flows.md` | Flows and task length |
 | `choice.md` | Choice and cognitive load |
 
-> **Draft.** Laws section A and rules 6–15 are in; rules 1–5, any further law sections and the destructive-actions area are still to come. Until an area has rules, audit it on general usability judgement and say so in the report.
+> Rules #1–5 are reserved and will be added in a later version. Until an area has rules, audit it on general usability judgement and say so in the report.
 
 ## Non-negotiables
 
@@ -60,14 +61,35 @@ Every change goes through what the project already uses. 21 Grams UX never build
 - Every input is acknowledged at once; longer waits show progress. (A5)
 - The product carries the complexity, not the person. (A6)
 - Accept messy input and echo it clean, but never loosen security or data integrity. (A7)
+- One control per job. (F1)
+- Screen actions grouped top right, primary in the corner, never mixed with selectors. (F2)
+- Secondary detail on demand, never lost; never remove the only accessible path to it. (F3, F5)
+- Each fact said once; no version numbers, design notes or internal jargon on screen. (F6, F9)
+- When an interaction changes, every hint describing it changes too. (F8)
+- New UI never claims more than the product's stated scope. (F10)
+- No step that repeats the choice that opened it; one option means just do it. (F13, F17)
+- One selection, one contextual toolbar, gone on click-away. (F16)
+- Everything that can be added can be removed, and a delete shows what it will take. (F18, F19)
+- Shortcuts are shown in tooltips and never use browser-reserved keys. (F20)
+- AI proposals look provisional, use one accept/reject pattern, and accept instantly. (F23)
 
 ## Workflow
 
 1. **Take the inventory** (rule zero).
 2. **Map the flows.** List the main tasks a person comes to do, and for each one the route through the product: entry point, every step, every branch, the end state. Note where each step's data comes from.
 3. **Walk each flow in the browser,** not just the code. Try the happy path, then the edges: nothing there yet, slow network, a failed request, invalid input, going back, refreshing mid-flow, keyboard only, a narrow screen.
-4. **Audit before changing anything.** Go through the checklists at the end of `references/rules.md` and `references/laws.md` and the area files. List findings grouped by area, rule number and law. Each finding gets the flow and step, the file and line, what goes wrong for the person, the fix, and **which existing component or pattern the fix goes into**. Rank them: blocks the task, slows the task, rough edge.
+4. **Audit before changing anything.** Go through the checklists at the end of `references/rules.md`, `references/laws.md` and `references/field-rules.md`, and the area files. List findings grouped by area, rule number and law. Each finding gets the flow and step, the file and line, what goes wrong for the person, the fix, and **which existing component or pattern the fix goes into**. Rank them: blocks the task, slows the task, rough edge.
 5. **Show the audit to the user** as a short list and ask before applying broad changes. Small, obvious fixes in the requested scope can go straight in.
 6. **Apply the fixes** in this order: shared components and patterns → flows → individual screens. Keep diffs scoped and in the project's own conventions.
 7. **Verify by walking the flows again** in the browser, including the edge cases from step 3. Capture before and after for each changed step.
 8. **Report** what changed per flow and area, which components were touched, and the open questions that are product decisions.
+
+## Growing the field rules
+
+21 Grams UX learns from real work. When the author finishes a review session on an AI-built product and asks for it to be added:
+
+1. Read that session's conversation and list every change the author asked for or accepted.
+2. Keep the UX changes (flow, structure, placement, states, feedback, copy that guides people, accessibility paths). Visual changes (radius, colour, type, icons, motion) belong to 21 Grams UI.
+3. Write each one as a general rule: the rule, how to apply it through the project's own components, and what to flag. No client names, product names or private content.
+4. If a rule refines an existing one, update that rule instead of adding a new one.
+5. Add new rules to `references/field-rules.md` under a session heading, continue the F numbering, and list them in the right area files.

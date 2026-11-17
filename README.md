@@ -11,7 +11,7 @@ A guided tour of every scale, with live AI-vs-21 Grams examples you can click: [
 | Scale | What it does | Status | Docs |
 |---|---|---|---|
 | **ui** | Uplifts UI built by AI so it stops looking AI-generated: house style, icons, charts, toggles, UX and animation principles, design and typography hacks, unslop rules | Available | [README](skills/ui/README.md) · [Changelog](skills/ui/CHANGELOG.md) |
-| **ux** | Audits and fixes the flows and usability of AI-built products: navigation, forms, empty/loading/error states, feedback, onboarding, destructive actions, accessibility, task length, choice | In progress | [README](skills/ux/README.md) · [Changelog](skills/ux/CHANGELOG.md) |
+| **ux** | Audits and fixes the flows and usability of AI-built products: navigation, forms, empty/loading/error states, feedback, onboarding, destructive actions, accessibility, task length, choice | Available | [README](skills/ux/README.md) · [Changelog](skills/ux/CHANGELOG.md) |
 
 ## Install
 
@@ -19,6 +19,7 @@ A guided tour of every scale, with live AI-vs-21 Grams examples you can click: [
 
 ```bash
 npx skills add ilbognov/21grams --skill ui
+npx skills add ilbognov/21grams --skill ux
 ```
 
 **Claude Code plugin** (installs every scale; they show up as `21grams:ui`, `21grams:ux`…):
