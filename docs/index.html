@@ -248,8 +248,8 @@ ul.facts li > span:last-child { min-width: 0; }
 .tg-in { padding: 14px 14px 12px; display: flex; flex-direction: column; gap: 14px; }
 .tg-head { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; }
 .tg-head h4 { margin: 0; font-size: 15px; font-weight: 600; letter-spacing: -.01em; }
-.tg-head span { font-size: 12px; color: var(--demo-sub); font-variant-numeric: tabular-nums; white-space: nowrap; }
-.tg-in > p { font-size: 13px; line-height: 1.5; color: var(--demo-sub); margin-top: -8px; }
+.tg-seats { display: block; margin-top: -4px; text-align: center; font-size: 12px; line-height: 1.4; color: var(--demo-sub); font-variant-numeric: tabular-nums; }
+.tg-in > p { font-size: 13px; line-height: 1.5; color: var(--demo-sub); margin-top: -12px; }
 .tg-field { display: flex; flex-direction: column; gap: 6px; }
 .tg-field label { font-size: 12px; font-weight: 500; }
 .tg-input {
@@ -382,8 +382,8 @@ ol.changes li .chip { font-size: 11px; padding: 3px 6px; white-space: nowrap; }
 .ai-row2 + .ai-row2 { border-top: 1px solid #e5e7eb; }
 .ai-sw { position: relative; flex: none; width: 44px; height: 24px; }
 .ai-sw input { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0; margin: 0; cursor: pointer; z-index: 1; }
-.ai-sw i { position: absolute; inset: 0; border-radius: 999px; background: #e5e7eb; transition: all .3s ease-in-out; }
-.ai-sw i::after { content: ""; position: absolute; top: 2px; left: 2px; width: 20px; height: 20px; border-radius: 50%; background: #fff; box-shadow: 0 1px 3px rgb(0 0 0 / .2); transition: all .3s ease-in-out; }
+.ai-sw i { position: absolute; inset: 0; border-radius: 999px; background: #e5e7eb; }
+.ai-sw i::after { content: ""; position: absolute; top: 2px; left: 2px; width: 20px; height: 20px; border-radius: 50%; background: #fff; box-shadow: 0 1px 3px rgb(0 0 0 / .2); }
 .ai-sw input:checked + i { background: #4f46e5; }
 .ai-sw input:checked + i::after { transform: translateX(20px); }
 .tg-set {
@@ -714,7 +714,7 @@ footer { font: 12px/1.6 var(--f-text); color: var(--faint-text); }
             <div class="layer after" aria-label="21 Grams version">
               <form class="tg" id="tg-invite" novalidate>
                 <div class="tg-in">
-                  <div class="tg-head"><h4>Invite your team</h4><span id="tg-seats">3 of 5 seats left</span></div>
+                  <div class="tg-head"><h4>Invite your team</h4></div>
                   <p>They'll get an email with a link to join Northwind Studio.</p>
                   <div class="tg-field">
                     <label for="tg-email">Email</label>
@@ -726,6 +726,7 @@ footer { font: 12px/1.6 var(--f-text); color: var(--faint-text); }
                     <div class="tg-input sel"><select id="tg-role"><option>Editor</option><option>Viewer</option><option>Admin</option></select><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="m4.5 6.5 3.5 3.5 3.5-3.5"/></svg></div>
                   </div>
                   <div class="tg-actions"><button type="reset" class="quiet">Cancel</button><button type="submit" class="primary">Send invite</button></div>
+                  <small class="tg-seats" id="tg-seats" aria-live="polite">You have 3 seats remaining</small>
                 </div>
               </form>
             </div>
@@ -738,7 +739,7 @@ footer { font: 12px/1.6 var(--f-text); color: var(--faint-text); }
           <li><span>A full-width indigo button with a text “Cancel” under it became two equal buttons side by side, Cancel as a quiet grey fill, 32px below the last field.</span><span class="chip">buttons</span></li>
           <li><span>Outer radius 14, inner 8 with 6px padding, so the corners nest. The default puts 8px inputs in a 16px card with 20px padding.</span><span class="chip">radius</span></li>
           <li><span>A border plus a large shadow became an alpha border and a soft, neutral shadow.</span><span class="chip">elevation</span></li>
-          <li><span>The seat count sits next to the title instead of in a footer line.</span><span class="chip">layout</span></li>
+          <li><span>The seat count is one quiet line under the buttons, and it drops with each invite. The default’s count never changes.</span><span class="chip">type</span></li>
           <li><span>Send it empty. The default shows a red banner at the top and leaves focus on the button. Here the email field shakes once, with the message under it, and focus moves there.</span><span class="chip">forms</span></li>
           <li><span>A good send shows “Sending”, then “Invited” in green with one ring, and the seat count drops. The default swaps its label to “Sending...”, then shows a green “Invitation sent successfully!” banner that pushes the form down, and the seat count stays at 3.</span><span class="chip">feedback</span></li>
         </ol>
@@ -749,7 +750,7 @@ footer { font: 12px/1.6 var(--f-text); color: var(--faint-text); }
             <div class="pane">
               <span class="pane-label">AI default</span>
               <div class="pane-stage"><button class="ai-btn" type="button">Save Changes</button></div>
-              <p class="pane-note">Tap it. It lifts on hover, has no press state, changes width when it says “Saving...”, then goes back with no sign it saved.</p>
+              <p class="pane-note">Tap it. It lifts on hover, has no press state, says “Saving...”, then goes back with no sign it saved.</p>
             </div>
             <div class="pane good">
               <span class="pane-label">21 Grams</span>
@@ -759,7 +760,7 @@ footer { font: 12px/1.6 var(--f-text); color: var(--faint-text); }
           </div>
           <ol class="changes">
             <li><span>Press feedback in 100ms with a 3% scale-in. The default has none, only a 300ms lift on hover.</span><span class="chip">motion</span></li>
-            <li><span>It keeps its width, shows a spinner, then confirms: it turns green, says “Saved” and sends out one ring. The default jumps in width for “Saving...” and goes back to “Save Changes” as if nothing happened.</span><span class="chip">buttons</span></li>
+            <li><span>It shows a spinner, then confirms: it turns green, says “Saved” and sends out one ring. The default says “Saving...” and goes back to “Save Changes” as if nothing happened.</span><span class="chip">buttons</span></li>
             <li><span>“Save changes” in sentence case.</span><span class="chip">copy</span></li>
             <li><span>Hover is a small change in tone. No lift and no coloured shadow.</span><span class="chip">elevation</span></li>
           </ol>
@@ -775,7 +776,7 @@ footer { font: 12px/1.6 var(--f-text); color: var(--faint-text); }
                   <div class="ai-row2"><span>Weekly Digest</span><label class="ai-sw"><input type="checkbox" id="ai-t2" aria-label="Weekly digest"><i></i></label></div>
                 </div>
               </div>
-              <p class="pane-note">Only the switch itself is tappable, and every change takes the same slow 300ms ease-in-out.</p>
+              <p class="pane-note">Only the switch itself is tappable, and the knob jumps across with no motion, so it’s easy to miss what changed.</p>
             </div>
             <div class="pane good">
               <span class="pane-label">21 Grams</span>
@@ -790,7 +791,7 @@ footer { font: 12px/1.6 var(--f-text); color: var(--faint-text); }
           </div>
           <ol class="changes">
             <li><span>The whole row is the tap target, not just the small switch.</span><span class="chip">Fitts's law</span></li>
-            <li><span>The knob moves in 160ms on an ease-out curve and squashes while pressed, instead of 300ms ease-in-out on everything.</span><span class="chip">motion</span></li>
+            <li><span>The knob moves in 160ms on an ease-out curve and squashes while pressed, instead of jumping across instantly.</span><span class="chip">motion</span></li>
             <li><span>Each setting says what it does in one line of description, in sentence case.</span><span class="chip">copy</span></li>
             <li><span>A 34×20 switch sized to sit with 13px text, instead of the framework’s 44×24 next to bigger, bolder labels.</span><span class="chip">toggles</span></li>
           </ol>
@@ -1071,10 +1072,10 @@ document.querySelectorAll(".tabs").forEach(list => {
   });
 });
 
-// AI button: no press state; the label swaps and the width jumps, then it goes back with no confirmation.
+// AI button: no press state; the label swaps (width held), then it goes back with no confirmation.
 document.querySelectorAll(".ai-btn").forEach(b => b.addEventListener("click", () => {
   if (b.disabled) return;
-  b.disabled = true; b.textContent = "Saving...";
+  b.style.width = b.offsetWidth + "px"; b.disabled = true; b.textContent = "Saving...";
   setTimeout(() => { b.disabled = false; b.textContent = "Save Changes"; }, 900);
 }));
 // AI invite: a red banner at the top for any problem, a green banner on success; focus stays put and the seat count never changes.
@@ -1133,7 +1134,7 @@ document.querySelectorAll(".ai-btn").forEach(b => b.addEventListener("click", ()
     tried = false;
     send.dataset.state = "busy"; send.innerHTML = SP + "Sending";
     setTimeout(() => {
-      seats--; seatsEl.textContent = seats ? `${seats} of 5 seats left` : "No seats left";
+      seats--; seatsEl.textContent = seats ? `You have ${seats} seat${seats === 1 ? "" : "s"} remaining` : "No seats remaining";
       send.dataset.state = "done"; send.innerHTML = OK + "Invited";
       email.value = "";
       setTimeout(() => {
