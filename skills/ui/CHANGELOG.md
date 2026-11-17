@@ -1,5 +1,9 @@
 # 21 Grams UI changelog
 
+## 4.5.0 — 2026-11-17
+
+- **The success wave** (`rules/buttons.md`): when an action succeeds, the button turns the success colour, its label moves to the past tense with a tick ("Sending" → "Sent"), and one 2px ring leaves it, expanding about 10px and fading over ~420ms. It fires once, never loops, keeps the button's width, and is skipped with reduced motion. Replaces the faint shadow pulse in `motion.md` and craft #8, which was barely visible.
+
 ## 4.4.0 — 2026-11-17
 
 - **New `rules/tables.md`.** Text left and numbers right with `tabular-nums`, nothing centred; hairline rows with no zebra stripes or gradient header; equal-width status tags with text, no emoji; headers that look clickable sort (click again to reverse, sensible first direction, `aria-sort`); a slight hover tint only on clickable rows.

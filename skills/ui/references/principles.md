@@ -58,7 +58,7 @@ Global motion budget that these principles share:
 ### 8. Secondary action
 **Rule:** A small flourish that backs up the main action.
 **Demo:** A Save button. Before: it just swaps to "✓ Saved". After: the check arrives with a small sparkle or ring burst.
-**Apply:** Add one supporting detail to meaningful confirmations: a check that draws, a ring pulse, a count tick. Keep it under 400ms, and it must never block the next action.
+**Apply:** Add one supporting detail to meaningful confirmations: a check that draws, one ring wave, a count tick. Keep it around 400ms, and it must never block the next action.
 **Flag:** Confirmations with no acknowledgement at all, or flourishes stacked on every click.
 
 ### 9. Snappy timing

@@ -13,7 +13,7 @@ House default. When the project has its own system, express this through its com
 | Icon-only | square at the button height, hit area ≥ 44×44 on touch (principle #14) |
 
 ## Icon-only send in chat
-On mobile, the send button of a chat or ask-style input is **icon-only**: a 44×44 square, a paper-plane icon at 18px, radius 8, with `aria-label="Send"`. The label follows the state ("Sending", "Sent"). The states swap icon-to-icon (plane → spinner → check) with the blurred crossfade, and Sent gets one pulse. On desktop the button keeps its text label ("Ask", "Send").
+On mobile, the send button of a chat or ask-style input is **icon-only**: a 44×44 square, a paper-plane icon at 18px, radius 8, with `aria-label="Send"`. The label follows the state ("Sending", "Sent"). The states swap icon-to-icon (plane → spinner → check) with the blurred crossfade, and Sent gets the success wave (below). On desktop the button keeps its text label ("Ask", "Send").
 
 ```html
 <button type="submit" class="send" aria-label="Send"><svg aria-hidden="true">…paper-plane…</svg></button>
@@ -42,7 +42,22 @@ The buttons that end a small card, form or dialog (Cancel / Send invite, Back / 
 | Focus | 2px ring in `--accent`, 2px offset, `:focus-visible` only |
 | Disabled | 40% opacity, `cursor: not-allowed`, no hover change |
 | Loading | spinner 14px left of the label, label stays, **width does not change** |
-| Success (after save) | label swaps to "✓ Saved" with a blurred icon swap (hack #7), then reverts after ~1.5s |
+| Success | fill turns the success colour (green, with text that still passes 4.5:1 in both themes), label swaps to the past tense with a tick from the product's icon set ("Sending" → "Sent", "Saving" → "Saved") via a blurred icon swap (hack #7), **plus one wave** (below). Width does not change. It reverts after ~2s, or stays if the view closes |
+
+### The success wave
+When an action succeeds, **one thin ring leaves the button** so the person sees that something happened.
+
+- A 2px ring in the success colour, starting on the button's edge and expanding about 10px out while it fades. Its radius grows with it (8 → 14).
+- **Snappy:** ~420ms, ease-out. It fires once, the moment the label turns to "Sent". Never loops, never on hover, never on failure.
+- Only for actions that leave the screen or can't be seen otherwise (send, invite, publish, save). Not on toggles or navigation.
+- Reduced motion: no wave; the green fill, tick and label carry it.
+
+```css
+.btn::after { content: ""; position: absolute; inset: 0; border-radius: 8px; border: 2px solid var(--ok); opacity: 0; pointer-events: none; }
+.btn.is-success::after { animation: wave 420ms cubic-bezier(.2,.7,.2,1); }
+@keyframes wave { from { inset: 0; border-radius: 8px; opacity: 1; } to { inset: -10px; border-radius: 14px; opacity: 0; } }
+@media (prefers-reduced-motion: reduce) { .btn.is-success::after { animation: none; } }
+```
 
 Transitions: `background-color 120ms cubic-bezier(.2,0,0,1), transform 150ms cubic-bezier(.2,0,0,1)`.
 

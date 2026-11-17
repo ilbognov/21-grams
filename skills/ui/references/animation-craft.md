@@ -61,15 +61,15 @@ button:active:not(:disabled) { transform: scale(.97); }
 **Code:** animate x with `--ease-move` and y with a separate keyframe that lifts 32px mid-way, or use `offset-path: path(...)`.
 **Flag:** Long straight-line travel. (Principle #7.)
 
-### 8. Pulse to confirm success
-**Rule:** A success state gets one pulse.
-**Demo:** "Save changes" → "Saved". Before: the label only. After: the label plus a single pulse.
+### 8. A wave to confirm success
+**Rule:** A success state turns the button green and sends one wave out from it (full spec in `rules/buttons.md`).
+**Demo:** "Send invite" → "Sending" → "Sent". Before: the label only. After: the button turns green and one thin ring leaves it.
 **Code:**
 ```css
-.btn.is-success { animation: pulse 400ms cubic-bezier(.2,0,0,1); }
-@keyframes pulse { 0% { box-shadow: 0 0 0 0 rgb(0 0 0 / .25); } 100% { box-shadow: 0 0 0 8px rgb(0 0 0 / 0); } }
+.btn.is-success::after { animation: wave 420ms cubic-bezier(.2,.7,.2,1); } /* 2px success-colour ring on ::after */
+@keyframes wave { from { inset: 0; opacity: 1; } to { inset: -10px; border-radius: 14px; opacity: 0; } }
 ```
-One pulse, never a loop. **Flag:** Silent confirmations, or looping pulses. (Principle #8.)
+One wave, never a loop. **Flag:** Silent confirmations, or looping pulses. (Principle #8.)
 
 ### 9. Ease-in-out for moves
 **Rule:** Anything moving from one on-screen position to another uses ease-in-out.
@@ -164,7 +164,7 @@ On release, animate back to the limit with `--ease-out` over about 250ms.
 | 5 | Toggle and slider knobs | ~12% area-preserving stretch in motion |
 | 6 | Composite | details trail ~50ms |
 | 7 | Travel | arcs |
-| 8 | Success | one pulse |
+| 8 | Success | one wave |
 | 9 | Moves | ease-in-out |
 | 10 | Popover start | scale .95 |
 | 11 | Popover origin | at the trigger |

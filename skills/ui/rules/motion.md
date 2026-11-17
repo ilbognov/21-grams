@@ -25,7 +25,7 @@ Everyday UI enters from its trigger with a slight scale and a soft landing, leav
 - **Toggle and slider knob:** ~12% area-preserving stretch while travelling (`scaleX 1.12 / scaleY .89`).
 - **State swaps (Save → Saved, tabs):** old and new overlap, with no blank frame between them. Icons: scale + opacity + `blur(4px)`.
 - **Segmented controls and tabs:** the indicator moves with `--ease-move`. The active label colour is revealed by a clip or mask that travels with it.
-- **Success:** one pulse (ring 0 → 8px fading out, 400ms). Never loop.
+- **Success:** one wave: a 2px ring in the success colour leaves the button and fades about 10px out over ~420ms, as the label turns to "Sent". Never loop. Spec in `buttons.md`.
 - **Error:** each invalid field shakes once on submit (±6px settling, ~320ms), never the whole form, always with the inline message, outline and icon. Full spec in `forms.md`.
 - **Travel (add to cart, move file):** an arc (~32px lift), `--ease-move`.
 - **Card → detail:** the same element expands (shared `layoutId` / view transition). Never a disconnected replacement.

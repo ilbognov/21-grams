@@ -119,7 +119,7 @@ See `references/design-hacks.md` #1 and `rules/radius.md`.
 ### 20. Animate useful feedback
 **Rule:** Animate the moments that confirm an action, not decoration.
 **Demo:** "ADD TO CART" becomes "ADDED ✓" on click.
-**Apply:** See `references/animation-craft.md` #8, #16 and #18: overlap old and new labels, blurred icon swap, one pulse. Keep the button width stable.
+**Apply:** See `references/animation-craft.md` #8, #16 and #18: overlap old and new labels, blurred icon swap, one success wave. Keep the button width stable.
 **Flag:** Actions with no visible confirmation; decorative motion that confirms nothing.
 
 ---

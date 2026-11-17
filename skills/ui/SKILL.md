@@ -102,7 +102,7 @@ If a data-visualisation skill is installed, load it as well whenever a chart is 
 - Drags track the pointer 1:1 with no transition while held, and rubber-band past their bounds.
 - Card → detail expands the same element (shared `layoutId` / view transition), never a disconnected replacement.
 - Segmented controls and tabs reveal the active label with a mask that travels with the indicator.
-- Moving knobs stretch about 12% (area-preserving). Success gets one pulse.
+- Moving knobs stretch about 12% (area-preserving). Success turns the button green and sends one thin ring out from it, once (`buttons.md`).
 
 ## AI tells to remove
 
