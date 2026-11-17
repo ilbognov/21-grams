@@ -168,12 +168,6 @@ ul.facts li > span:last-child { min-width: 0; }
 .log .v { font: 500 13px/1.6 var(--f-text); color: var(--fg); font-variant-numeric: tabular-nums; }
 
 /* prev / next */
-.pager { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; padding-top: 24px; border-top: 1px solid var(--line); }
-.pager a { display: flex; flex-direction: column; gap: 2px; text-decoration: none; padding: 10px 12px; border-radius: 8px; border: 1px solid var(--line); transition: background-color .15s; }
-.pager a:hover { background: var(--hover); }
-.pager a small { font: 12px/1.4 var(--f-text); color: var(--muted); }
-.pager a span { font-weight: 500; }
-.pager .next { text-align: right; grid-column: 2; }
 
 /* ---------- AI vs 21 compare ---------- */
 .compare { display: flex; flex-direction: column; gap: 10px; }
@@ -905,8 +899,7 @@ footer { font: 12px/1.6 var(--f-text); color: var(--faint); }
       <p>21 Grams UX is the next skill to ship, then Narrating and Picture Telling move into the public repo. After that the family grows where there's a real craft worth writing down. Watch the repo on GitHub to hear when a new one lands.</p>
     </article>
 
-    <nav class="pager" id="pager" aria-label="Previous and next page" style="margin-top: 56px"></nav>
-    <footer style="margin-top: 32px">21 Grams · MIT licence</footer>
+    <footer style="margin-top: 56px">21 Grams · MIT licence</footer>
   </div>
 </main>
 
@@ -995,20 +988,12 @@ document.querySelectorAll(".copy").forEach(btn => {
 const pages = [...document.querySelectorAll(".page")];
 const navLinks = [...document.querySelectorAll(".nav a")];
 const order = navLinks.map(a => a.getAttribute("href").slice(1));
-const pager = document.getElementById("pager");
-const pageLink = (id, cls, label) => {
-  const p = document.getElementById(id);
-  return `<a class="${cls}" href="#${id}"><small>${label}</small><span>${p.dataset.title}</span></a>`;
-};
 function show() {
   let id = location.hash.slice(1);
   if (!order.includes(id)) id = "overview";
   pages.forEach(p => p.hidden = p.id !== id);
   navLinks.forEach(a => a.getAttribute("aria-current") !== null && a.removeAttribute("aria-current"));
   navLinks.find(a => a.getAttribute("href") === "#" + id)?.setAttribute("aria-current", "page");
-  const i = order.indexOf(id);
-  pager.innerHTML = (i > 0 ? pageLink(order[i - 1], "prev", "← Previous") : "") +
-                    (i < order.length - 1 ? pageLink(order[i + 1], "next", "Next →") : "");
   window.scrollTo(0, 0);
 }
 addEventListener("hashchange", show);
