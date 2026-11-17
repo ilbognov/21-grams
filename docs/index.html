@@ -251,7 +251,7 @@ ul.facts li > span:last-child { min-width: 0; }
 .tg-seats { display: block; margin-top: -4px; text-align: center; font-size: 12px; line-height: 1.4; color: var(--demo-sub); font-variant-numeric: tabular-nums; }
 .tg-in > p { font-size: 13px; line-height: 1.5; color: var(--demo-sub); margin-top: -12px; }
 .tg-field { display: flex; flex-direction: column; gap: 6px; }
-.tg-field label { font-size: 12px; font-weight: 500; }
+.tg-field label { font-size: 12px; font-weight: 500; margin-bottom: -3px; }
 .tg-input {
   position: relative; display: flex; align-items: center; gap: 8px; border-radius: 8px; padding: 8px 10px;
   box-shadow: inset 0 0 0 1px rgb(0 0 0 / .12); font-size: 13px; color: var(--demo-ink); transition: box-shadow .15s;
@@ -431,6 +431,12 @@ ol.changes li .chip { font-size: 11px; padding: 3px 6px; white-space: nowrap; }
 .tg-more:active { transform: scale(.97); }
 .tg-more:focus-visible { outline: 2px solid #3b4ce2; outline-offset: 2px; }
 .tg-more svg { width: 12px; height: 12px; }
+.tg-ch { display: flex; align-items: baseline; justify-content: space-between; gap: 8px; }
+.tg-ch span { font-size: 12px; color: var(--demo-sub); }
+.tg-key { display: flex; gap: 14px; margin-top: 8px; font-size: 11.5px; color: var(--demo-sub); }
+.tg-key span { display: inline-flex; align-items: center; gap: 6px; }
+.tg-key i { width: 8px; height: 8px; border-radius: 2px; background: #e1e1e6; }
+.tg-key i.on { background: #3b4ce2; }
 .tg-panel .big { font-size: 22px; font-weight: 600; letter-spacing: -.02em; font-variant-numeric: tabular-nums; margin: 2px 0 12px; }
 .tg-panel .big small { font-size: 12px; font-weight: 500; color: #16794a; margin-left: 6px; letter-spacing: 0; }
 .chart svg { display: block; width: 100%; height: auto; font-variant-numeric: tabular-nums; }
@@ -798,16 +804,16 @@ footer { font: 12px/1.6 var(--f-text); color: var(--faint-text); }
             <div class="compare-bar"><span>AI default</span><span class="hint">Drag the handle. Everything inside works.</span><b>21 Grams</b></div>
             <div class="stage" style="--pos: 50%; height: 350px">
               <div class="layer before"><div class="ai-panel"><h5>Monthly Revenue</h5><p class="ai-sub">Revenue overview for the last 6 months</p><div class="chart" id="ai-chart"></div></div></div>
-              <div class="layer after"><div class="tg-panel"><h5>Revenue</h5><div class="big">$68k<small>+11% vs Oct</small></div><div class="chart" id="tg-chart"></div></div></div>
+              <div class="layer after"><div class="tg-panel"><div class="tg-ch"><h5>Monthly revenue</h5><span>Last 6 months</span></div><div class="big">$68k<small>+11% vs Oct</small></div><div class="chart" id="tg-chart"></div><div class="tg-key"><span><i class="on"></i>Selected month</span><span><i></i>Other months</span></div></div></div>
               <div class="handle"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m6 4-4 4 4 4M10 4l4 4-4 4"/></svg></div>
               <input type="range" id="cmp-chart" min="0" max="100" value="50" aria-label="Compare AI default and 21 Grams chart">
             </div>
           </div>
           <ol class="changes">
-            <li><span>The number people came for is written out above the chart, with the change from last month. The default title says “Monthly Revenue” and a subtitle repeats it.</span><span class="chip">type</span></li>
+            <li><span>The number people came for is written out above the chart, with the change from last month. The title and the period share one line instead of a subtitle that repeats the title.</span><span class="chip">type</span></li>
             <li><span>One colour with only the latest month highlighted, instead of the library’s stock purple on every bar.</span><span class="chip">colour</span></li>
-            <li><span>A faint solid grid on the y-axis only. No dashed grid both ways, no axis lines and no legend for a single series.</span><span class="chip">charts</span></li>
-            <li><span>Short axis labels like 25k instead of raw numbers like 60000.</span><span class="chip">type</span></li>
+            <li><span>A faint solid grid on the y-axis only, and a key that explains the highlighted bar. No dashed grid both ways, no axis lines, and no legend that just repeats the title.</span><span class="chip">charts</span></li>
+            <li><span>Short axis labels like 20k instead of raw numbers like 20000.</span><span class="chip">type</span></li>
             <li><span>Hover or tap a month for its value and the change from the month before. The default shows nothing.</span><span class="chip">charts</span></li>
           </ol>
         </div>
@@ -1171,11 +1177,11 @@ function aiChart() {
   return s + "</svg>";
 }
 function tgChart() {
-  const W = 288, H = 150, L = 26, B = 18, T = 14, R = 0, max = 75;
+  const W = 288, H = 150, L = 26, B = 18, T = 14, R = 0, max = 80;
   const y = v => T + (H - T - B) * (1 - v / max);
   const cw = (W - L - R) / REV.length;
   let s = `<svg class="tgc" viewBox="0 0 ${W} ${H}" role="img" aria-label="Revenue by month, June to November, from 42k to 68k">`;
-  [0, 25, 50, 75].forEach(t => s += `<line x1="${L}" x2="${W - R}" y1="${y(t)}" y2="${y(t)}" stroke="#000" stroke-opacity="${t ? .06 : .14}"/><text x="${L - 6}" y="${y(t) + 3}" text-anchor="end" font-size="9" fill="#9a9aa1">${t ? t + "k" : "0"}</text>`);
+  [0, 20, 40, 60, 80].forEach(t => s += `<line x1="${L}" x2="${W - R}" y1="${y(t)}" y2="${y(t)}" stroke="#000" stroke-opacity="${t ? .06 : .14}"/><text x="${L - 6}" y="${y(t) + 3}" text-anchor="end" font-size="9" fill="#9a9aa1">${t ? t + "k" : "0"}</text>`);
   REV.forEach(([m, v], i) => {
     const last = i === REV.length - 1, w = cw * .56, x = L + i * cw + cw * .22;
     s += `<g class="col${last ? " on" : ""}" tabindex="0" role="button" aria-label="${m}: $${v}k">`;
