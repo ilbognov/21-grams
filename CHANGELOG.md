@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.0.1 — 2026-11-17
+
+- Replaced project-specific examples in the type, chart and toggle rules with neutral ones.
+
 ## 1.0.0 — 2026-11-17
 
 First public release.

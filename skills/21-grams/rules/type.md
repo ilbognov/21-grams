@@ -23,8 +23,8 @@ On phone layouts (< 768px), headings go up one step so they read at arm's length
 
 | Heading | Desktop | Mobile |
 |---|---|---|
-| Section heading (e.g. "Portfolio insights") | 16 / 24, 600 | **18 / 24, 600**, −0.015em |
-| Card heading (e.g. "Products at risk", "Ask Opie") | 14 / 20, 600 | **16 / 22, 600** |
+| Section heading (e.g. "Recent activity") | 16 / 24, 600 | **18 / 24, 600**, −0.015em |
+| Card heading (e.g. "Top issues", "Team members") | 14 / 20, 600 | **16 / 22, 600** |
 | Page title | 28 / 32 | 22 / 28 (when shown in the body; a header title stays 16) |
 
 Body and meta sizes do not change. A mobile screen then uses 18 / 16 / 14 / 12, which is still four sizes.

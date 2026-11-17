@@ -24,4 +24,4 @@ Use the CSS `translate` and `scale` properties rather than one `transform`, so t
 | Disabled | faint text, `not-allowed`, and a `title` giving the reason ("Not available yet") |
 | Semantics | `role="radiogroup"` with `role="radio"` + `aria-checked` buttons |
 
-Use a segmented control for view switches (Chart / Table, planning horizon). Use a switch only for settings that take effect immediately.
+Use a segmented control for view switches (Chart / Table, date range). Use a switch only for settings that take effect immediately.

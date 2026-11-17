@@ -21,11 +21,11 @@ Use the project's chart library and its configuration (Recharts, visx, Chart.js,
 - Label line ends directly with the latest value and the series name. With ≤ 4 series, keep a small line-key legend too.
 - Columns: label only the peak and the latest value. Horizontal bars: value at every tip.
 - Month axis: every 2nd month (3rd on phones) plus the latest. Drop a regular label that would crowd the latest.
-- No rotated axis titles. The card title names the measure, and a one-line subtitle states the takeaway ("Overall rate fell from 0.80% to 0.37% over the year.").
-- Convert awkward units into readable ones: 0.00459% per vial becomes **4.59 per 100,000 vials**. Keep the exact value in the tooltip.
+- No rotated axis titles. The card title names the measure, and a one-line subtitle states the takeaway ("Error rate fell from 0.8% to 0.4% this year.").
+- Convert awkward units into readable ones: 0.00459% per order becomes **4.59 per 100,000 orders**. Keep the exact value in the tooltip.
 
 ## One scale per chart
-- **Never plot two measures on one axis or on a hidden second axis.** Complaints and vials sold become **two charts that share the x-axis** (small multiples), each with its own scale, aligned so the months line up.
+- **Never plot two measures on one axis or on a hidden second axis.** Orders and revenue become **two charts that share the x-axis** (small multiples), each with its own scale, aligned so the months line up.
 
 ## Interaction
 - Line charts: a crosshair snaps to the nearest month, and one tooltip lists every series (values lead, names follow, line keys).
