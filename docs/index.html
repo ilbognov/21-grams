@@ -435,10 +435,26 @@ ol.changes li .chip { font-size: 11px; padding: 3px 6px; white-space: nowrap; }
 .tg-panel .big small { font-size: 12px; font-weight: 500; color: #16794a; margin-left: 6px; letter-spacing: 0; }
 .chart svg { display: block; width: 100%; height: auto; font-variant-numeric: tabular-nums; }
 .ai-tbl, .tg-tbl { width: 100%; border-collapse: collapse; }
-.ai-tbl { font-size: 11.5px; text-align: center; }
-.ai-tbl th { background: linear-gradient(135deg, #8b5cf6, #3b82f6); color: #fff; text-transform: uppercase; font-weight: 800; letter-spacing: .05em; padding: 8px 4px; border: 1px solid #c4b5fd; }
-.ai-tbl td { padding: 8px 4px; border: 1px solid #e9d5ff; font-weight: 600; }
-.ai-tbl tr:nth-child(even) td { background: #f5f3ff; }
+/* what an agent writes by default: a Tailwind-style table card */
+.ai-tcard {
+  width: 320px; max-width: 100%; background: #fff; border: 1px solid #e5e7eb; border-radius: 12px; overflow: hidden;
+  box-shadow: 0 1px 3px rgb(0 0 0 / .1), 0 1px 2px -1px rgb(0 0 0 / .1); font-family: Inter, system-ui, sans-serif; color: #111827;
+}
+.ai-tcard-top { display: flex; align-items: center; justify-content: space-between; padding: 14px 16px; }
+.ai-tcard-top h5 { margin: 0; font-size: 15px; font-weight: 600; }
+.ai-tcard-top a { font-size: 12px; font-weight: 500; color: #4f46e5; text-decoration: none; }
+.ai-tbl { font-size: 12.5px; text-align: left; }
+.ai-tbl th { background: #f9fafb; color: #6b7280; text-transform: uppercase; font-size: 10.5px; font-weight: 500; letter-spacing: .05em; padding: 8px 16px; border-top: 1px solid #e5e7eb; border-bottom: 1px solid #e5e7eb; }
+.ai-tbl th + th, .ai-tbl td + td { padding-left: 0; }
+.ai-tbl td { padding: 10px 16px; border-bottom: 1px solid #e5e7eb; color: #374151; }
+.ai-tbl tr:last-child td { border-bottom: 0; }
+.ai-tbl tbody tr:hover { background: #f9fafb; }
+.ai-tbl td:first-child { display: flex; align-items: center; gap: 8px; font-weight: 500; color: #111827; }
+.ai-av { width: 24px; height: 24px; border-radius: 50%; display: grid; place-items: center; flex: none; font-size: 10px; font-weight: 600; color: #4f46e5; background: #e0e7ff; }
+.ai-st { display: inline-block; padding: 2px 10px; border-radius: 999px; font-size: 11.5px; font-weight: 500; }
+.ai-st.paid { background: #dcfce7; color: #166534; }
+.ai-st.pending { background: #fef9c3; color: #854d0e; }
+.ai-st.overdue { background: #fee2e2; color: #991b1b; }
 .tg-tbl { font-size: 13px; }
 .tg-tbl th { text-align: left; font-weight: 500; font-size: 12px; color: var(--demo-sub); padding: 0 0 8px; border-bottom: 1px solid rgb(0 0 0 / .08); }
 .tg-tbl td { padding: 10px 0; border-bottom: 1px solid rgb(0 0 0 / .06); }
@@ -479,7 +495,6 @@ ol.changes li .chip { font-size: 11px; padding: 3px 6px; white-space: nowrap; }
 .tip .down { color: #ff9b91; }
 
 /* table interaction */
-.ai-tbl th { cursor: pointer; }
 .tg-tbl th button {
   display: inline-flex; align-items: center; gap: 3px; border: 0; padding: 0; margin: 0; background: none; cursor: pointer;
   font: inherit; color: inherit; border-radius: 4px;
@@ -806,12 +821,12 @@ footer { font: 12px/1.6 var(--f-text); color: var(--faint-text); }
           <div class="compare">
             <div class="compare-bar"><span>AI default</span><span class="hint">Drag the handle. Everything inside works.</span><b>21 Grams</b></div>
             <div class="stage" style="--pos: 50%; height: 310px">
-              <div class="layer before"><div class="ai-panel"><h5>📋 Recent Invoices</h5>
+              <div class="layer before"><div class="ai-tcard"><div class="ai-tcard-top"><h5>Recent Invoices</h5><a href="#ui" onclick="return false">View all →</a></div>
                 <table class="ai-tbl"><thead><tr><th>Customer</th><th>Status</th><th>Amount</th></tr></thead><tbody>
-                  <tr><td>Northwind</td><td>✅ Paid</td><td>$4,200</td></tr>
-                  <tr><td>Lumen Labs</td><td>⏳ Pending</td><td>$1,850</td></tr>
-                  <tr><td>Atlas Co.</td><td>❌ Overdue</td><td>$12,400</td></tr>
-                  <tr><td>Kestrel</td><td>✅ Paid</td><td>$960</td></tr>
+                  <tr><td><span class="ai-av">NW</span>Northwind</td><td><span class="ai-st paid">Paid</span></td><td>$4,200.00</td></tr>
+                  <tr><td><span class="ai-av">LL</span>Lumen Labs</td><td><span class="ai-st pending">Pending</span></td><td>$1,850.00</td></tr>
+                  <tr><td><span class="ai-av">AC</span>Atlas Co.</td><td><span class="ai-st overdue">Overdue</span></td><td>$12,400.00</td></tr>
+                  <tr><td><span class="ai-av">KE</span>Kestrel</td><td><span class="ai-st paid">Paid</span></td><td>$960.00</td></tr>
                 </tbody></table></div></div>
               <div class="layer after"><div class="tg-panel"><h5>Recent invoices</h5>
                 <table class="tg-tbl"><thead><tr><th><button type="button" data-k="c">Customer<svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9.5v-7M3 5.5l3-3 3 3"/></svg></button></th><th><button type="button" data-k="s">Status<svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9.5v-7M3 5.5l3-3 3 3"/></svg></button></th><th class="num"><button type="button" data-k="a">Amount<svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9.5v-7M3 5.5l3-3 3 3"/></svg></button></th></tr></thead><tbody id="tg-rows"></tbody></table></div></div>
@@ -820,11 +835,12 @@ footer { font: 12px/1.6 var(--f-text); color: var(--faint-text); }
             </div>
           </div>
           <ol class="changes">
-            <li><span>Amounts are right-aligned in tabular figures, so the digits line up.</span><span class="chip">type</span></li>
-            <li><span>Status is a small coloured pill instead of an emoji.</span><span class="chip">icons</span></li>
-            <li><span>Hairline row dividers replace zebra stripes and a border on every cell.</span><span class="chip">spacing</span></li>
-            <li><span>The header is sentence case in a quieter tone, so the data leads.</span><span class="chip">type</span></li>
-            <li><span>Headers sort. Tap one, tap it again to reverse. The AI headers look clickable but do nothing.</span><span class="chip">tables</span></li>
+            <li><span>Amounts are right-aligned in tabular figures, so the digits line up. The default left-aligns them and adds “.00” to every row.</span><span class="chip">tables</span></li>
+            <li><span>Status tags are one width with a small dot, in muted tones, instead of saturated pills that change width with the word.</span><span class="chip">colour</span></li>
+            <li><span>The grey uppercase header band became quiet sentence-case labels, so the data leads.</span><span class="chip">type</span></li>
+            <li><span>Initials avatars went. They repeat the name and add a second accent colour.</span><span class="chip">unslop</span></li>
+            <li><span>“Recent Invoices” is sentence case, and the indigo “View all →” link is gone.</span><span class="chip">copy</span></li>
+            <li><span>Headers sort. Tap one, tap it again to reverse. The default has no sorting at all.</span><span class="chip">tables</span></li>
           </ol>
         </div>
       </div>
