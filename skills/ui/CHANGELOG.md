@@ -1,5 +1,9 @@
 # 21 Grams UI changelog
 
+## 4.2.1 — 2026-11-17
+
+- **Equal insets for nested controls** (`rules/layout.md`, `rules/toggles.md`): a control inside another (segmented options in their track, a button in an input, chips in a field) has the same gap on all four sides. Inner height = outer height − 2 × padding, the outer control keeps its neighbours' height, and the audit measures every side. New AI tell for uneven inner padding.
+
 ## 4.2.0 — 2026-11-17
 
 Six rules learned from reviewing a real uplift pass.

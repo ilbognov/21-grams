@@ -25,6 +25,7 @@ Depth, not outlines, shows what's selected: the track sits low, the selected opt
 | Unselected | flat on the track, no fill or border. Labels 14/500 in a secondary ink that **still passes 4.5:1 on the track** (measure it: the track is darker than the page) |
 | Selected label | 600, ink, drawn by a **mask layer that travels with the indicator** (craft #17). Hide the base label under the selected option to avoid a doubled glyph |
 | Dark mode | the track **sinks** (slightly darker than its surroundings, e.g. ~18% black) and the indicator **rises** (one step lighter). Never the reverse, or the selection looks pressed in |
+| Inset | **equal on all four sides**: option height = track height − 2 × padding. The track matches the height of the controls beside it (`rules/layout.md`) |
 | Disabled | faint text, `not-allowed`, and a `title` giving the reason ("Not available yet") |
 | Semantics | `role="radiogroup"` with `role="radio"` + `aria-checked` buttons |
 

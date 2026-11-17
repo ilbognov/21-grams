@@ -36,7 +36,7 @@ skills/<scale>/README.md          the scale's docs
 skills/<scale>/CHANGELOG.md       the scale's history
 ```
 
-Each scale keeps its own changelog. Release tags are named `<scale>@<version>`, e.g. `ui@4.2.0`.
+Each scale keeps its own changelog. Release tags are named `<scale>@<version>`, e.g. `ui@4.2.1`.
 
 ## License
 

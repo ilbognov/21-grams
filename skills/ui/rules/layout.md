@@ -1,4 +1,4 @@
-# Layout: lists, screen actions and the logo
+# Layout: lists, nested controls, screen actions and the logo
 
 House default. When the project has its own system, express this through its components and tokens (SKILL.md, rule zero).
 
@@ -21,6 +21,19 @@ Applies to patient, order and user lists, file lists, and pickers in dialogs. **
 .list > .row { border-radius: 0; margin: 0; box-shadow: none; border: 0; }
 .list > .row + .row { border-top: 1px solid var(--border); }
 .list > .row:hover { background: var(--surface-hover); }
+```
+
+## Nested controls have an equal inset (strict)
+When a control sits inside another (segmented control options in their track, a button inside an input, a chip inside a field, tabs inside a tab bar), **the gap between them is the same on all four sides**.
+
+- Derive the inner size from the outer one: **inner height = outer height − 2 × padding.** Never give the two their own unrelated heights (a 40px track around 30px buttons leaves 5px top and bottom but 3px at the sides).
+- The outer control keeps the height of its neighbours (the search box, the sort select beside it), so the row stays aligned; the inner control is what gets resized.
+- Inner radius = outer radius − padding (hack #1).
+- Audit: measure the gap on every side in the browser (`getBoundingClientRect` of both elements), don't judge it by eye.
+
+```css
+.track { height: 40px; padding: 3px; border-radius: 8px; }
+.track > button { height: calc(40px - 2 * 3px); border-radius: 5px; }
 ```
 
 ## Screen actions sit top right (strict)
