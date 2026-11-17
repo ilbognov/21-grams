@@ -373,6 +373,15 @@ ol.changes li .chip { font-size: 11px; padding: 3px 6px; white-space: nowrap; }
 @keyframes spin { to { transform: rotate(360deg); } }
 .tg-btn[data-state="busy"] { cursor: progress; background: #3a3a40; }
 .tg-btn[data-state="done"] { background: #16794a; }
+/* success wave: one 2px ring leaves the button as it turns to Saved / Invited */
+.tg-btn, .tg-actions .primary { position: relative; }
+.tg-btn::after, .tg-actions .primary::after {
+  content: ""; position: absolute; inset: 0; border-radius: 8px; border: 2px solid #16794a;
+  opacity: 0; pointer-events: none;
+}
+.tg-btn[data-state="done"]::after, .tg-actions .primary[data-state="done"]::after { animation: wave 420ms cubic-bezier(.2,.7,.2,1); }
+@keyframes wave { from { inset: 0; border-radius: 8px; opacity: 1; } to { inset: -10px; border-radius: 14px; opacity: 0; } }
+@media (prefers-reduced-motion: reduce) { .tg-btn[data-state="done"]::after, .tg-actions .primary[data-state="done"]::after { animation: none; } }
 
 /* toggles */
 .ai-set {
@@ -718,7 +727,7 @@ footer { font: 12px/1.6 var(--f-text); color: var(--faint-text); }
           <li><span>The coloured glow became an alpha border and a soft, neutral shadow.</span><span class="chip">elevation</span></li>
           <li><span>The seat count sits next to the title as quiet secondary text instead of a footer full of badges.</span><span class="chip">type</span></li>
           <li><span>Send it empty. Only the email field shakes, once, with a message and icon under it. The AI card shakes the whole form and says “Oops!”.</span><span class="chip">forms</span></li>
-          <li><span>The message clears as soon as the email is fixed. A good send shows “Sending”, then “Invited”, and the seat count drops.</span><span class="chip">feedback</span></li>
+          <li><span>The message clears as soon as the email is fixed. A good send shows “Sending”, then “Invited” in green with one ring that leaves the button, and the seat count drops.</span><span class="chip">feedback</span></li>
         </ol>
         </div>
 
@@ -732,12 +741,12 @@ footer { font: 12px/1.6 var(--f-text); color: var(--faint-text); }
             <div class="pane good">
               <span class="pane-label">21 Grams</span>
               <div class="pane-stage"><button class="tg-btn" type="button">Save changes</button></div>
-              <p class="pane-note">Tap it. It presses in straight away, shows it's working, then confirms.</p>
+              <p class="pane-note">Tap it. It presses in straight away, shows it's working, then confirms with one wave.</p>
             </div>
           </div>
           <ol class="changes">
             <li><span>Press feedback in 100ms with a 3% scale-in, instead of a slow 700ms bounce.</span><span class="chip">motion</span></li>
-            <li><span>The button shows it's working, then confirms, so nobody taps twice.</span><span class="chip">buttons</span></li>
+            <li><span>The button shows it's working, then confirms: it turns green, says “Saved” and sends out one ring, so nobody taps twice.</span><span class="chip">buttons</span></li>
             <li><span>Same action, calmer label: “Save changes” in sentence case, no emoji, no exclamation mark.</span><span class="chip">copy</span></li>
             <li><span>No hover zoom or coloured glow. Hover is a small change in tone.</span><span class="chip">elevation</span></li>
           </ol>
