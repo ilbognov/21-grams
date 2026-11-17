@@ -120,7 +120,7 @@ p a, li a { color: var(--fg); text-decoration-color: var(--faint); text-underlin
 /* code */
 .cmd {
   display: flex; align-items: center; gap: 10px;
-  background: var(--code); border-radius: 8px; padding: 10px 10px 10px 14px;
+  background: var(--code); border-radius: 8px; padding: 5px 5px 5px 14px;
   font: 12.5px/1.5 var(--f-mono); color: var(--fg); min-width: 0;
 }
 .cmd code { font: inherit; flex: 1; min-width: 0; overflow-x: auto; white-space: nowrap; scrollbar-width: none; }
@@ -128,9 +128,15 @@ p a, li a { color: var(--fg); text-decoration-color: var(--faint); text-underlin
 .cmd code.slash::before { content: "> "; }
 .copy {
   flex: none; border: 0; background: transparent; color: var(--faint); cursor: pointer;
-  font: 500 12px/1 var(--f-text); padding: 6px 8px; border-radius: 5px;
+  display: grid; place-items: center; width: 28px; height: 28px; padding: 0; border-radius: 6px;
+  transition: background-color .15s, color .15s;
 }
 .copy:hover { color: var(--fg); background: var(--hover); }
+.copy .px { width: 14px; height: 14px; grid-area: 1 / 1; transition: opacity .15s, transform .15s; }
+.copy [data-icon="check"] { opacity: 0; transform: scale(.6); }
+.copy.done { color: var(--fg); }
+.copy.done [data-icon="copy"] { opacity: 0; transform: scale(.6); }
+.copy.done [data-icon="check"] { opacity: 1; transform: none; }
 .hero-cmd { margin-top: 6px; }
 .cmds { display: flex; flex-direction: column; gap: 8px; }
 .or { font: 13px/1.4 var(--f-text); color: var(--muted); padding-left: 2px; }
@@ -544,7 +550,7 @@ footer { font: 12px/1.6 var(--f-text); color: var(--faint); }
         </div>
         <h1>Give your design a soul.</h1>
         <p class="lede">21 Grams is a family of agent skills for product designers and video editors. Each skill teaches your AI agent a working designer's taste, so what it makes stops looking like the average of the internet.</p>
-        <div class="cmd hero-cmd"><code>npx skills add ilbognov/21grams</code><button class="copy" type="button">copy</button></div>
+        <div class="cmd hero-cmd"><code>npx skills add ilbognov/21grams</code><button class="copy" type="button" aria-label="Copy command"><svg class="px" data-icon="copy" aria-hidden="true"></svg><svg class="px" data-icon="check" aria-hidden="true"></svg></button></div>
       </div>
       <div class="block">
         <h2>The idea</h2>
@@ -618,7 +624,7 @@ footer { font: 12px/1.6 var(--f-text); color: var(--faint); }
       <div class="block">
         <h2>Installing</h2>
         <p>Every skill page has its own install command. They all come from the same repo:</p>
-        <div class="cmd"><code class="slash">/plugin marketplace add ilbognov/21grams</code><button class="copy" type="button">copy</button></div>
+        <div class="cmd"><code class="slash">/plugin marketplace add ilbognov/21grams</code><button class="copy" type="button" aria-label="Copy command"><svg class="px" data-icon="copy" aria-hidden="true"></svg><svg class="px" data-icon="check" aria-hidden="true"></svg></button></div>
         <p>After that, ask in plain words. “Uplift this settings screen” is enough for the agent to pick up 21 Grams UI.</p>
       </div>
     </article>
@@ -635,10 +641,10 @@ footer { font: 12px/1.6 var(--f-text); color: var(--faint); }
       <div class="block">
         <h2>Install</h2>
         <div class="cmds">
-          <div class="cmd"><code>npx skills add ilbognov/21grams --skill ui</code><button class="copy" type="button">copy</button></div>
+          <div class="cmd"><code>npx skills add ilbognov/21grams --skill ui</code><button class="copy" type="button" aria-label="Copy command"><svg class="px" data-icon="copy" aria-hidden="true"></svg><svg class="px" data-icon="check" aria-hidden="true"></svg></button></div>
           <span class="or">or, inside Claude Code</span>
-          <div class="cmd"><code class="slash">/plugin marketplace add ilbognov/21grams</code><button class="copy" type="button">copy</button></div>
-          <div class="cmd"><code class="slash">/plugin install 21grams@21grams</code><button class="copy" type="button">copy</button></div>
+          <div class="cmd"><code class="slash">/plugin marketplace add ilbognov/21grams</code><button class="copy" type="button" aria-label="Copy command"><svg class="px" data-icon="copy" aria-hidden="true"></svg><svg class="px" data-icon="check" aria-hidden="true"></svg></button></div>
+          <div class="cmd"><code class="slash">/plugin install 21grams@21grams</code><button class="copy" type="button" aria-label="Copy command"><svg class="px" data-icon="copy" aria-hidden="true"></svg><svg class="px" data-icon="check" aria-hidden="true"></svg></button></div>
         </div>
         <p>Then ask: “run 21 grams on the invite modal”.</p>
       </div>
@@ -916,6 +922,8 @@ const ICONS = {
   mic: ["....####....","...#....#...","...#.##.#...","...#....#...","...#.##.#...",".#.#....#.#.",".#..####..#.","..#......#..","...######...",".....##.....","...######...","............"],
   picture: ["############","#..........#","#.......##.#","#.......##.#","#..........#","#...#......#","#..###.....#","#.#####.#..#","#######.####","############","............","............"],
   clock: ["...######...","..#......#..",".#...#....#.","#....#.....#","#....#.....#","#....####..#","#..........#","#..........#",".#........#.","..#......#..","...######...","............"],
+  copy: ["....########","....#......#","....#......#","....#......#","########...#","#......#...#","#......#...#","#......#####","#......#....","#......#....","#......#....","########...."],
+  check: ["............","............","..........##",".........##.","........##..","#......##...","##....##....",".##..##.....","..####......","...##.......","............","............"],
   plus: ["............","....####....","....#..#....","....#..#....","#####..#####","#..........#","#..........#","#####..#####","....#..#....","....#..#....","....####....","............"]
 };
 const NS = "http://www.w3.org/2000/svg";
@@ -978,9 +986,9 @@ if (ghostSvg) {
 document.querySelectorAll(".copy").forEach(btn => {
   btn.addEventListener("click", () => {
     const code = btn.previousElementSibling;
-    const reset = t => { btn.textContent = t; setTimeout(() => btn.textContent = "copy", 1400); };
-    const fallback = () => { const s = getSelection(), r = document.createRange(); r.selectNodeContents(code); s.removeAllRanges(); s.addRange(r); reset("selected"); };
-    try { navigator.clipboard.writeText(code.textContent).then(() => reset("copied"), fallback); } catch { fallback(); }
+    const done = () => { btn.classList.add("done"); btn.setAttribute("aria-label", "Copied"); clearTimeout(btn.t); btn.t = setTimeout(() => { btn.classList.remove("done"); btn.setAttribute("aria-label", "Copy command"); }, 1400); };
+    const fallback = () => { const s = getSelection(), r = document.createRange(); r.selectNodeContents(code); s.removeAllRanges(); s.addRange(r); };
+    try { navigator.clipboard.writeText(code.textContent).then(done, fallback); } catch { fallback(); }
   });
 });
 
