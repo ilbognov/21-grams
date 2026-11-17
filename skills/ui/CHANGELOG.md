@@ -1,5 +1,10 @@
 # 21 Grams UI changelog
 
+## 4.0.0 — 2026-11-17
+
+- The family is now `21grams`, without the hyphen: the repo is `ilbognov/21grams`, the plugin and marketplace are `21grams`, and the skill appears as `21grams:ui` in Claude Code.
+- Install: `npx skills add ilbognov/21grams --skill ui`, or `/plugin marketplace add ilbognov/21grams` then `/plugin install 21grams@21grams`. Old `21-grams` links redirect on GitHub.
+
 ## 3.0.0 — 2026-11-17
 
 - Shorter names: the skill is now `ui` (`npx skills add ilbognov/21-grams --skill ui`). In Claude Code, one `21-grams` plugin holds every scale, so this one appears as `21-grams:ui`.

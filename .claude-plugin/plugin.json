@@ -1,12 +1,12 @@
 {
-  "name": "21-grams",
-  "version": "3.0.0",
+  "name": "21grams",
+  "version": "4.0.0",
   "description": "21 Grams: agent skills that make AI-built products look and feel considered. Scales: ui (available), ux (coming).",
   "author": {
     "name": "ilbognov"
   },
-  "homepage": "https://github.com/ilbognov/21-grams",
-  "repository": "https://github.com/ilbognov/21-grams",
+  "homepage": "https://github.com/ilbognov/21grams",
+  "repository": "https://github.com/ilbognov/21grams",
   "license": "MIT",
   "keywords": [
     "design",

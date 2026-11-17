@@ -11,14 +11,14 @@ It works with Claude Code and any agent that supports [Agent Skills](https://age
 **Any agent that supports skills** (Claude Code, Cursor, Codex and others):
 
 ```bash
-npx skills add ilbognov/21-grams --skill ui
+npx skills add ilbognov/21grams --skill ui
 ```
 
 **Claude Code plugin:**
 
 ```
-/plugin marketplace add ilbognov/21-grams
-/plugin install 21-grams@21-grams
+/plugin marketplace add ilbognov/21grams
+/plugin install 21grams@21grams
 ```
 
 **Claude.ai:** download this repo, zip the `skills/ui` folder, and upload it under *Settings → Capabilities → Skills*.

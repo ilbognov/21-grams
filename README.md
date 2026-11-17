@@ -14,14 +14,14 @@ Agent skills that make AI-built products look and feel considered. Each **scale*
 **Any agent that supports skills** (Claude Code, Cursor, Codex and others). Pick the scale:
 
 ```bash
-npx skills add ilbognov/21-grams --skill ui
+npx skills add ilbognov/21grams --skill ui
 ```
 
-**Claude Code plugin** (installs every scale; they show up as `21-grams:ui`, `21-grams:ux`…):
+**Claude Code plugin** (installs every scale; they show up as `21grams:ui`, `21grams:ux`…):
 
 ```
-/plugin marketplace add ilbognov/21-grams
-/plugin install 21-grams@21-grams
+/plugin marketplace add ilbognov/21grams
+/plugin install 21grams@21grams
 ```
 
 **Claude.ai:** zip a scale's folder (e.g. `skills/ui`) and upload it under *Settings → Capabilities → Skills*.
@@ -29,14 +29,14 @@ npx skills add ilbognov/21-grams --skill ui
 ## Repo layout
 
 ```
-.claude-plugin/plugin.json        the 21-grams plugin (all scales)
-.claude-plugin/marketplace.json   the 21-grams marketplace
+.claude-plugin/plugin.json        the 21grams plugin (all scales)
+.claude-plugin/marketplace.json   the 21grams marketplace
 skills/<scale>/SKILL.md           one folder per scale: ui, ux, …
 skills/<scale>/README.md          the scale's docs
 skills/<scale>/CHANGELOG.md       the scale's history
 ```
 
-Each scale keeps its own changelog. Release tags are named `<scale>@<version>`, e.g. `ui@3.0.0`.
+Each scale keeps its own changelog. Release tags are named `<scale>@<version>`, e.g. `ui@4.0.0`.
 
 ## License
 
