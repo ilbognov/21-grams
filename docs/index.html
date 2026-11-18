@@ -315,6 +315,7 @@ ol.changes li .chip { font-size: 11px; padding: 3px 6px; white-space: nowrap; }
 /* Pixel shadow: 10 ghost-pixels wide (4.5px each), centred under the tail; shrinks as the ghost rises. */
 .ghost-shadow { width: 35px; height: 3.5px; margin-left: 10.5px; background: var(--fg); opacity: .1; animation: shadow 4.5s ease-in-out infinite; }
 @keyframes shadow { 50% { transform: scaleX(.72); opacity: .05; } }
+.wave-ghost { width: 40px; height: 32px; flex: none; color: var(--fg); fill: currentColor; cursor: pointer; }
 @media (prefers-reduced-motion: reduce) { .hero-art, .ghost-shadow, .ghost.hopping .hop { animation: none; } }
 
 /* example tabs */
@@ -730,7 +731,7 @@ footer { font: 12px/1.6 var(--f-text); color: var(--faint-text); }
     <article class="page" id="about" data-title="About" hidden>
       <div class="head">
         <span class="eyebrow">About</span>
-        <h1><svg class="px" data-icon="person" aria-hidden="true"></svg>Hi, I'm Ilija</h1>
+        <h1><svg class="wave-ghost" id="wave-ghost" viewBox="0 0 20 16" shape-rendering="crispEdges" aria-hidden="true"></svg>Hi, I'm Ilija</h1>
       </div>
       <div class="block">
         <p class="lede">I'm Ilija Bogdanovic, founding design engineer at Conquer AI. UI and UX have been my thing since I started designing, and these days I design and build with an AI agent in the loop.</p>
@@ -1233,6 +1234,37 @@ document.querySelectorAll("svg[data-icon]").forEach(svg => {
     svg.appendChild(r);
   }));
 });
+
+// About ghost: the overview ghost with one arm, waving hello when the page opens and when touched.
+const waveSvg = document.getElementById("wave-ghost");
+if (waveSvg) {
+  const BODY = ICONS.soul.map(r => r + "....");          // 16-wide ghost, 4 columns of room for the arm
+  // Two arm poses (x, y pixels, 2px thick), swapped to wave; both join the body at its right edge.
+  const ARMS = [
+    [[16,2],[17,2],[16,3],[17,3],[16,4],[17,4],[15,5],[16,5],[15,6],[16,6],[15,7]],
+    [[18,3],[19,3],[17,4],[18,4],[16,5],[17,5],[15,6],[16,6],[15,7]],
+  ];
+  const draw = pose => {
+    let s = "";
+    BODY.forEach((row, y) => [...row].forEach((c, x) => { if (c === "#") s += `<rect x="${x}" y="${y}" width="1" height="1"/>`; }));
+    ARMS[pose].forEach(([x, y]) => { s += `<rect x="${x}" y="${y}" width="1" height="1"/>`; });
+    waveSvg.innerHTML = s;
+  };
+  draw(0);
+  if (!matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    let t = null;
+    const wave = () => {
+      if (t) return;
+      let n = 0;
+      t = setInterval(() => { n++; draw(n % 2); if (n >= 6) { clearInterval(t); t = null; draw(0); } }, 180);
+    };
+    waveSvg.addEventListener("mouseenter", wave);
+    waveSvg.addEventListener("click", wave);
+    const page = document.getElementById("about");
+    new MutationObserver(() => { if (!page.hidden) setTimeout(wave, 250); }).observe(page, { attributes: true, attributeFilter: ["hidden"] });
+    if (!page.hidden) setTimeout(wave, 250);
+  }
+}
 
 // Overview ghost: a ripple runs down both sides (levitating), eyes open now and then, hops when touched.
 const ghostSvg = document.getElementById("ghost");
