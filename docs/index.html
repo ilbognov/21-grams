@@ -315,7 +315,7 @@ ol.changes li .chip { font-size: 11px; padding: 3px 6px; white-space: nowrap; }
 /* Pixel shadow: 10 ghost-pixels wide (4.5px each), centred under the tail; shrinks as the ghost rises. */
 .ghost-shadow { width: 35px; height: 3.5px; margin-left: 10.5px; background: var(--fg); opacity: .1; animation: shadow 4.5s ease-in-out infinite; }
 @keyframes shadow { 50% { transform: scaleX(.72); opacity: .05; } }
-.wave-ghost { width: 40px; height: 32px; flex: none; color: var(--fg); fill: currentColor; cursor: pointer; }
+.wave-ghost { width: 59.5px; height: 56px; flex: none; color: var(--fg); fill: currentColor; cursor: pointer; }
 .wave-ghost.floating { animation: float 4.5s ease-in-out infinite; }
 @media (prefers-reduced-motion: reduce) { .hero-art, .wave-ghost.floating, .ghost-shadow, .ghost.hopping .hop { animation: none; } }
 
@@ -732,7 +732,7 @@ footer { font: 12px/1.6 var(--f-text); color: var(--faint-text); }
     <article class="page" id="about" data-title="About" hidden>
       <div class="head">
         <span class="eyebrow">About</span>
-        <h1><svg class="wave-ghost" id="wave-ghost" viewBox="0 0 20 16" shape-rendering="crispEdges" aria-hidden="true"></svg>Hi, I'm Ilija</h1>
+        <h1><svg class="wave-ghost" id="wave-ghost" viewBox="0 0 17 16" shape-rendering="crispEdges" aria-hidden="true"></svg>Hi, I'm Ilija</h1>
       </div>
       <div class="block">
         <p class="lede">I'm Ilija Bogdanovic, founding design engineer at Conquer AI. UI and UX have been my thing since I started designing, and these days I design and build with an AI agent in the loop.</p>
@@ -1240,12 +1240,13 @@ document.querySelectorAll("svg[data-icon]").forEach(svg => {
 // tucks the arm back into its body, then floats like the overview ghost.
 const waveSvg = document.getElementById("wave-ghost");
 if (waveSvg) {
-  const BODY = ICONS.soul.map(r => r + "....");          // 16-wide ghost, room on the right for the arm
-  // Arm poses (2px thick, 3 rows long), all joined to the body's right edge at rows 5–6.
+  const BODY = ICONS.soul.map(r => r + ".");             // the body ends at column 14; columns 15–16 hold the arm
+  // The arm is a small 2 × 3 block just outside the body's right edge; waving moves it up and down.
+  const block = top => [0, 1, 2].flatMap(d => [[15, top + d], [16, top + d]]);
   const ARM = {
-    up:   [[15,6],[16,6],[15,5],[16,5],[15,4],[16,4]],   // straight up
-    out:  [[15,6],[16,6],[16,5],[17,5],[17,4],[18,4]],   // tipped outward
-    tuck: [[15,6],[15,5]],                               // halfway back in
+    up:   block(4),                                      // rows 4–6
+    down: block(6),                                      // rows 6–8
+    tuck: [[15, 6], [15, 7], [15, 8]],                   // halfway back in
     none: [],
   };
   const draw = pose => {
@@ -1264,7 +1265,7 @@ if (waveSvg) {
       draw("tuck");
       t = setInterval(() => {
         n++;
-        if (n < 14) draw(n % 2 ? "up" : "out");       // ~3s of waving
+        if (n < 14) draw(n % 2 ? "up" : "down");       // ~3s of waving
         else if (n === 14) draw("tuck");
         else { clearInterval(t); t = null; draw("none"); waveSvg.classList.add("floating"); }
       }, 220);
