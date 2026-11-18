@@ -18,7 +18,7 @@ Everyday UI enters from its trigger with a slight scale and a soft landing, leav
 | `--trail` | 50ms | secondary details settling after the body |
 
 ## Recipes
-- **Menu / popover / dropdown:** `transform-origin` at the trigger. Enter from `opacity 0; scale(.95)` over `--dur-menu --ease-out`, with rows staggered 30ms. Exit back toward the trigger: `scale(.95)` + opacity over `--dur-menu-exit --ease-in`. **No overshoot.**
+- **Menu / popover / dropdown:** never appears out of thin air. `transform-origin` at the trigger: the corner or edge of the menu that touches the button it came from (top right for a menu under a right-aligned button). **When the menu flips** to open upward or leftward near the screen edge, the origin flips with it. Use the library's variable where it has one (Radix `--radix-*-content-transform-origin`, Floating UI placement). Enter from `opacity 0; scale(.95)` over `--dur-menu --ease-out`, with rows staggered 30ms. Exit back toward the trigger: `scale(.95)` + opacity over `--dur-menu-exit --ease-in`. **No overshoot.**
 - **Dialog:** scrim fades over `--dur-panel`. Dialog enters from `scale(.96)` + opacity with `--ease-out`, no overshoot. Exit over `--dur-panel-exit`.
 - **Toast:** enters 8px from its edge with `--ease-out`. Contents trail by 50ms.
 - **Button press:** `scale(.97)` over `--dur-press` plus the colour step (see buttons.md). Hover: colour only.

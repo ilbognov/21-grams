@@ -1,5 +1,10 @@
 # 21 Grams UI changelog
 
+## 4.5.2 — 2026-11-18
+
+- **No lonely last word** (`rules/type.md`): headings and labels get `text-wrap: balance`; paragraphs, descriptions, captions and helper text get `text-wrap: pretty`, so no single word sits alone on the last line. Long body text is never balanced.
+- **Menus grow from their button** (`rules/motion.md`): the origin is the corner of the menu that touches its trigger, and it flips when the menu opens upward or leftward near an edge. Use the library's origin variable where there is one.
+
 ## 4.5.1 — 2026-11-18
 
 - **Animated numbers are always tabular** (`rules/type.md`, `rules/motion.md`): count-ups, timers, countdowns, live prices and progress percentages use `tabular-nums`, so every digit is the same width and the number doesn't dance or push its neighbours. Count-ups run 400–800ms ease-out and jump to the final value with reduced motion.

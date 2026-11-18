@@ -47,7 +47,12 @@ Body and meta sizes do not change. A mobile screen then uses 18 / 16 / 14 / 12, 
 - Must still pass 4.5:1 for body sizes (3:1 for 18px+ or 14px/600+).
 
 ## Rules
-- Headings get `text-wrap: balance`. Body is at most about 65ch wide.
+- **No lonely last word (strict).** Headings, titles, button and card labels get `text-wrap: balance` so their lines come out even. Paragraphs, card descriptions, captions, helper text and empty-state copy get `text-wrap: pretty`, which only fixes the last line, so one word never sits alone on it. Don't balance long body text; it makes every line short. Body is at most about 65ch wide.
+
+```css
+h1, h2, h3, h4, .title { text-wrap: balance; }
+p, li, figcaption, .description, .hint { text-wrap: pretty; }
+```
 - Sentence case everywhere. Avoid uppercase labels; if the project already has them, keep them in the UI sans at 12px with +0.04em tracking, never mono.
 - Long numbers are chunked (principle #16): `4532 0151 1283 0366`.
 
