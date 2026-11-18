@@ -1480,16 +1480,16 @@ document.querySelectorAll(".stage").forEach(st => {
   h.addEventListener("pointermove", e => {
     if (!h.hasPointerCapture(e.pointerId)) return;
     const dt = Math.max(1, e.timeStamp - lastT), v = (e.clientX - lastX) / dt;     // px per ms
-    vel = vel * 0.6 + v * 0.4; lastX = e.clientX; lastT = e.timeStamp;
+    vel = vel * 0.4 + v * 0.6; lastX = e.clientX; lastT = e.timeStamp;
     set(at(e));
-    if (!calm.matches) bow = Math.max(-18, Math.min(18, vel * 14));
+    if (!calm.matches) bow = Math.max(-26, Math.min(26, vel * 24));
     paint(); kick();
   });
   const end = e => {
     if (!st.classList.contains("dragging")) return;
     st.classList.remove("dragging");
     if (e.timeStamp - lastT > 80) vel = 0;                                           // stopped before letting go
-    if (!calm.matches && Math.abs(vel) > 0.6) {                                       // a flick: glide to that edge
+    if (!calm.matches && Math.abs(vel) > 0.4) {                                       // a flick: glide to that edge
       const to = vel > 0 ? 100 : 0;
       glide = { from: pos, to, t0: performance.now(), d: 260 + Math.abs(to - pos) * 4 };
       r.value = to; kick();
