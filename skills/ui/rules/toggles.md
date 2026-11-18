@@ -2,6 +2,11 @@
 
 Use the project's existing switch and segmented control when it has them, and apply these specs through their styles or props. Build new ones only when they don't exist.
 
+## Which control
+- **Binary settings are switches:** light/dark appearance, notifications on/off, "show archived". Never an icon button that flips state, a two-option dropdown or a checkbox for an instant setting.
+- **2–4 views of the same content:** a segmented control (below).
+- **Filters with many options are a dropdown on wide screens.** When a row of filter tabs would wrap onto a second line (often in a narrow reading column), make it one select ("Category: All categories"). The value names the filter, so the visible label can go; keep it for screen readers. Phones may keep one row of tabs that scrolls sideways with an edge fade.
+
 ## Switch (on/off)
 | Part | Spec |
 |---|---|

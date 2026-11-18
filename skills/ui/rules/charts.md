@@ -24,6 +24,13 @@ Use the project's chart library and its configuration (Recharts, visx, Chart.js,
 - No rotated axis titles. The card title names the measure, and a one-line subtitle states the takeaway ("Error rate fell from 0.8% to 0.4% this year.").
 - Convert awkward units into readable ones: 0.00459% per order becomes **4.59 per 100,000 orders**. Keep the exact value in the tooltip.
 
+## Changes are signed deltas, not sentences
+Show a change as a **signed number with its period**: "+1.1% in 12 months", "−240 orders vs last week". Not "Rose from 0.6% to 1.7%".
+
+- Colour the delta by whether the change is **good or bad for this measure** (a falling error rate is green), not by its sign. Always keep the sign and an arrow or word, so colour is never the only signal.
+- The from and to values can live in the tooltip or a second muted line.
+- Delta text uses the status ink that passes 4.5:1, with `tabular-nums`.
+
 ## One scale per chart
 - **Never plot two measures on one axis or on a hidden second axis.** Orders and revenue become **two charts that share the x-axis** (small multiples), each with its own scale, aligned so the months line up.
 

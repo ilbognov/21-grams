@@ -78,7 +78,7 @@ These are the composition and content tells of AI-built pages: what's on the pag
 **Flag:** Emoji icons; mixed icon styles.
 
 ### 13. Remove embellishments
-**Rule:** Drop glows, gradient borders and other decoration that adds no meaning.
+**Rule:** Drop glows, gradient borders and other decoration that adds no meaning. The one sanctioned exception is the one-time edge light that marks AI content (`rules/motion.md`): it carries meaning, runs once and then rests as a plain outline.
 **Demo:** A "Most popular" pricing card. Before: a glowing purple-to-pink gradient border. After: a plain card; the badge and the filled CTA already mark it.
 **Apply:** Mark emphasis once (a badge or a filled button), not three ways at once.
 **Flag:** Glow shadows, gradient borders, animated sheens, decorative blurs.

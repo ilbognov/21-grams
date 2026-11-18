@@ -1,6 +1,38 @@
-# Layout: lists, nested controls, screen actions and the logo
+# Layout: width, pages, cards, lists, nested controls, screen actions and the logo
 
 House default. When the project has its own system, express this through its components and tokens (SKILL.md, rule zero).
+
+## Reading width (strict)
+Settings, forms, detail pages, pickers and single-item pages sit in **one centred column about the width of a card (600–720px)**, never stretched across a wide screen. Lines stay readable and the eye doesn't travel.
+
+- The back arrow, page title and screen actions line up to the column, not to the window edge.
+- Dashboards, tables with many columns and boards may use the full width. A table too wide for the column scrolls sideways inside its card.
+- When content gets tight in the column, restack it (label/value rows, two rows of tiles, a dropdown instead of wrapping tabs) instead of widening the column.
+
+## Even page padding
+The space above the first heading **matches the side padding**, and the bottom padding matches the top. A page never starts with a cramped top and a deep side gutter.
+
+## Page header
+- **Detail pages:** the parent's name sits next to the back arrow on one line (and links back to it). The page's own title sits below at a real heading size (H2, ~24px), never a small bold line.
+- **Section headings sit one step below the page title**, and every section or card title in the product uses **the same size** (e.g. 16/600). Measure them across screens; one-offs at 14 or 20 are bugs.
+- **One gap between sections** on a page (e.g. 24px): between cards, between a heading and the card above it, before footnotes. Tighter gaps belong inside cards.
+- Remove headings and labels that repeat the nav, the breadcrumb or a selector's own value.
+
+## Say it once
+A page states each fact once. If a card already says "Data unavailable" in its value, don't add a "Data unavailable" tag above it or a status chip beside it. Delete the duplicate, keep the clearest one.
+
+## Cards and containers
+- **Entities are cards.** Things with several facts each (products, accounts, projects) are cards with their facts laid out, not bare list rows. Row lists (below) stay for table-like lists of many similar items.
+- **Peers get their own container.** Two sections of equal weight are two containers, not one box split by a line.
+- **Sibling cards line up.** Cards side by side stretch to the same height. Their matching parts (title, description, the bottom metric or action) align across cards, with the bottom part anchored to the bottom. Multi-line titles and descriptions clamp to 2 lines with an ellipsis (`line-clamp: 2`), full text in a tooltip or the detail page.
+
+## Rows with a leading icon
+- **The padding before the icon equals the gap between the icon and the text** (e.g. 16 and 16, or 20 and 20).
+- **One-line rows centre the icon** on the text; **multi-line rows align it to the first line.**
+- The same pattern uses the same icon size and spacing on every screen. When a row style is fixed on one page, fix it everywhere it appears.
+
+## Sticky picker edges
+In a long picker step (choosing products, people, files), the **title, selected count and search stay pinned at the top**, separated from the list by the same divider the pinned action bar uses at the bottom. The list scrolls between them.
 
 ## Row lists are one table (strict)
 When a screen shows a table-like list (many rows, each drawn as its own bordered or shadowed card with a small gap between them), merge the rows into **one container**.

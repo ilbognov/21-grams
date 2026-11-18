@@ -27,6 +27,12 @@ The buttons that end a small card, form or dialog (Cancel / Send invite, Back / 
 - **The secondary is a quiet filled button** (a light grey fill with ink text), not an outline or bare text, so the pair look like siblings.
 - Screen-level actions are different: they go top right in the screen's header (`layout.md`).
 
+## Standalone actions look clickable
+An action that stands alone in a card or header ("Export CSV", "View more", "Add context") never sits as bare text that reads like a label. It gets a shape: the **tinted accent fill with accent text** (secondary) or the solid primary. Inline links inside a sentence stay links.
+
+- Export, download and share actions carry their icon before the label.
+- "View more" / "Show all" toggles are accent-coloured so they read as actions, not body text.
+
 ## Variants
 - **Primary:** ink fill (`--ink`), page-colour text. **One per view** (principle #3).
 - **Secondary:** 7% ink fill, ink text. No border.

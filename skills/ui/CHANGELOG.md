@@ -1,5 +1,46 @@
 # 21 Grams UI changelog
 
+## 4.6.0 — 2026-11-18
+
+Learned from a long desktop and mobile review session on an analytics product.
+
+- **Reading width** (`rules/layout.md`): settings, forms, detail pages and pickers sit in one centred column about card width (600–720px). When content gets tight, restack it rather than widen the column.
+- **Even page padding:** the space above the first heading matches the side padding, and bottom matches top.
+- **Page header:** the parent's name sits beside the back arrow, and the title sits below at H2. Every section title is one size across the product, with one gap between sections. Headings that repeat the nav or a selector go.
+- **Say it once:** no status tag repeating what the card already says.
+- **Cards and containers:**
+  - Entities are cards.
+  - Peer sections get their own containers.
+  - Sibling cards share height and alignment, with text clamped to 2 lines.
+- **Icon rows:**
+  - The inset before the icon equals the icon-to-text gap.
+  - One-line rows centre the icon; multi-line rows align it to the first line.
+  - The same pattern looks the same on every screen.
+- **Sticky picker edges:** title, count and search stay pinned above a long picker list.
+- **Tables** (`rules/tables.md`):
+  - The header is the same size as the cells. *This reverses 13 vs 14.*
+  - The table sits on a white surface.
+  - Empty cells say "N/A".
+  - Sort icons are line carets.
+  - Heatmap and score cells may be centred.
+- **Standalone actions look clickable** (`rules/buttons.md`): a tinted accent fill or accent colour, never bare text. Export-type actions carry their icon.
+- **Signed deltas** (`rules/charts.md`): "+1.1% in 12 months", coloured by good or bad, not "Rose from X to Y".
+- **Which control** (`rules/toggles.md`):
+  - Binary settings are switches.
+  - Filter tabs that would wrap become one dropdown on wide screens, labelled by their value.
+- **AI content edge light** (`rules/motion.md`):
+  - The AI card is light and accent-tinted with a thin outline and a sparkle icon.
+  - On first appearance, light runs once along the border, from 0.5px at the middle of the edges to a soft 2px glow settling at opposite corners, then rests.
+  - It never loops, and it doesn't run with reduced motion.
+  - It is the sanctioned exception to "no gradient borders".
+- **Accordion motion:** opens over 240ms and closes over 190ms, the content fades in, and the icon swaps with a blur.
+- **Field details** (`rules/forms.md`):
+  - No label that repeats the heading.
+  - Helper text sits tight to what it explains.
+  - Counters appear only near the limit.
+  - Counts in headings are quiet ("Added context · 1").
+  - Row actions stay faint until hover.
+
 ## 4.5.2 — 2026-11-18
 
 - **No lonely last word** (`rules/type.md`): headings and labels get `text-wrap: balance`; paragraphs, descriptions, captions and helper text get `text-wrap: pretty`, so no single word sits alone on the last line. Long body text is never balanced.

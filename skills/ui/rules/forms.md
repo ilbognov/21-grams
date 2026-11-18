@@ -49,6 +49,13 @@ bad.forEach(f => { f.el.classList.remove('shake'); void f.el.offsetWidth; f.el.c
 if (bad.length) { navigator.vibrate?.(30); bad[0].el.focus(); }
 ```
 
+## Field details
+- **No label that repeats the heading.** A single field under a heading that already names it ("Added context" → a textarea) drops its visible label and keeps an `aria-label`.
+- **Helper text sits tight to what it explains** (4px under its label or heading), with the bigger gap before the next group.
+- **Counters appear near the limit**, e.g. "40 characters left" once 80% is used. Not a permanent "500 characters remaining".
+- **Counts in headings are quiet:** "Added context · 1" in sentence case, not "ADDED CONTEXT (1)".
+- Row actions on someone's own entries (delete, edit) stay faint until the row is hovered or focused, and are always visible on touch.
+
 ## Semantics
 - `aria-invalid="true"` on the field and `aria-describedby` pointing at its message, so screen readers announce it when focus lands there.
 - Messages live in a polite live region; the summary (if any) gets focus on submit.
