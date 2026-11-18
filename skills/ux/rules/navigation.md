@@ -24,6 +24,9 @@ Learned from real passes: `references/field-rules.md`.
 - **F11** Account at the bottom of the nav with sign-out; notifications top right; both on mobile.
 - **F16** Contextual toolbars follow the selection.
 - **F22** Canvas tools ignore zoom.
+- **F38** Pin the step's context and action while scrolling; nothing else is sticky.
+- **F39** Filters sit beside the list and open as a bottom sheet with Apply.
+- **F50** Same patterns, names and order on mobile and desktop.
 
 ## Audit checklist
 - [ ] A3
@@ -37,3 +40,6 @@ Learned from real passes: `references/field-rules.md`.
 - [ ] F11
 - [ ] F16
 - [ ] F22
+- [ ] F38
+- [ ] F39
+- [ ] F50

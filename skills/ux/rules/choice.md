@@ -16,6 +16,10 @@ Learned from real passes: `references/field-rules.md`.
 - **F6** Say each thing once.
 - **F14** No controls that can't act here.
 - **F17** Only offer real choices: one option means just do it.
+- **F37** Reading and picking steps sit in a narrow centred column.
+- **F40** Compact overview first, the full view on tap; "See all" expands in place.
+- **F42** One- or two-word labels, the definition on request.
+- **F46** One kind of thing per container; objects people act on are cards.
 
 ## Audit checklist
 - [ ] A1
@@ -25,3 +29,7 @@ Learned from real passes: `references/field-rules.md`.
 - [ ] F6
 - [ ] F14
 - [ ] F17
+- [ ] F37
+- [ ] F40
+- [ ] F42
+- [ ] F46

@@ -21,6 +21,7 @@ Learned from real passes: `references/field-rules.md`.
 - **F23** AI proposals stay provisional until accepted.
 - **F24** Show what the AI is doing, on request.
 - **F25** Show who else is here.
+- **F41** The affordance sits on the cell or button that acts; nothing useful only on hover.
 
 ## Audit checklist
 - [ ] A5
@@ -31,3 +32,4 @@ Learned from real passes: `references/field-rules.md`.
 - [ ] F23
 - [ ] F24
 - [ ] F25
+- [ ] F41

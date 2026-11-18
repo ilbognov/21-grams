@@ -17,9 +17,13 @@ Learned from real passes: `references/field-rules.md`.
 
 - **F15** Inline edits save themselves.
 - **F26** Waits and cooldowns live on the control; confirmations echo the input.
+- **F48** One picker for add and edit.
+- **F49** Immediate on/off settings are toggles.
 
 ## Audit checklist
 - [ ] A7
 - [ ] #12
 - [ ] F15
 - [ ] F26
+- [ ] F48
+- [ ] F49

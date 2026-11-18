@@ -12,8 +12,14 @@ Full rule, how to apply it and what to flag: `references/rules.md`.
 Learned from real passes and research: `references/field-rules.md`.
 
 - **F34** Empty states that onboard.
+- **F43** Missing data says N/A, never blank or zero.
+- **F44** Line limits with an ellipsis; repeated slots aligned across siblings.
+- **F45** Check none, one, typical, many and the longest values.
 
 ## Audit checklist
 - [ ] #7
 - [ ] #10
 - [ ] F34
+- [ ] F43
+- [ ] F44
+- [ ] F45

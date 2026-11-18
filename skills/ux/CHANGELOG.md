@@ -1,5 +1,9 @@
 # 21 Grams UX changelog
 
+## 1.2.0 — 2026-11-18
+
+- Field rules F37–F50 from the third review session (a mobile-first analytics app with portfolio, product and role views): reading width for reading and choosing, pin only what's needed, filters beside the list in a sheet, overview first, clickable at the level you click, short labels with definitions on request, N/A for missing data, clamped and aligned text, real volumes, one kind of thing per container, roles change the starting point, one picker for add and edit, toggles for on/off, same patterns on every platform.
+
 ## 1.1.0 — 2026-11-18
 
 - The UX research step (`references/research.md`), now step 2 of the workflow: start from what's being designed and for whom, analyse the current flow, recommend three to five industry-leading examples (from Mobbin when connected), go through them one at a time, then compare and recommend.

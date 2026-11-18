@@ -254,6 +254,78 @@ From a UX research pass over three leading iOS onboarding flows on Mobbin: [Bril
 **Apply:** Show the tour once the person has done the main thing, keep it to a few steps with a step indicator, and let them skip or close it at any point. Prefer teaching in context (F34, tooltips at first use) to a tour.
 **Flag:** Tours before the first use, tours with only "Next", tours that come back after being dismissed.
 
+## Session 3: mobile-first analytics app (portfolio, product and role views)
+
+### F37. Reading width for reading and choosing
+**Rule:** Steps where people read or pick from a list sit in a narrow, centred column, not stretched across the screen.
+**Apply:** Selection steps, settings and text-heavy pages get a column about as wide as a card (roughly 480–640px on desktop), centred, with the rest of the screen left empty. Dashboards and tables can use the full width; reading and choosing can't.
+**Flag:** Pickers, settings or forms stretched across a wide screen, lines too long to scan, checkboxes far from their labels.
+
+### F38. Pin only what's needed while scrolling
+**Rule:** In a long step, the context and the action stay on screen; everything else scrolls away.
+**Apply:** In a multi-select step, pin the title, the selection count and the search at the top, separated the same way as the pinned primary action at the bottom (a hairline or a surface change). Page headers, greetings and decorative bars scroll with the content.
+**Flag:** A selection count or Next button that scrolls out of view, sticky headers that only take up space, top and bottom pinned areas separated in different ways.
+
+### F39. Filters sit with the list and open as a sheet
+**Rule:** Filters sit next to the list they change and, on mobile, open as a bottom sheet with an Apply action.
+**Apply:** Call the control "Filters", put it beside the list header or search, open a bottom sheet, apply on the button, and show the number of active filters on the control. Reuse the same filter component across screens. Extends #14.
+**Flag:** Filters far from what they filter, filters that apply on every tap with the list jumping behind the sheet, different filter patterns on different screens, no sign that filters are on.
+
+### F40. Overview first, detail on tap
+**Rule:** Dense visuals show a compact overview first and open the full view on tap.
+**Apply:** On mobile, show the overview the page is for near the top (for example, a colour-only heat map that lists every row) and open the full chart on tap, in landscape or full screen. In cards, "See all" expands the card in place to show the remaining values. Extends F3.
+**Flag:** The page's main visual buried below lists, full desktop charts squeezed onto a phone, "See all" that jumps to another screen for a few values.
+
+### F41. Clickable at the level you click
+**Rule:** The affordance sits on the thing that acts: the cell, the card or the button, not the whole row.
+**Apply:** When each cell in a table opens something, give each cell its own hover and pressed state. Make buttons look like buttons when idle (a tinted fill with coloured text), not only on hover. If a hover state carries useful information, make it the default, because touch has no hover.
+**Flag:** Row hover on tables where only cells act, buttons that look like plain text until hovered, information only visible on hover.
+
+### F42. Short labels, definitions on request
+**Rule:** Labels are one or two plain words. The explanation is a tap or hover away, and every label passes the test "what does this mean?".
+**Apply:** "Forecast", "Supply", "Cost", "Quality" as labels, with the definition in a popover on the label (F4). When a reviewer asks what something means, rename it or add the definition; don't add a paragraph under it.
+**Flag:** Long column headers, labels that need a sentence to explain, definitions printed under every label, labels nobody outside the team understands (F9).
+
+### F43. Say when data is missing
+**Rule:** When there's no value, the screen says so ("N/A"), never a blank, a zero or a broken chart.
+**Apply:** Use one missing-value marker across the app, in the same place as the value, muted, with the reason on hover or tap when it's known. Charts leave a gap rather than drawing zero.
+**Flag:** Blank cells, zeros standing in for missing data, "undefined" or "NaN", charts that drop to zero where data is missing.
+
+### F44. Clamp text and align siblings
+**Rule:** Text in repeated cards has a line limit, and the same slot sits at the same height in every sibling.
+**Apply:** Clamp to a set number of lines (two for supporting text) with an ellipsis and the full text on tap or hover. Pin repeating slots, like a card's key metric, to the same place (for example, the bottom of the card), so titles and values line up across a row.
+**Flag:** Cards of different heights because one value wraps, the same field at different heights across siblings, text cut without an ellipsis.
+
+### F45. Design for real volumes
+**Rule:** Check every list, chart and card group with realistic and extreme amounts of data before calling it done.
+**Apply:** Try none, one, the typical count and many (ten products, not two), plus the longest real names and values. Decide what happens beyond the limit: scroll, "Show more" or a summary.
+**Flag:** Layouts that only work with the two sample items, long names breaking cards, charts that become unreadable at real counts.
+
+### F46. One kind of thing per container
+**Rule:** Different kinds of content sit in separate containers. The things people act on are cards, and things of the same level get the same treatment.
+**Apply:** Separate items (products at risk) from commentary (insights) with separate containers, not a divider inside one. Show objects people open or compare as cards with their name and key figure, not as plain list rows. When two sections have the same importance, give them the same container and heading size.
+**Flag:** Unrelated content in one box split by a line, objects shown as plain text rows that don't feel like objects, equally important sections styled differently.
+
+### F47. Roles change the starting point, not the app
+**Rule:** When different roles use the same product, change what each sees first and what they can switch between, and keep shared screens identical.
+**Apply:** Give each role its own home (a team sees its products, executives see the portfolio as home) and hide only the views that role doesn't use. Keep names, components and flows the same everywhere else. For prototypes and reviews, add a view switcher so everyone can see each role.
+**Flag:** Separate apps per role, the same screen built twice with small differences, roles that lose shared features for no reason.
+
+### F48. One picker for add and edit
+**Rule:** Adding and editing a selection open the same picker, and an empty selection leads straight to it.
+**Apply:** "Add products" with nothing selected and "Edit" on an existing selection both open the same slide-in panel, which lists what this person can choose from, with current choices ticked. The empty state's action is that same "Add" (F34).
+**Flag:** Different screens for adding and editing the same thing, empty states with no way to start, pickers that list items the person can't use.
+
+### F49. On/off settings are toggles
+**Rule:** A setting with two states that takes effect at once is a toggle.
+**Apply:** Use a switch for on/off settings that apply immediately, checkboxes for choices submitted with a form, and a segmented control for two or three named options.
+**Flag:** On/off settings as dropdowns or pairs of buttons, toggles that need a Save to take effect.
+
+### F50. Same patterns on every platform
+**Rule:** Mobile and desktop share the same patterns, names and order; only the layout adapts.
+**Apply:** Design mobile first, then carry each pattern to desktop in the desktop layout (bottom sheets become side panels or popovers, stacked cards become a grid). Use the same labels, icons and flow order on both.
+**Flag:** A feature named differently on desktop, flows with different steps per platform, icons or components that only one platform uses.
+
 ---
 
 ## Quick audit checklist
@@ -296,3 +368,17 @@ From a UX research pass over three leading iOS onboarding flows on Mobbin: [Bril
 | F34 | States | Empty states that teach, with suggestions |
 | F35 | Flows | Free path, dated trials, upgrades at the limit, plain terms |
 | F36 | Onboarding | Tours after the first win, always skippable |
+| F37 | Choice | Reading and picking steps in a narrow centred column |
+| F38 | Navigation | Context and action pinned in long steps, nothing else sticky |
+| F39 | Navigation | Filters beside the list, bottom sheet with Apply, active count |
+| F40 | Choice | Compact overview first, full view on tap, "See all" in place |
+| F41 | Feedback | Affordance on the cell or button that acts; no hover-only info |
+| F42 | Choice | One- or two-word labels, definition on request |
+| F43 | States | Missing data shown as N/A, never blank or zero |
+| F44 | States | Line limits with ellipsis; sibling slots aligned |
+| F45 | States | Checked with none, one, typical, many and longest values |
+| F46 | Choice | Separate containers per kind; objects as cards; equal levels styled alike |
+| F47 | Flows | Roles change home and scope, shared screens identical |
+| F48 | Flows | Same picker for add and edit; empty selection opens it |
+| F49 | Forms | Immediate on/off settings are toggles |
+| F50 | Navigation | Same patterns, names and order on mobile and desktop |

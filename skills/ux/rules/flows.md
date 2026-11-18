@@ -14,6 +14,8 @@ Learned from real passes: `references/field-rules.md`.
 - **F10** New UI stays inside the product's stated scope.
 - **F13** No step that repeats the choice that opened it.
 - **F35** Honest money: free path, dated trials, upgrades at the limit.
+- **F47** Roles change the starting point, not the app.
+- **F48** One picker for add and edit; an empty selection opens it.
 
 ## Audit checklist
 - [ ] A6
@@ -21,3 +23,5 @@ Learned from real passes: `references/field-rules.md`.
 - [ ] F10
 - [ ] F13
 - [ ] F35
+- [ ] F47
+- [ ] F48

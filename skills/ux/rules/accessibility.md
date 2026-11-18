@@ -12,8 +12,12 @@ Learned from real passes: `references/field-rules.md`.
 
 - **F5** Never remove the only keyboard, touch or screen-reader path.
 - **F20** Shortcuts are shown and don't fight the browser.
+- **F37** Narrow reading width for text and lists.
+- **F41** No information only on hover; touch has none.
 
 ## Audit checklist
 - [ ] A2
 - [ ] F5
 - [ ] F20
+- [ ] F37
+- [ ] F41
