@@ -478,7 +478,7 @@ ol.changes li .chip { font-size: 11px; padding: 3px 6px; white-space: nowrap; }
 .ai-st.pending { background: #fef9c3; color: #854d0e; }
 .ai-st.overdue { background: #fee2e2; color: #991b1b; }
 .tg-tbl { font-size: 13px; }
-.tg-tbl th { text-align: left; font-weight: 500; font-size: 12px; color: var(--demo-sub); padding: 0 0 8px; border-bottom: 1px solid rgb(0 0 0 / .08); }
+.tg-tbl th { text-align: left; font-weight: 500; font-size: 13px; color: var(--demo-sub); padding: 0 0 8px; border-bottom: 1px solid rgb(0 0 0 / .08); }
 .tg-tbl td { padding: 10px 0; border-bottom: 1px solid rgb(0 0 0 / .06); }
 .tg-tbl tr:last-child td { border-bottom: 0; padding-bottom: 0; }
 .tg-tbl .num { text-align: right; font-variant-numeric: tabular-nums; }
@@ -487,6 +487,43 @@ ol.changes li .chip { font-size: 11px; padding: 3px 6px; white-space: nowrap; }
 .pill.paid { color: #16794a; background: #e8f5ee; }
 .pill.pending { color: #9a6200; background: #fbf1dc; }
 .pill.overdue { color: #b42318; background: #fdecea; }
+
+/* AI summary example */
+.ai-sum { width: 320px; max-width: 100%; box-sizing: border-box; padding: 18px; border-radius: 16px; color: #e2e8f0; font-family: Inter, system-ui, sans-serif;
+  background: linear-gradient(135deg, #0f172a, #1e1b4b); box-shadow: 0 0 0 1px rgb(129 140 248 / .35), 0 10px 30px -6px rgb(139 92 246 / .55); }
+.ai-sum-h { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; }
+.ai-sum-h svg { width: 18px; height: 18px; }
+.ai-sum-h span { font-size: 13px; font-weight: 700; letter-spacing: .02em; background: linear-gradient(90deg, #a5b4fc, #f0abfc); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.ai-sum p { margin: 0 0 12px; font-size: 13.5px; line-height: 1.55; color: #f8fafc; }
+.ai-sum small { font-size: 11.5px; color: #94a3b8; }
+@property --edge-a { syntax: "<angle>"; inherits: false; initial-value: 0deg; }
+@property --edge-w { syntax: "<length>"; inherits: false; initial-value: 0px; }
+.tg-ai {
+  position: relative; width: 320px; max-width: 100%; box-sizing: border-box; padding: 16px; border-radius: 12px; font-family: var(--f-text); color: var(--demo-ink);
+  background: color-mix(in oklch, #3b4ce2 5%, #fff); box-shadow: inset 0 0 0 1px color-mix(in oklch, #3b4ce2 18%, #fff);
+}
+/* the edge light: a ring masked out of a conic gradient with two lobes; it travels once and rests at two corners */
+.tg-ai::before {
+  content: ""; position: absolute; inset: 0; border-radius: inherit; padding: var(--edge-w); pointer-events: none; opacity: 0;
+  background: conic-gradient(from calc(var(--edge-a) - 40deg), transparent 0deg, #3b4ce2 40deg, transparent 80deg 180deg, #3b4ce2 220deg, transparent 260deg);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite: xor;
+  mask: linear-gradient(#000 0 0) content-box exclude, linear-gradient(#000 0 0);
+  filter: drop-shadow(0 0 2px rgb(59 76 226 / .45));
+}
+.tg-ai.lit::before { animation: edge-light 1.6s cubic-bezier(.2, .7, .2, 1) forwards; }
+@keyframes edge-light {
+  0% { --edge-a: 0deg; --edge-w: .5px; opacity: 0; }
+  12% { opacity: 1; }
+  100% { --edge-a: var(--edge-end, 65deg); --edge-w: 2px; opacity: .7; }
+}
+.tg-ai-h { display: flex; align-items: center; gap: 6px; margin-bottom: 8px; color: #3b4ce2; }
+.tg-ai-h svg { width: 16px; height: 16px; }
+.tg-ai-h span { font-size: 13px; font-weight: 500; color: var(--demo-ink); }
+.tg-ai p { margin: 0 0 10px; font-size: 13px; line-height: 1.5; color: var(--demo-ink); text-wrap: pretty; }
+.tg-ai small { font-size: 12px; color: var(--demo-sub); font-variant-numeric: tabular-nums; }
+@media (prefers-reduced-motion: reduce) {
+  .tg-ai.lit::before { animation: none; --edge-a: var(--edge-end, 65deg); --edge-w: 2px; opacity: .7; }
+}
 
 /* chart interaction */
 .tgc .col { cursor: pointer; outline: 0; }
@@ -805,7 +842,7 @@ footer { font: 12px/1.6 var(--f-text); color: var(--faint-text); }
       <div class="head">
         <span class="eyebrow">Design family</span>
         <h1><svg class="px" data-icon="window" aria-hidden="true"></svg>21 Grams UI</h1>
-        <span class="tag live">v4.5 · available</span>
+        <span class="tag live">v4.6 · available</span>
         <p class="lede">Uplifts UI that was built by AI so it stops looking AI-generated. It audits a screen against a house style and proven UX and motion principles, then fixes what it finds using what your project already has.</p>
       </div>
 
@@ -829,6 +866,7 @@ footer { font: 12px/1.6 var(--f-text); color: var(--faint-text); }
           <button type="button" role="tab" id="tab-toggle" aria-controls="ex-toggle" aria-selected="false" tabindex="-1">Toggles</button>
           <button type="button" role="tab" id="tab-chart" aria-controls="ex-chart" aria-selected="false" tabindex="-1">Chart</button>
           <button type="button" role="tab" id="tab-table" aria-controls="ex-table" aria-selected="false" tabindex="-1">Table</button>
+          <button type="button" role="tab" id="tab-ai" aria-controls="ex-ai" aria-selected="false" tabindex="-1">AI summary</button>
         </div>
 
         <div class="ex" id="ex-card" role="tabpanel" aria-labelledby="tab-card">
@@ -965,7 +1003,7 @@ footer { font: 12px/1.6 var(--f-text); color: var(--faint-text); }
                   <tr><td><span class="ai-av">KE</span>Kestrel</td><td><span class="ai-st paid">Paid</span></td><td>$960.00</td></tr>
                 </tbody></table></div></div>
               <div class="layer after"><div class="tg-panel"><div class="tg-ph"><h5>Recent invoices</h5><button type="button" class="tg-more">View all<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 4 4 4-4 4"/></svg></button></div>
-                <table class="tg-tbl"><thead><tr><th><button type="button" data-k="c">Customer<svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9.5v-7M3 5.5l3-3 3 3"/></svg></button></th><th><button type="button" data-k="s">Status<svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9.5v-7M3 5.5l3-3 3 3"/></svg></button></th><th class="num"><button type="button" data-k="a">Amount<svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9.5v-7M3 5.5l3-3 3 3"/></svg></button></th></tr></thead><tbody id="tg-rows"></tbody></table></div></div>
+                <table class="tg-tbl"><thead><tr><th><button type="button" data-k="c">Customer<svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7.5 6 4.5l3 3"/></svg></button></th><th><button type="button" data-k="s">Status<svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7.5 6 4.5l3 3"/></svg></button></th><th class="num"><button type="button" data-k="a">Amount<svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7.5 6 4.5l3 3"/></svg></button></th></tr></thead><tbody id="tg-rows"></tbody></table></div></div>
               <div class="handle"></div>
               <input type="range" id="cmp-table" min="0" max="100" value="50" aria-label="Compare AI default and 21 Grams table">
             </div>
@@ -973,10 +1011,27 @@ footer { font: 12px/1.6 var(--f-text); color: var(--faint-text); }
           <ol class="changes">
             <li><span>Amounts are right-aligned in tabular figures, so the digits line up. The default left-aligns them and adds “.00” to every row.</span><span class="chip">tables</span></li>
             <li><span>Status tags are one width with a small dot, in muted tones, instead of saturated pills that change width with the word.</span><span class="chip">colour</span></li>
-            <li><span>The grey uppercase header band became quiet sentence-case labels, so the data leads.</span><span class="chip">type</span></li>
+            <li><span>The grey uppercase header band became quiet sentence-case labels at the same size as the cells, so the data leads.</span><span class="chip">type</span></li>
             <li><span>Initials avatars went. They repeat the name and add a second accent colour.</span><span class="chip">unslop</span></li>
             <li><span>“Recent invoices” is sentence case, and “View all” is a text button in the accent colour with a line chevron, instead of a link with a typed arrow.</span><span class="chip">buttons</span></li>
-            <li><span>Headers sort. Tap one, tap it again to reverse. The default has no sorting at all.</span><span class="chip">tables</span></li>
+            <li><span>Headers sort, marked with a line caret. Tap one, tap it again to reverse. The default has no sorting at all.</span><span class="chip">tables</span></li>
+          </ol>
+        </div>
+        <div class="ex" id="ex-ai" role="tabpanel" aria-labelledby="tab-ai" hidden>
+          <div class="compare">
+            <div class="compare-bar"><span>AI default</span><span class="hint">The light runs once when the summary appears. <button type="button" class="ux-link" id="ai-edge-replay">Replay</button></span><b>21 Grams</b></div>
+            <div class="stage" style="--pos: 50%; height: 260px">
+              <div class="layer before"><div class="ai-sum"><div class="ai-sum-h"><svg viewBox="0 0 24 24" aria-hidden="true"><defs><linearGradient id="aig" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#818cf8"/><stop offset="1" stop-color="#e879f9"/></linearGradient></defs><path fill="url(#aig)" d="M12 2l2.2 6.6L21 11l-6.8 2.4L12 20l-2.2-6.6L3 11l6.8-2.4L12 2zM19 15l.9 2.6 2.6.9-2.6.9L19 22l-.9-2.6-2.6-.9 2.6-.9L19 15z"/></svg><span>AI Summary</span></div><p>Revenue is up 1.1% in 12 months. Repeat customers drove most of it, while new sign-ups slowed in March.</p><small>Generated from 1,284 orders</small></div></div>
+              <div class="layer after"><div class="tg-ai" id="tg-ai"><div class="tg-ai-h"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round" aria-hidden="true"><path d="M8 2.5 9.3 6.7 13.5 8 9.3 9.3 8 13.5 6.7 9.3 2.5 8l4.2-1.3L8 2.5Z"/></svg><span>AI summary</span></div><p>Revenue is up 1.1% in 12 months. Repeat customers drove most of it, while new sign-ups slowed in March.</p><small>Generated from 1,284 orders</small></div></div>
+              <div class="handle"></div>
+              <input type="range" id="cmp-ai" min="0" max="100" value="50" aria-label="Compare AI default and 21 Grams AI summary card">
+            </div>
+          </div>
+          <ol class="changes">
+            <li><span>The dark navy block with a violet glow became a light card tinted with the accent and a thin outline, so AI content belongs to the page instead of shouting over it.</span><span class="chip">colour</span></li>
+            <li><span>When the summary appears, a light runs once along the border, from a hairline at the middle of the edges to a soft glow resting at two opposite corners. It never loops, and it doesn't run with reduced motion.</span><span class="chip">motion</span></li>
+            <li><span>The gradient sparkle became one line sparkle in the accent, in the same style as every other icon.</span><span class="chip">icons</span></li>
+            <li><span>The text is body colour on a light surface instead of white on navy, and the footnote is quiet.</span><span class="chip">type</span></li>
           </ol>
         </div>
       </div>
@@ -989,6 +1044,10 @@ footer { font: 12px/1.6 var(--f-text); color: var(--faint-text); }
           <li><span>Principles</span><span>20 UX and animation principles, from squash and stretch to Fitts's, Hick's and the Doherty threshold.</span></li>
           <li><span>Hacks</span><span>10 design hacks: concentric radius, alpha borders, OKLCH colour, dvh and more.</span></li>
           <li><span>Craft</span><span>20 animation crafts, a typography specimen guide and an unslop pass.</span></li>
+          <li><span>Layout</span><span>A centred reading column of 600–720px for settings, forms and detail pages, even page padding, and one page header: the parent beside the back arrow, the title below.</span></li>
+          <li><span>Cards</span><span>Entities are cards, peer sections get their own containers, sibling cards align with text clamped to 2 lines, and no tag repeats what the card says.</span></li>
+          <li><span>Details</span><span>Icon rows with equal insets, pinned picker headers, signed deltas, switches for binary settings, actions that look clickable, accordion motion and quiet field details.</span></li>
+          <li><span>AI content</span><span>A light card with a thin outline, where a light runs once around the edge and then rests.</span></li>
         </ul>
         <div class="chips" aria-label="House style rule sets">
           <span class="chip">radius</span><span class="chip">buttons</span><span class="chip">motion</span><span class="chip">type</span><span class="chip">spacing</span><span class="chip">colour</span><span class="chip">elevation</span><span class="chip">copy</span><span class="chip">icons</span><span class="chip">charts</span><span class="chip">toggles</span><span class="chip">layout</span><span class="chip">forms</span><span class="chip">tables</span>
@@ -1195,6 +1254,9 @@ footer { font: 12px/1.6 var(--f-text); color: var(--faint-text); }
         <h1><svg class="px" data-icon="clock" aria-hidden="true"></svg>Changelog</h1>
       </div>
       <ul class="log">
+        <li><span class="v">UI 4.6.0</span><span>Reading width, even page padding and one page header pattern. Cards for entities, aligned sibling cards, icon rows with even insets. Tables with headers the size of their cells, “N/A” in empty cells and line-caret sorting. Signed deltas, switches for binary settings, actions that look clickable, and a light that runs once around AI content.</span></li>
+        <li><span class="v">UI 4.5.2</span><span>No lonely last word: headings balance, paragraphs wrap pretty. Menus grow from the corner that touches their button.</span></li>
+        <li><span class="v">UI 4.5.1</span><span>Animated numbers are always tabular, so count-ups and timers don't dance.</span></li>
         <li><span class="v">UX 1.0.0</span><span>First release of <strong>21 Grams UX</strong>: the seven core UX laws, rules for the moments AI gets wrong, and 26 field rules from real review sessions, across nine areas. Installs as <strong>21grams:ux</strong>.</span></li>
         <li><span class="v">UI 4.5.0</span><span>The success wave: a button that succeeds turns green, says what happened and sends one ring outwards.</span></li>
         <li><span class="v">UI 4.4.0</span><span>Tables: aligned numbers, hairline rows and real sorting. Action rows without footer trays, two buttons at equal width.</span></li>
@@ -1435,6 +1497,18 @@ document.querySelectorAll(".stage").forEach(st => {
   new ResizeObserver(paint).observe(st);
   paint();
 });
+
+// AI summary: the edge light runs once each time the tab opens (or on Replay), then rests at two opposite corners.
+{
+  const card = document.getElementById("tg-ai"), panel = document.getElementById("ex-ai");
+  const light = () => {
+    const w = card.offsetWidth, h = card.offsetHeight; if (!w) return;
+    card.style.setProperty("--edge-end", (Math.atan2(w, h) * 180 / Math.PI).toFixed(1) + "deg");   // top-right corner, seen from the centre
+    card.classList.remove("lit"); void card.offsetWidth; card.classList.add("lit");
+  };
+  new MutationObserver(() => { if (!panel.hidden) requestAnimationFrame(light); }).observe(panel, { attributes: true, attributeFilter: ["hidden"] });
+  document.getElementById("ai-edge-replay").addEventListener("click", light);
+}
 
 // Example tabs
 document.querySelectorAll(".tabs").forEach(list => {
