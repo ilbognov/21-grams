@@ -1,5 +1,9 @@
 # 21 Grams UI changelog
 
+## 4.5.1 — 2026-11-18
+
+- **Animated numbers are always tabular** (`rules/type.md`, `rules/motion.md`): count-ups, timers, countdowns, live prices and progress percentages use `tabular-nums`, so every digit is the same width and the number doesn't dance or push its neighbours. Count-ups run 400–800ms ease-out and jump to the final value with reduced motion.
+
 ## 4.5.0 — 2026-11-17
 
 - **The success wave** (`rules/buttons.md`): when an action succeeds, the button turns the success colour, its label moves to the past tense with a tick ("Sending" → "Sent"), and one 2px ring leaves it, expanding about 10px and fading over ~420ms. It fires once, never loops, keeps the button's width, and is skipped with reduced motion. Replaces the faint shadow pulse in `motion.md` and craft #8, which was barely visible.

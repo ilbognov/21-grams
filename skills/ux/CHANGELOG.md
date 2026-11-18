@@ -1,5 +1,9 @@
 # 21 Grams UX changelog
 
+## Unreleased
+
+- The UX research step (`references/research.md`), now step 2 of the workflow: start from what's being designed and for whom, analyse the current flow, recommend three to five industry-leading examples (from Mobbin when connected), go through them one at a time, then compare and recommend.
+
 ## 1.0.0 — 2026-11-18
 
 First release.

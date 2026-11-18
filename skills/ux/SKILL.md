@@ -1,6 +1,6 @@
 ---
 name: ux
-description: Audit and fix the flows and usability of a product built by AI, so it works the way people expect and not just looks finished, using the project's own components and patterns. Use when the user asks for "21 grams UX" (or "twenty-one grams UX"), wants a flow, journey or screen audited for usability, or asks to fix back and close behaviour, scroll restoration, infinite feeds, optimistic likes and saves, draft saving, permission prompts, bottom sheets, deep links, navigation, forms, empty, loading and error states, feedback, onboarding, destructive actions, accessibility and keyboard use, task length or choice overload in an existing frontend, AI proposals and accept/reject flows, contextual toolbars, delete scopes, keyboard shortcuts, collaboration presence, or wants a flow checked against UX laws (Hick's, Fitts's, Jakob's, Miller's, Doherty Threshold, Tesler's, Postel's).
+description: Audit and fix the flows and usability of a product built by AI, so it works the way people expect and not just looks finished, using the project's own components and patterns. Use when the user asks for "21 grams UX" (or "twenty-one grams UX"), wants a flow, journey or screen audited for usability, or asks to fix back and close behaviour, scroll restoration, infinite feeds, optimistic likes and saves, draft saving, permission prompts, bottom sheets, deep links, navigation, forms, empty, loading and error states, feedback, onboarding, destructive actions, accessibility and keyboard use, task length or choice overload in an existing frontend, AI proposals and accept/reject flows, contextual toolbars, delete scopes, keyboard shortcuts, collaboration presence, asks how leading products handle a flow or wants UX research with examples (e.g. from Mobbin), or wants a flow checked against UX laws (Hick's, Fitts's, Jakob's, Miller's, Doherty Threshold, Tesler's, Postel's).
 ---
 
 # 21 Grams UX
@@ -23,10 +23,11 @@ Every change goes through what the project already uses. 21 Grams UX never build
 
 ## What's inside
 
-1. **The UX laws.** The knowledge the rules come from, in `references/laws.md`, cited as A1, A2… by section. Section A is the core laws: Hick's, Fitts's, Jakob's, Miller's, the Doherty Threshold, Tesler's and Postel's. When no rule covers a case, reason from the laws.
-2. **The UX rules.** Numbered rules in `references/rules.md`, each with the rule, how to apply it and what to flag, plus a quick audit checklist. Written mobile-first and applied to the web too (primary nav for "bottom tab", popover for "bottom sheet" on desktop).
-3. **Field rules.** Rules learned from real review sessions on AI-built products, in `references/field-rules.md`, cited as F1, F2…. This file grows after every session (see "Growing the field rules").
-4. **House rules by area** in `rules/`, one file per area, each listing the laws, numbered rules and field rules that belong to it:
+1. **The UX research step.** Before designing or redesigning a flow, analyse the current product and three to five industry-leading examples, one at a time, using a pattern library such as Mobbin when one is connected. The full process is in `references/research.md`.
+2. **The UX laws.** The knowledge the rules come from, in `references/laws.md`, cited as A1, A2… by section. Section A is the core laws: Hick's, Fitts's, Jakob's, Miller's, the Doherty Threshold, Tesler's and Postel's. When no rule covers a case, reason from the laws.
+3. **The UX rules.** Numbered rules in `references/rules.md`, each with the rule, how to apply it and what to flag, plus a quick audit checklist. Written mobile-first and applied to the web too (primary nav for "bottom tab", popover for "bottom sheet" on desktop).
+4. **Field rules.** Rules learned from real review sessions on AI-built products, in `references/field-rules.md`, cited as F1, F2…. This file grows after every session (see "Growing the field rules").
+5. **House rules by area** in `rules/`, one file per area, each listing the laws, numbered rules and field rules that belong to it:
 
 | File | Area |
 |---|---|
@@ -76,13 +77,14 @@ Every change goes through what the project already uses. 21 Grams UX never build
 ## Workflow
 
 1. **Take the inventory** (rule zero).
-2. **Map the flows.** List the main tasks a person comes to do, and for each one the route through the product: entry point, every step, every branch, the end state. Note where each step's data comes from.
-3. **Walk each flow in the browser,** not just the code. Try the happy path, then the edges: nothing there yet, slow network, a failed request, invalid input, going back, refreshing mid-flow, keyboard only, a narrow screen.
-4. **Audit before changing anything.** Go through the checklists at the end of `references/rules.md`, `references/laws.md` and `references/field-rules.md`, and the area files. List findings grouped by area, rule number and law. Each finding gets the flow and step, the file and line, what goes wrong for the person, the fix, and **which existing component or pattern the fix goes into**. Rank them: blocks the task, slows the task, rough edge.
-5. **Show the audit to the user** as a short list and ask before applying broad changes. Small, obvious fixes in the requested scope can go straight in.
-6. **Apply the fixes** in this order: shared components and patterns → flows → individual screens. Keep diffs scoped and in the project's own conventions.
-7. **Verify by walking the flows again** in the browser, including the edge cases from step 3. Capture before and after for each changed step.
-8. **Report** what changed per flow and area, which components were touched, and the open questions that are product decisions.
+2. **Research** (`references/research.md`). For a new flow, a redesign or onboarding, start here: find out what's being designed and for whom, analyse the current flow, recommend three to five industry-leading examples, and go through them one at a time with the user before changing anything. Skip it only for small fixes to an existing flow.
+3. **Map the flows.** List the main tasks a person comes to do, and for each one the route through the product: entry point, every step, every branch, the end state. Note where each step's data comes from.
+4. **Walk each flow in the browser,** not just the code. Try the happy path, then the edges: nothing there yet, slow network, a failed request, invalid input, going back, refreshing mid-flow, keyboard only, a narrow screen.
+5. **Audit before changing anything.** Go through the checklists at the end of `references/rules.md`, `references/laws.md` and `references/field-rules.md`, and the area files. List findings grouped by area, rule number and law. Each finding gets the flow and step, the file and line, what goes wrong for the person, the fix, and **which existing component or pattern the fix goes into**. Rank them: blocks the task, slows the task, rough edge.
+6. **Show the audit to the user** as a short list and ask before applying broad changes. Small, obvious fixes in the requested scope can go straight in.
+7. **Apply the fixes** in this order: shared components and patterns → flows → individual screens. Keep diffs scoped and in the project's own conventions.
+8. **Verify by walking the flows again** in the browser, including the edge cases from step 3. Capture before and after for each changed step.
+9. **Report** what changed per flow and area, which components were touched, and the open questions that are product decisions.
 
 ## Growing the field rules
 

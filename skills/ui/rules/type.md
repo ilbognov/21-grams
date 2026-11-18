@@ -6,6 +6,7 @@ House default. When the project has its own system, express this through its com
 - **The project's fonts come first.** Keep its brand typefaces and apply the scale, weights and tracking below.
 - Default when the project has none: **Geist** for all UI text (`"Geist", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif`). **Geist Mono** only for code (see below).
 - Use `font-variant-numeric: tabular-nums` in the UI sans wherever digits line up: tables, stats, prices, timers, chart axes. Figures do not need a mono font to align.
+- **Numbers that change on screen are always tabular (strict).** Count-ups, timers, countdowns, live prices, progress percentages, seat counts, odometer rolls: proportional digits are different widths, so the number dances and pushes its neighbours as it ticks. Tabular figures give every digit the same width and lock it in place. Right-align (or fix the width of) the container so a new digit is added on the left without shifting the rest.
 
 ## Mono is for code, never for labels (strict)
 Mono labels are one of the most common tells of AI-built UI. Monospace is allowed only for text a person would read or copy as code:
