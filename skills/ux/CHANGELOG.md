@@ -1,8 +1,9 @@
 # 21 Grams UX changelog
 
-## Unreleased
+## 1.1.0 — 2026-11-18
 
 - The UX research step (`references/research.md`), now step 2 of the workflow: start from what's being designed and for whom, analyse the current flow, recommend three to five industry-leading examples (from Mobbin when connected), go through them one at a time, then compare and recommend.
+- Onboarding field rules F27–F36 from the first research pass (Brilliant, Duolingo and Raycast on Mobbin): depth matched to what people know, two doors, one question per screen with progress, options that show, answers reflected back, value before the account, permissions in context, empty states that onboard, honest money, skippable tours.
 
 ## 1.0.0 — 2026-11-18
 

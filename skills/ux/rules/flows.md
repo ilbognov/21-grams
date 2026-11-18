@@ -13,9 +13,11 @@ Learned from real passes: `references/field-rules.md`.
 - **F9** No version numbers, design notes or internal jargon on screen; one form of address.
 - **F10** New UI stays inside the product's stated scope.
 - **F13** No step that repeats the choice that opened it.
+- **F35** Honest money: free path, dated trials, upgrades at the limit.
 
 ## Audit checklist
 - [ ] A6
 - [ ] F9
 - [ ] F10
 - [ ] F13
+- [ ] F35

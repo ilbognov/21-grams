@@ -1,6 +1,6 @@
 ---
 name: ux
-description: Audit and fix the flows and usability of a product built by AI, so it works the way people expect and not just looks finished, using the project's own components and patterns. Use when the user asks for "21 grams UX" (or "twenty-one grams UX"), wants a flow, journey or screen audited for usability, or asks to fix back and close behaviour, scroll restoration, infinite feeds, optimistic likes and saves, draft saving, permission prompts, bottom sheets, deep links, navigation, forms, empty, loading and error states, feedback, onboarding, destructive actions, accessibility and keyboard use, task length or choice overload in an existing frontend, AI proposals and accept/reject flows, contextual toolbars, delete scopes, keyboard shortcuts, collaboration presence, asks how leading products handle a flow or wants UX research with examples (e.g. from Mobbin), or wants a flow checked against UX laws (Hick's, Fitts's, Jakob's, Miller's, Doherty Threshold, Tesler's, Postel's).
+description: Audit and fix the flows and usability of a product built by AI, so it works the way people expect and not just looks finished, using the project's own components and patterns. Use when the user asks for "21 grams UX" (or "twenty-one grams UX"), wants a flow, journey or screen audited for usability, or asks to fix back and close behaviour, scroll restoration, infinite feeds, optimistic likes and saves, draft saving, permission prompts, bottom sheets, deep links, navigation, forms, empty, loading and error states, feedback, onboarding (questionnaires, sign-up, trials, paywalls, permission asks, tours), destructive actions, accessibility and keyboard use, task length or choice overload in an existing frontend, AI proposals and accept/reject flows, contextual toolbars, delete scopes, keyboard shortcuts, collaboration presence, asks how leading products handle a flow or wants UX research with examples (e.g. from Mobbin), or wants a flow checked against UX laws (Hick's, Fitts's, Jakob's, Miller's, Doherty Threshold, Tesler's, Postel's).
 ---
 
 # 21 Grams UX
@@ -26,7 +26,7 @@ Every change goes through what the project already uses. 21 Grams UX never build
 1. **The UX research step.** Before designing or redesigning a flow, analyse the current product and three to five industry-leading examples, one at a time, using a pattern library such as Mobbin when one is connected. The full process is in `references/research.md`.
 2. **The UX laws.** The knowledge the rules come from, in `references/laws.md`, cited as A1, A2… by section. Section A is the core laws: Hick's, Fitts's, Jakob's, Miller's, the Doherty Threshold, Tesler's and Postel's. When no rule covers a case, reason from the laws.
 3. **The UX rules.** Numbered rules in `references/rules.md`, each with the rule, how to apply it and what to flag, plus a quick audit checklist. Written mobile-first and applied to the web too (primary nav for "bottom tab", popover for "bottom sheet" on desktop).
-4. **Field rules.** Rules learned from real review sessions on AI-built products, in `references/field-rules.md`, cited as F1, F2…. This file grows after every session (see "Growing the field rules").
+4. **Field rules.** Rules learned from real review sessions on AI-built products and from UX research on leading products, in `references/field-rules.md`, cited as F1, F2…. This file grows after every session (see "Growing the field rules").
 5. **House rules by area** in `rules/`, one file per area, each listing the laws, numbered rules and field rules that belong to it:
 
 | File | Area |
@@ -73,6 +73,8 @@ Every change goes through what the project already uses. 21 Grams UX never build
 - Everything that can be added can be removed, and a delete shows what it will take. (F18, F19)
 - Shortcuts are shown in tooltips and never use browser-reserved keys. (F20)
 - AI proposals look provisional, use one accept/reject pattern, and accept instantly. (F23)
+- Onboarding: two equal doors, one question per screen with progress, value before the account, skippable tours. (F28, F29, F32, F36)
+- Money is honest: a real free path, trials with dates, upgrades at the limit. (F35)
 
 ## Workflow
 

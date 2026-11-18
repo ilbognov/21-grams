@@ -8,6 +8,12 @@ Full rule, how to apply it and what to flag: `references/rules.md`.
 - **#7** Never a blank screen while loading: skeleton, spinner or progress bar.
 - **#10** Feeds load the next batch before people reach the bottom.
 
+## Field rules
+Learned from real passes and research: `references/field-rules.md`.
+
+- **F34** Empty states that onboard.
+
 ## Audit checklist
 - [ ] #7
 - [ ] #10
+- [ ] F34

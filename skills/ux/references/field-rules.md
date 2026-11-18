@@ -1,6 +1,6 @@
 # Field rules
 
-Rules learned from real passes on AI-built products. Each one comes from a change the author asked for while reviewing a live build, written as a general rule. They're cited as F1, F2… so they never clash with the numbered rules in `rules.md` (#1…) or the laws in `laws.md` (A1…).
+Rules learned from real passes on AI-built products and from UX research on industry-leading products (`research.md`). Each one comes from a change the author asked for while reviewing a live build, or from a pattern the author adopted after research, written as a general rule. They're cited as F1, F2… so they never clash with the numbered rules in `rules.md` (#1…) or the laws in `laws.md` (A1…).
 
 This file grows over time: after each review session, the UX changes made there are added here.
 
@@ -186,6 +186,74 @@ Each entry has the rule, how to apply it through the project's own components, a
 **Apply:** "Resend link in 9:42" as the disabled button's label, counting down, then the enabled "Resend link". Remove the explanatory paragraphs around it ("The link lasts 10 minutes…", "You can now request another link"). Confirmation copy echoes what the person entered ("Link sent to name@example.com") so they can spot a typo (A4).
 **Flag:** Disabled buttons with no reason, countdowns in body text, paragraphs explaining timing the control could show, confirmations that don't repeat the address or value used.
 
+
+---
+
+## Research: onboarding (Brilliant, Duolingo, Raycast)
+
+From a UX research pass over three leading iOS onboarding flows on Mobbin: [Brilliant](https://mobbin.com/flows/7ffbd4f0-78d1-49be-bf0d-9c90cac00e8c), [Duolingo](https://mobbin.com/flows/b0b4f93f-5637-46ec-9d77-49ecda6b991d) and [Raycast](https://mobbin.com/flows/1c30eb52-9997-4a33-a50d-05dc3e7a8f09).
+
+### F27. Match onboarding depth to what people already know
+**Rule:** People who are still deciding get a short, personalised onboarding. Returning users, and people who already chose the product (a companion app, a tool their team uses), go straight into the product.
+**Apply:** Work out who arrives at the first screen and why. Skip the questionnaire for people who come from another platform or an invite, and let the product's empty states teach instead (F34). Keep personalisation for first-time evaluators.
+**Flag:** Long questionnaires for people who already know the product, account walls before any value for people still deciding.
+
+### F28. Two doors on the first screen
+**Rule:** The first screen offers "Get started" and "I already have an account" with equal weight.
+**Apply:** Two full-width buttons, start first. Returning users go straight to sign-in and never see onboarding questions. Keep the welcome copy to one line about what the product does.
+**Flag:** Sign-in hidden in a small link or only reachable after the onboarding questions, welcome carousels before the doors.
+
+### F29. One question per screen, with progress
+**Rule:** Onboarding questions come one per screen, with a progress bar and a back arrow on every step.
+**Apply:** Large answer cards or a single field per screen. Continue stays disabled until there's an answer. The progress bar fills as people go, so they always know how much is left. Use at most one screen that only reassures or explains; every extra screen is a chance to leave.
+**Flag:** Several questions on one screen in onboarding, no progress indicator, no way back, several filler screens ("You'll fit right in") in a row.
+
+### F30. Options show, not label
+**Rule:** Answer options describe what the person can do or show a concrete example, rather than an abstract label.
+**Apply:** "I can have basic conversations" instead of "Intermediate", a code sample instead of "Advanced", "Morning routine during breakfast" instead of "Morning". Add a small icon or level indicator where it helps. Offer "Other" when the list can't be complete (A7). Use multi-select with checkboxes when more than one answer is true.
+**Flag:** Beginner/Intermediate/Advanced with no description, lists that force a wrong answer, single-select where several answers apply.
+
+### F31. Reflect answers back
+**Rule:** Show people how their answers changed what they get, and say how long the next step takes.
+**Apply:** After the questions, one line that uses the answers ("Since you know a few words, let's start at Score 10") and sets the expectation ("Here's your first 2 minute lesson"). Use the name or details people gave in later steps ("What is your email address, Sam?").
+**Flag:** Questions whose answers never visibly matter, open-ended next steps with no time or size, forms that re-ask what was already given.
+
+### F32. Value before the account
+**Rule:** People get something of value before they're asked to create an account, and the account is presented as keeping it.
+**Apply:**
+- Personalise first, or let people use the product (a first lesson, a first result) before the sign-up screen.
+- Frame sign-up as saving what they made ("Create a free account to keep your learning path").
+- Put Apple, Google and any audience-specific provider (GitHub for developers) first, email second, and "Existing user? Log in" visible.
+- Keep the form to email and password; derive usernames, ask for names later.
+- Show a busy state on the button while the account is created ("Creating…").
+
+**Flag:** An account wall on the first screen for people still deciding, sign-in providers below a long form, four-field sign-up forms, sign-up with no visible busy state.
+
+### F33. Permissions and add-ons in context
+**Rule:** Ask for permissions and add-ons (notifications, widgets, contacts) at the moment they make sense, show what people get, and make "Not now" a clear second option.
+**Apply:** Show a picture of the benefit (the widget on a home screen, the reminder they'll get), one primary button and a "Not now" that's easy to see and tap. Never use fear of missing out in the copy. Extends #13.
+**Flag:** Permission prompts with no benefit shown, hidden or tiny "Not now", pressure copy ("Don't lose your streak!").
+
+### F34. Empty states that onboard
+**Rule:** A new user's empty screens teach the product: what will go there, and one action to start.
+**Apply:** Faded example content in the shape of the real thing, one line saying what it's for, and a single action ("Customize", "Add your first…"). Where the product can see what people do, offer suggestions from it (recent searches, suggested items, each with a + to add).
+**Flag:** Blank screens or "Nothing here" for new users, empty states with several competing actions, suggestions that ignore what the person has done.
+
+### F35. Honest money
+**Rule:** Money is always clear and never a trap: a real free path, trials with dates, upgrades offered at the moment they matter.
+**Apply:**
+- **Free path:** if there's a free plan, it's a full option on the plan screen, and the reply to choosing it is positive ("You can upgrade anytime").
+- **Trials:** a timeline (today, the reminder, the charge date) and a reminder the person chooses, with real dates, plus "Cancel anytime" in plain words.
+- **Upgrades:** offered when someone reaches a limit or uses a paid feature, next to that feature, with a usage meter ("45 AI messages left").
+- **Terms:** price, renewal and cancellation in one plain sentence, plus Restore purchases.
+
+**Flag:** Paywalls in the middle of onboarding with no free option, struck-through "discount" prices as pressure, trials with no charge date, hidden renewal terms, no Restore.
+
+### F36. Tours can always be skipped
+**Rule:** Feature tours come after the first win, and every step has "Skip".
+**Apply:** Show the tour once the person has done the main thing, keep it to a few steps with a step indicator, and let them skip or close it at any point. Prefer teaching in context (F34, tooltips at first use) to a tour.
+**Flag:** Tours before the first use, tours with only "Next", tours that come back after being dismissed.
+
 ---
 
 ## Quick audit checklist
@@ -218,3 +286,13 @@ Each entry has the rule, how to apply it through the project's own components, a
 | F24 | Feedback | Background AI status visible and inspectable |
 | F25 | Feedback | Collaborators' cursors, names and selections shown |
 | F26 | Forms | Cooldowns on the control; confirmations echo the input |
+| F27 | Onboarding | Onboarding depth matches what people already know |
+| F28 | Onboarding | Start and sign-in as equal doors |
+| F29 | Onboarding | One question per screen, progress, back |
+| F30 | Onboarding | Options as "I can…" statements or examples, "Other" when needed |
+| F31 | Onboarding | Answers reflected back, next step's length stated |
+| F32 | Onboarding | Value before the account, Apple/Google first, short form |
+| F33 | Onboarding | Permissions in context with a clear "Not now" |
+| F34 | States | Empty states that teach, with suggestions |
+| F35 | Flows | Free path, dated trials, upgrades at the limit, plain terms |
+| F36 | Onboarding | Tours after the first win, always skippable |
