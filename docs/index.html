@@ -316,7 +316,8 @@ ol.changes li .chip { font-size: 11px; padding: 3px 6px; white-space: nowrap; }
 .ghost-shadow { width: 35px; height: 3.5px; margin-left: 10.5px; background: var(--fg); opacity: .1; animation: shadow 4.5s ease-in-out infinite; }
 @keyframes shadow { 50% { transform: scaleX(.72); opacity: .05; } }
 .wave-ghost { width: 40px; height: 32px; flex: none; color: var(--fg); fill: currentColor; cursor: pointer; }
-@media (prefers-reduced-motion: reduce) { .hero-art, .ghost-shadow, .ghost.hopping .hop { animation: none; } }
+.wave-ghost.floating { animation: float 4.5s ease-in-out infinite; }
+@media (prefers-reduced-motion: reduce) { .hero-art, .wave-ghost.floating, .ghost-shadow, .ghost.hopping .hop { animation: none; } }
 
 /* example tabs */
 .tabs { display: flex; gap: 2px; padding: 3px; background: var(--code); border-radius: 9px; overflow-x: auto; scrollbar-width: none; }
@@ -1235,28 +1236,38 @@ document.querySelectorAll("svg[data-icon]").forEach(svg => {
   }));
 });
 
-// About ghost: the overview ghost with one arm, waving hello when the page opens and when touched.
+// About ghost: the overview ghost waves hello with a short arm for a few seconds,
+// tucks the arm back into its body, then floats like the overview ghost.
 const waveSvg = document.getElementById("wave-ghost");
 if (waveSvg) {
-  const BODY = ICONS.soul.map(r => r + "....");          // 16-wide ghost, 4 columns of room for the arm
-  // Two arm poses (x, y pixels, 2px thick), swapped to wave; both join the body at its right edge.
-  const ARMS = [
-    [[16,2],[17,2],[16,3],[17,3],[16,4],[17,4],[15,5],[16,5],[15,6],[16,6],[15,7]],
-    [[18,3],[19,3],[17,4],[18,4],[16,5],[17,5],[15,6],[16,6],[15,7]],
-  ];
+  const BODY = ICONS.soul.map(r => r + "....");          // 16-wide ghost, room on the right for the arm
+  // Arm poses (2px thick, 3 rows long), all joined to the body's right edge at rows 5–6.
+  const ARM = {
+    up:   [[15,6],[16,6],[15,5],[16,5],[15,4],[16,4]],   // straight up
+    out:  [[15,6],[16,6],[16,5],[17,5],[17,4],[18,4]],   // tipped outward
+    tuck: [[15,6],[15,5]],                               // halfway back in
+    none: [],
+  };
   const draw = pose => {
     let s = "";
     BODY.forEach((row, y) => [...row].forEach((c, x) => { if (c === "#") s += `<rect x="${x}" y="${y}" width="1" height="1"/>`; }));
-    ARMS[pose].forEach(([x, y]) => { s += `<rect x="${x}" y="${y}" width="1" height="1"/>`; });
+    ARM[pose].forEach(([x, y]) => { s += `<rect x="${x}" y="${y}" width="1" height="1"/>`; });
     waveSvg.innerHTML = s;
   };
-  draw(0);
-  if (!matchMedia("(prefers-reduced-motion: reduce)").matches) {
+  if (matchMedia("(prefers-reduced-motion: reduce)").matches) draw("none");
+  else {
+    draw("none");
     let t = null;
     const wave = () => {
       if (t) return;
       let n = 0;
-      t = setInterval(() => { n++; draw(n % 2); if (n >= 6) { clearInterval(t); t = null; draw(0); } }, 180);
+      draw("tuck");
+      t = setInterval(() => {
+        n++;
+        if (n < 14) draw(n % 2 ? "up" : "out");       // ~3s of waving
+        else if (n === 14) draw("tuck");
+        else { clearInterval(t); t = null; draw("none"); waveSvg.classList.add("floating"); }
+      }, 220);
     };
     waveSvg.addEventListener("mouseenter", wave);
     waveSvg.addEventListener("click", wave);
